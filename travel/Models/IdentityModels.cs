@@ -20,6 +20,10 @@ namespace travel.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        //Đây là nơi e viết thêm các service
+        //A vừa add 2 model vào service, dùng lệnh database-update để đồng bộ sang database
+        public DbSet<Post> Posts { get; set; }
+        public DbSet<Category> Categories { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
