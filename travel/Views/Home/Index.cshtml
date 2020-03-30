@@ -2,30 +2,100 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hue Travel</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-lg-6"><h4>WELCOME TO HUE TRAVEL</h4></div>
+            <div class="col-sm-6 col-md-6 col-lg-6">
+                <i class="fab fa-facebook-square"></i>
+                <i class="fab fa-google-plus-square"></i>
+                <i class="fab fa-twitter-square"></i>
+            </div>
+        </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                    <img src="~/Content/images/logo.jpg" alt="Alternate Text" class="img-fluid" style="width:60px; height:60px;"/>
+
+                </div>
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h5>99 Ho Dac Di</h5>
+                    <p>Thành phố Huế</p>
+                </div>
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                    <i class="fas fa-phone"></i>
+                    <h5>0123 23032 28</h5>
+                    <p>Phone me</p>
+                </div>
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                    <i class="far fa-clock"></i>
+                    <h5>Monday-Sartuday: 9:00 -19:00</h5>
+                    <p>Sunday closed</p>
+                </div>
+            </div>
+            <div>
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="#">HOME</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    POST
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Địa điểm du lịch Huế</a>
+                                    <a class="dropdown-item" href="#">Ẩm thực Huế</a>
+
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">TOURS</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">CONTACT US</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+    @* Luôn dùng absolute url cho các đối tượng content *@
+    @* fontawesome với css với js thì tạo 1 folder trong Content luôn anh ha *@
+    @* 3 nơi chứa content, script, font, content, giả sử e dùng library ở chỗ khác về, thì copy nguyên folder vào content để, nếu chỉ là file css font, thì cứ ném vào Content, tạo folder tương ứng, a suggest là đối với các library ngoài thì sử dụng URL của người ta, đừng tốn công tải về làm gì *@
+    <section class="banner">
+        <h1>Huế Và Những Điểm Đến</h1>
+        <img src="~/Content/images/hue2.jpg" alt="Alternate Text" class="img-fluid"/>
+    </section>
+    <section class="about-hue">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    @* Còn đây vì răng a hỏi e lại dùng .., giả sử e đang ở 1 url là http://localhost:61393/tour/edit/5/ => thì cái url của image này là gì? *@
+                    <img class="img-fluid" src="~/Content/images/hue1.jpg" alt="Alternate Text" />
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <h4>About Hue</h4>
+                    <h1>Huế trong tôi</h1>
+                    <p>Huế cổ đại, nằm bên bờ sông Hương, được UNESCO công nhận là một trong những Di sản Thế giới. Thành phố này là cái nôi của văn hóa Việt Nam và từng là thủ đô quốc gia, trung tâm giáo dục, văn hóa và chính trị của Việt Nam dưới triều Nguyễn. Lịch sử độc đáo của Huế, hấp dẫn bất kỳ người yêu thích lịch sử nào.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
+
+

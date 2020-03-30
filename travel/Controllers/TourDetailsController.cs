@@ -11,114 +11,116 @@ using travel.Models;
 
 namespace travel.Controllers
 {
-    public class PostsController : Controller
+    public class TourDetailsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Posts 
+        // GET: TourDetails
         public async Task<ActionResult> Index()
         {
-            var posts = db.Posts.Include(p => p.Category);
-            return View(await posts.ToListAsync());
+            var tourDetails = db.TourDetails.Include(t => t.Tour).Include(t => t.User);
+            return View(await tourDetails.ToListAsync());
         }
 
-        // GET: Posts/Details/5
+        // GET: TourDetails/Details/5
         public async Task<ActionResult> Details(long? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Post post = await db.Posts.FindAsync(id);
-            if (post == null)
+            TourDetail tourDetail = await db.TourDetails.FindAsync(id);
+            if (tourDetail == null)
             {
                 return HttpNotFound();
             }
-            return View(post);
+            return View(tourDetail);
         }
 
-        // GET: Posts/Create
+        // GET: TourDetails/Create
         public ActionResult Create()
         {
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name");
+            ViewBag.TourId = new SelectList(db.Tours, "Id", "Name");
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email");
             return View();
         }
 
-        // POST: Posts/Create
+        // POST: TourDetails/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Title,Content,CategoryId")] Post post)
+        public async Task<ActionResult> Create([Bind(Include = "Id,CountAdult,CountChild,Price,DateBook,UserId,TourId")] TourDetail tourDetail)
         {
             if (ModelState.IsValid)
             {
-                post.CreatedAt = DateTime.Now;
-                post.UpdatedAt = DateTime.Now;
-                db.Posts.Add(post);
+                db.TourDetails.Add(tourDetail);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", post.CategoryId);
-            return View(post);
+            ViewBag.TourId = new SelectList(db.Tours, "Id", "Name", tourDetail.TourId);
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", tourDetail.UserId);
+            return View(tourDetail);
         }
 
-        // GET: Posts/Edit/5
+        // GET: TourDetails/Edit/5
         public async Task<ActionResult> Edit(long? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Post post = await db.Posts.FindAsync(id);
-            if (post == null)
+            TourDetail tourDetail = await db.TourDetails.FindAsync(id);
+            if (tourDetail == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", post.CategoryId);
-            return View(post);
+            ViewBag.TourId = new SelectList(db.Tours, "Id", "Name", tourDetail.TourId);
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", tourDetail.UserId);
+            return View(tourDetail);
         }
 
-        // POST: Posts/Edit/5
+        // POST: TourDetails/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Title,Content,CreatedAt,UpdatedAt,CategoryId")] Post post)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,CountAdult,CountChild,Price,DateBook,UserId,TourId")] TourDetail tourDetail)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(post).State = EntityState.Modified;
+                db.Entry(tourDetail).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", post.CategoryId);
-            return View(post);
+            ViewBag.TourId = new SelectList(db.Tours, "Id", "Name", tourDetail.TourId);
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", tourDetail.UserId);
+            return View(tourDetail);
         }
 
-        // GET: Posts/Delete/5
+        // GET: TourDetails/Delete/5
         public async Task<ActionResult> Delete(long? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Post post = await db.Posts.FindAsync(id);
-            if (post == null)
+            TourDetail tourDetail = await db.TourDetails.FindAsync(id);
+            if (tourDetail == null)
             {
                 return HttpNotFound();
             }
-            return View(post);
+            return View(tourDetail);
         }
 
-        // POST: Posts/Delete/5
+        // POST: TourDetails/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(long id)
         {
-            Post post = await db.Posts.FindAsync(id);
-            db.Posts.Remove(post);
+            TourDetail tourDetail = await db.TourDetails.FindAsync(id);
+            db.TourDetails.Remove(tourDetail);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }

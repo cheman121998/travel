@@ -15,7 +15,7 @@ namespace travel.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Đây là dòng code about thay đổi ở controller. Phải build nó mới thay đổi";
 
             return View();
         }

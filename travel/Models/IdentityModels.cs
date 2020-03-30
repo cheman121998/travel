@@ -1,4 +1,6 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -9,6 +11,11 @@ namespace travel.Models
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
+        [ForeignKey("UserId")]
+        public virtual ICollection<TourDetail> TourDetails { get; set; }
+        [ForeignKey("UserId")]
+        public virtual ICollection<TravelService> TravelServices { get; set; }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -22,8 +29,16 @@ namespace travel.Models
     {
         //Đây là nơi e viết thêm các service
         //A vừa add 2 model vào service, dùng lệnh database-update để đồng bộ sang database
+        //Mấy cái đấy đâu cần đâu @@ a ví dụ mẫu ở trên rồi kìa, Vì răng e lại add nhiều vậy
+        //Em tạo Model rồi tạo Controller xong nó tự ra View cho em như lời anh nói đó :|
+
         public DbSet<Post> Posts { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Tour> Tours { get; set; }
+        public DbSet<CategoryTour> CategoryTours { get; set; }
+        public DbSet<TourDetail> TourDetails { get; set; } //2 thằng này e tự add hay họ tự tạo, họ tạo anh, em chưa làm gì trong file này cả
+        public DbSet<TravelService> TravelServices { get; set; } //E tự add vào đây mới chạy được
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -33,5 +48,7 @@ namespace travel.Models
         {
             return new ApplicationDbContext();
         }
+
+
     }
 }

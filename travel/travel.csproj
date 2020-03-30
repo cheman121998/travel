@@ -181,6 +181,9 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PostsController.cs" />
+    <Compile Include="Controllers\TourDetailsController.cs" />
+    <Compile Include="Controllers\ToursController.cs" />
+    <Compile Include="Controllers\TravelServicesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -193,6 +196,9 @@
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Tour.cs" />
+    <Compile Include="Models\TourDetail.cs" />
+    <Compile Include="Models\TravelService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -201,6 +207,11 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\hue1.jpg" />
+    <Content Include="Content\images\hue2.jpg" />
+    <Content Include="Content\images\hue3.jpg" />
+    <Content Include="Content\images\logo.jpg" />
+    <Content Include="Content\images\thienmu.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -257,11 +268,26 @@
     <Content Include="Views\Posts\Details.cshtml" />
     <Content Include="Views\Posts\Edit.cshtml" />
     <Content Include="Views\Posts\Index.cshtml" />
+    <Content Include="Views\Tours\Create.cshtml" />
+    <Content Include="Views\Tours\Delete.cshtml" />
+    <Content Include="Views\Tours\Details.cshtml" />
+    <Content Include="Views\Tours\Edit.cshtml" />
+    <Content Include="Views\Tours\Index.cshtml" />
+    <Content Include="Views\TravelServices\Create.cshtml" />
+    <Content Include="Views\TravelServices\Delete.cshtml" />
+    <Content Include="Views\TravelServices\Details.cshtml" />
+    <Content Include="Views\TravelServices\Edit.cshtml" />
+    <Content Include="Views\TravelServices\Index.cshtml" />
     <Content Include="Views\Categories\Create.cshtml" />
     <Content Include="Views\Categories\Delete.cshtml" />
     <Content Include="Views\Categories\Details.cshtml" />
     <Content Include="Views\Categories\Edit.cshtml" />
     <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\TourDetails\Create.cshtml" />
+    <Content Include="Views\TourDetails\Delete.cshtml" />
+    <Content Include="Views\TourDetails\Details.cshtml" />
+    <Content Include="Views\TourDetails\Edit.cshtml" />
+    <Content Include="Views\TourDetails\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
