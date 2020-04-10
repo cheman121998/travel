@@ -3,37 +3,195 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
+    <title>@ViewBag.Title - Hue Travel</title>
+    @Styles.Render("~/Content/bootstrap.min.css")
     @Scripts.Render("~/bundles/modernizr")
     <script src="https://kit.fontawesome.com/612c72adec.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
+    <div class="navbar navbar-expand-lg navbar-dark text-light bg-dark">
+            <div class="container">
+                <div class="navbar-expand-lg">
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @*@Html.ActionLink("Hue Travel", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+                    <a href="#"><img src="~/Content/images/logo.jpg" class="img-fluid object-fit-cover mr-5" alt="Alternate Text" style="width: 150px;"/></a>
+                </div> 
+                <div class="navbar-collapse collapse" style="justify-content:space-between">
+                    <ul class="nav navbar-nav">
+                        <li class="pr-3 pl-3 border-right text-uppercase">@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li class="pr-3 pl-3 border-right text-uppercase">@Html.ActionLink("Place", "Index", "Posts")</li>
+                        <li class="pr-3 pl-3 border-right text-uppercase">@Html.ActionLink("Food", "Index", "Posts")</li>
+                        <li class="pr-3 pl-3 border-right text-uppercase">@Html.ActionLink("Tour", "Index", "Tours")</li>
+                        <li class="pr-3 pl-3 border-right text-uppercase">@Html.ActionLink("About", "About", "Home")</li>
+                        <li class="pr-3 pl-3 text-uppercase">@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container body-content">
+    <div class="body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        
+        <footer class="bg-dark text-white footer pt-5">
+            <div class="container mt-5 mb-5">
+                <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                        <h5>Địa điểm du lịch nổi bật</h5>
+                        <div class="row pt-3">
+                            <div class="col-sm-4 col-md-4 col-lg-4 pr-0">
+                                <img src="~/Content/images/daiNoi.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
+                            </div>
+                            <div class="col-sm-4 col-md-4 col-lg-4 pr-0">
+                                <img src="~/Content/images/doiVongCanh.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
+                            </div>
+                            <div class="col-sm-4 col-md-4 col-lg-4 pr-0">
+                               
+                            </div>
+                        </div>
+                        <div class="row pt-1">
+                            <div class="col-sm-4 col-md-4 col-lg-4 pr-0">
+                                <img src="~/Content/images/phongcanh.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
+                            </div>
+                            <div class="col-sm-4 col-md-4 col-lg-4 pr-0">
+                                <img src="~/Content/images/cautrangtien.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
+                            </div>
+                            <div class="col-sm-4 col-md-4 col-lg-4 pr-0">
+                                
+                            </div>
+                        </div>
+                        <div class="row pt-1">
+                            <div class="col-sm-4 col-md-4 col-lg-4 pr-0">
+                                <img src="~/Content/images/phongcanh.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
+                            </div>
+                            <div class="col-sm-4 col-md-4 col-lg-4 pr-0">
+                                <img src="~/Content/images/cautrangtien.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
+                            </div>
+                            <div class="col-sm-4 col-md-4 col-lg-4 pr-0">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                        <h5>Ẩm thực Huế</h5>
+                        <div class="row pt-3">
+                            <div class="col-sm-4 col-md-4 col-lg-4 pr-0">
+                                <img src="~/Content/images/banhbeo.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
+                            </div>
+
+                            <div class="col-sm-4 col-md-4 col-lg-4 pr-0">
+                                <img src="~/Content/images/banhcuon.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
+                            </div>
+                            <div class="col-sm-4 col-md-4 col-lg-4 pr-0">
+                                
+                            </div>
+                        </div>
+                        <div class="row pt-1">
+                            <div class="col-sm-4 col-md-4 col-lg-4 pr-0">
+                                <img src="~/Content/images/banhnam.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
+                            </div>
+                            <div class="col-sm-4 col-md-4 col-lg-4 pr-0">
+                                <img src="~/Content/images/bunheo.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
+                            </div>
+                            <div class="col-sm-4 col-md-4 col-lg-4 pr-0">
+                                
+                            </div>
+                        </div>
+                        <div class="row pt-1">
+                            <div class="col-sm-4 col-md-4 col-lg-4 pr-0">
+                                <img src="~/Content/images/che.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
+                            </div>
+                            <div class="col-sm-4 col-md-4 col-lg-4 pr-0">
+                                <img src="~/Content/images/banhit.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
+                            </div>
+                            <div class="col-sm-4 col-md-4 col-lg-4 pr-0">
+                               
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                        <h5>Tours</h5>
+                        <div class="row pt-3">
+                            <div class="col-sm-4 col-md-4 col-lg-4 pr-0">
+                                <img src="~/Content/images/cautrangtien.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
+                            </div>
+                            <div class="col-sm-4 col-md-4 col-lg-4 pr-0">
+                                <img src="~/Content/images/cautrangtien.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
+                            </div>
+                            <div class="col-sm-4 col-md-4 col-lg-4 pr-0">
+                                
+                            </div>
+                        </div>
+                        <div class="row pt-1">
+                            <div class="col-sm-4 col-md-4 col-lg-4 pr-0">
+                                <img src="~/Content/images/cautrangtien.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
+                            </div>
+                            <div class="col-sm-4 col-md-4 col-lg-4 pr-0">
+                                <img src="~/Content/images/cautrangtien.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
+                            </div>
+                            <div class="col-sm-4 col-md-4 col-lg-4 pr-0">
+                                
+                            </div>
+                        </div>
+                        <div class="row pt-1">
+                            <div class="col-sm-4 col-md-4 col-lg-4 pr-0">
+                                <img src="~/Content/images/cautrangtien.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
+                            </div>
+                            <div class="col-sm-4 col-md-4 col-lg-4 pr-0">
+                                <img src="~/Content/images/cautrangtien.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
+                            </div>
+                            <div class="col-sm-4 col-md-4 col-lg-4 pr-0">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-3 col-lg-3 contact">
+                        <img src="~/Content/images/logo.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" style="width: auto; border: solid 1px white;"/>
+                     
+                        <div class="row">
+                            <div class="col-6">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <h6><strong>99 Ho Dac Di</strong></h6>
+                                <p>Thành phố Huế</p>
+                            </div>
+                            <div class=" col-6">
+                                <i class="fas fa-phone"></i>
+                                <h6><strong>0123 23032 28</strong></h6>
+                                <p>Phone me</p>
+                            </div>
+                        </div>
+                        <hr class="bg-white m-0 mb-1"/>
+                        <div class="">
+                            <i class="far fa-clock"></i>
+                            <h6><strong>Monday-Sartuday: 9:00 -19:00</strong></h6>
+                            <p>Sunday closed</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="bg-white" />
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <p>&copy; @DateTime.Now.Year - Man Man Stronger</p>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <i class="fab fa-facebook-square"></i>
+                        <i class="fab fa-google-plus-square"></i>
+                        <i class="fab fa-twitter-square"></i>
+                        <i class="fab fa-skype"></i>
+                        <i class="fab fa-instagram-square"></i>
+                    </div>
+                </div>
+            </div>
+            
         </footer>
     </div>
 
