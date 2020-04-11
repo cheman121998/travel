@@ -22,6 +22,17 @@ namespace travel.Controllers
             return View(await tours.ToListAsync());
         }
 
+        //Get: TravelTour
+        public async Task<ActionResult> TravelTour()
+        {
+            return View();
+        }
+        //Get: bookingtour
+        public async Task<ActionResult> BookingTour()
+        {
+            return View();
+        }
+
         // GET: Tours/Details/5
         public async Task<ActionResult> Details(long? id)
         {

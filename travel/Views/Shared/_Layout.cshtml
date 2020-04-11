@@ -4,6 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Hue Travel</title>
+
+
+    <link rel="stylesheet" type="text/css" href="~/Content/style.css">
+    
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap-reboot.min.css.map">
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/font-awesome-all.css">
     @Styles.Render("~/Content/bootstrap.min.css")
     @Scripts.Render("~/bundles/modernizr")
     <script src="https://kit.fontawesome.com/612c72adec.js" crossorigin="anonymous"></script>
@@ -26,9 +33,9 @@
                 <div class="navbar-collapse collapse" style="justify-content:space-between">
                     <ul class="nav navbar-nav">
                         <li class="pr-3 pl-3 border-right text-uppercase">@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li class="pr-3 pl-3 border-right text-uppercase">@Html.ActionLink("Place", "Index", "Posts")</li>
-                        <li class="pr-3 pl-3 border-right text-uppercase">@Html.ActionLink("Food", "Index", "Posts")</li>
-                        <li class="pr-3 pl-3 border-right text-uppercase">@Html.ActionLink("Tour", "Index", "Tours")</li>
+                        <li class="pr-3 pl-3 border-right text-uppercase">@Html.ActionLink("Place", "PostPlace", "Posts")</li>
+                        <li class="pr-3 pl-3 border-right text-uppercase">@Html.ActionLink("Food", "PostFood", "Posts")</li>
+                        <li class="pr-3 pl-3 border-right text-uppercase">@Html.ActionLink("Tour", "TravelTour", "Tours")</li>
                         <li class="pr-3 pl-3 border-right text-uppercase">@Html.ActionLink("About", "About", "Home")</li>
                         <li class="pr-3 pl-3 text-uppercase">@Html.ActionLink("Contact", "Contact", "Home")</li>
                     </ul>

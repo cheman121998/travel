@@ -14,12 +14,27 @@ namespace travel.Controllers
     public class PostsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private object p;
 
         // GET: Posts 
         public async Task<ActionResult> Index()
         {
             var posts = db.Posts.Include(p => p.Category);
             return View(await posts.ToListAsync());
+        }
+
+
+        //Get: Post Place
+
+        public async Task<ActionResult> PostPlace()
+        {
+            return View();
+        }
+        
+        //GET: Post Food
+        public async Task<ActionResult> PostFood()
+        {
+            return View();
         }
 
         // GET: Posts/Details/5
