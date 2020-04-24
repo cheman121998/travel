@@ -1,0 +1,213 @@
+﻿@using travel.Models
+
+@{
+    ViewBag.Title = "Post";
+
+    var post = new Post()
+    {
+        Content = "<div>Đây là <b>content </b>nè, giả dữ liệu đi</div>",
+        Id = 1243,
+        Title = "Fake title nè",
+        UpdatedAt = DateTime.Now,
+
+    };
+
+    var posts = new List<Post>(); //Add danh sách posts nè
+    posts.Add(post);
+    posts.Add(post);
+    posts.Add(post);
+    posts.Add(post);
+}
+
+<style>
+    .banner-post {
+        height: 450px;
+        position: relative;
+    }
+
+    .cover-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .black-cover-2 {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0,0,0,0.3);
+    }
+
+    .title-post {
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        padding: 0 20%;
+    }
+</style>
+<body class="post">
+    <section class="banner-post mb-5">
+        <div class="black-cover-2">
+            <div class="title-post">
+                <div>
+                    <h1>@post.Title</h1>
+                    <h6>@Html.ActionLink("HOME", "Index", "Home")</h6>
+                </div>
+            </div>
+        </div>
+        <img src="/Content/images/daiNoi.jpg" alt="Alternate Text" class="cover-image" />
+    </section>
+    <section class="content">
+        <div class="travelTour mt-5 mb-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                        <br>
+                        <div class="tour border p-3 shadow rounded ">
+                            <table>
+                                <tr>
+                                    <form class="form-post">
+                                        <div class="form-group">
+                                            <label for="formGroupExampleInput"><strong>Bạn muốn chọn loại tour nào?</strong></label>
+                                            <select class="form-control" name="status">
+                                                <option value="0">Tour du lịch</option>
+                                                <option value="1">Tour trải nghiệm</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group d-flex" style="font-size: 15px; justify-content: space-between;">
+                                            <label for="formGroupExampleInput2">Thời gian khởi hành</label>
+                                            <input type="date" id="start" name="trip-start"
+                                                   value="yyyy/mm-dd" class="shadow">
+                                        </div>
+                                        <div class="form-group d-flex" style="font-size: 15px; justify-content: space-between;">
+                                            <label for="formGroupExampleInput2">Thời gian kết thúc</label>
+                                            <input type="date" id="end" name="trip-end"
+                                                   value="yyyy/mm-dd" class="shadow">
+                                        </div>
+                                        <button type="submit" class="btn btn-danger btn-block"> Tìm kiếm </button>
+                                    </form>
+                                </tr>
+                            </table>
+                        </div>
+                        <hr>
+                        <div class="tour border p-3 rounded shadow">
+                            <table>
+                                <tr>
+                                    <form>
+                                        <div class="form-group ">
+                                            <label for="formGroupExampleInput"><strong>Tour liên quan </strong></label><hr>
+                                        </div>
+                                        <div id="place">
+                                            <div class="row place-related ">
+                                                <div class="col-sm-12 col-md-12 col-lg-12 mb-3">
+                                                    <div class="row">
+                                                        <div class="col-sm-4"><a href="~/Posts/Details/@post.Id"><img src="~/Content/images/hue2.jpg" class="shadow img-fluid tour-related-img rounded-lg"></a></div>
+
+                                                        <div class="col-sm-8">@Html.ActionLink(@post.Title, "Post", "Posts")</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </tr>
+                            </table>
+                        </div>
+                        <hr>
+                        <div class="tour border p-3 rounded shadow">
+                            <table>
+                                <tr>
+                                    <form>
+                                        <div class="form-group ">
+                                            <label for="formGroupExampleInput"><strong>Gợi ý ấm thực Huế </strong></label><hr>
+                                        </div>
+                                        <div id="place">
+                                            <div class="row place-related ">
+                                                <div class="col-sm-12 col-md-12 col-lg-12 mb-3">
+                                                    <div class="row">
+                                                        <div class="col-sm-4"><img src="~/Content/images/banhbeo.jpg" class="shadow img-fluid tour-related-img rounded-lg"></div>
+                                                        <div class="col-sm-8">@Html.ActionLink(@post.Title, "Post", "Posts")</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-8 col-lg-8">
+                        <div class="title">
+                            <h3>@post.Title</h3>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="d-flex pr-3">
+                                        <div class="pr-1"><i class="far fa-calendar-alt"></i></div>
+                                        <div>@post.UpdatedAt.ToShortDateString()</div>
+                                    </div>
+                                    <div class="d-flex pr-3">
+                                        <div class="pr-1"><i class="fas fa-eye"></i></div>
+                                        <div> 123</div>
+                                    </div>
+                                    <div class="d-flex p-1 btn btn-primary">
+                                        <div class="pr-1"><i class="far fa-thumbs-up"></i></div>
+                                        <div>Thích 34</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="post-food">
+                            <div>
+                                @Html.Raw(post.Content)
+                                @post.Content
+                                Bài viết của user <br />
+                                - Có text <br />
+                                - Có img <br />
+                                -... <br />
+                                - Thể hiện tùy theo sở thích của user bằng ckeditor
+                            </div>
+                        </div>
+                        <hr />
+                        <section class="comment">
+                            <div class="container row" style="justify-content: space-between;">
+
+                                <div> 1 bình luận </div>
+
+                                <div class="row">
+                                    <div class="pr-1">Sắp xếp theo:</div>
+                                    <select>
+                                        <option selected>Choose...</option>
+                                        <option value="1">Mới nhất</option>
+                                        <option value="2">Cũ nhất</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                        </section>
+                        <hr />
+                        <section class="mt-2">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <img src="~/Content/images/avt.jpg" alt="Alternate Text" class="img-fluid object-fit-cover w-100 shadow" style="height: 70px;" />
+                                    </div>
+                                    <div class="col-10">
+                                        <div class="user-cmt">
+                                            <textarea placeholder="Thêm bình luận..." class="border w-100 p-2"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+

@@ -13,6 +13,7 @@ namespace travel.Models
         public string Content { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
+        public string Image { get; set; }
         public long CategoryId { get; set; } //1 Post có 1 Category => Cái ni là khoá ngoại
         public virtual Category Category { get; set; } //1 Post có 1 Category
     }

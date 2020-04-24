@@ -3,15 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
+using System.Threading.Tasks;
+using travel.Models;
 
 namespace travel.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        private ApplicationDbContext db = new ApplicationDbContext();
+
+        // GET: Categories
+        public async Task<ActionResult> Index()
         {
-            return View();
+            return View(await db.Posts.ToListAsync());
         }
+
+        //public actionresult index()
+        //{
+        //    return view();
+        //}
 
         public ActionResult About()
         {

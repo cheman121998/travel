@@ -24,20 +24,14 @@ namespace travel.Controllers
         }
 
 
-        //Get: Post Place
-
-        public async Task<ActionResult> PostPlace()
-        {
-            return View();
-        }
         
-        //GET: Post Food
-        public async Task<ActionResult> PostFood()
+        //Get: Post
+       public async Task<ActionResult> Post()
         {
             return View();
         }
 
-        // GET: Posts/Details/5
+        // GET: Posts/Details/5pub 
         public async Task<ActionResult> Details(long? id)
         {
             if (id == null)
@@ -55,16 +49,16 @@ namespace travel.Controllers
         // GET: Posts/Create
         public ActionResult Create()
         {
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name");
+            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", "Image");
             return View();
         }
 
         // POST: Posts/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Title,Content,CategoryId")] Post post)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Title,Content,CategoryId,Image")] Post post)
         {
             if (ModelState.IsValid)
             {
@@ -75,7 +69,7 @@ namespace travel.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", post.CategoryId);
+            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", post.CategoryId, "Image");
             return View(post);
         }
 
@@ -91,16 +85,16 @@ namespace travel.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", post.CategoryId);
+            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", post.CategoryId, "Image");
             return View(post);
         }
 
         // POST: Posts/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Title,Content,CreatedAt,UpdatedAt,CategoryId")] Post post)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,Title,Content,CreatedAt,UpdatedAt,CategoryId,Image")] Post post)
         {
             if (ModelState.IsValid)
             {
@@ -108,7 +102,7 @@ namespace travel.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", post.CategoryId);
+            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", post.CategoryId, "Image");
             return View(post);
         }
 

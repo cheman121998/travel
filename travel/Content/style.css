@@ -15,9 +15,10 @@ body {
 .site_title h1{
     font-size: 80px;
     color: white;
-    text-align: center;
     margin: 0px;
-    
+    margin-left: 10px;
+    margin-right: 200px;
+    text-align: center;
 
 }
 .site_title p{
@@ -74,8 +75,6 @@ body {
     height: 600px;
 }
 
-
-
 .first-popular {
     font-weight: 900;
     color: white;
@@ -108,7 +107,7 @@ body {
 }
 
 .footer img{
-    width: 100px;
+    width: 90px;
     height: 50px;
     border: solid;
 }
@@ -145,34 +144,129 @@ body {
 
 /*Style file Post*/
 .banner-item img {
-    height: 400px;
+    height: 450px;
 }
 
+
+.post .body-content .banner-item .black-cover {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    bottom: 104px;
+    background: rgba(0, 0, 0, 0.4);
+}
 
 .post .banner-item .site_title h1 {
     font-size: 60px;
     color: white;
-    text-align: center;
-    margin-top: -130px;
-    margin-left: 200px;
-    top: 10px;
+    text-align: center; 
+    /* margin-top: -200px; */
+    margin-left: 10px;
+    margin-right: 200px;
+    font-weight: 600;
+    top: 130px;
 }
+
 .post .banner-item .site_title a {
     font-size: 20px;
     color: white;
-    text-align: center;
-    margin-top: -200px;
+    /* text-align: center; */
+    /* margin-top: -200px; */
     margin-left: 330px;
-    
+    font-weight: 600;
 }
 
+.form-post strong{
+    color: red;
+}
+
+.tour-related-img{
+    height: 80px!important;
+}
 /* Style TravelTour*/
 .travelTour .tour #place .img-fluid {
     max-width: 100%;
-    height: 70px;
+    height: 110px;
     border-radius: 10px;
 }
 .travelTour .tour-related-img {
     width: 100%;
     height: 65px;
 }
+
+.day-la-class-custom {
+    width: 100%;
+    height: 65px;
+    color: #ffffff;
+    font-size: 1.2rem;
+}
+
+.shadow{
+    box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.2)
+}
+.shadow-sm {
+    box-shadow: 2px 2px 15px 1px rgba(0, 0, 0, 0.5)
+}
+
+/*Style Post Detail*/
+
+.banner-post {
+    height: 450px;
+    position: relative;
+}
+
+.cover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.black-cover-2 {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.3);
+}
+
+.title-post {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding: 0 20%;
+    text-align: center;
+}
+
+.wrapper div{
+    padding: 10px;
+    margin: 10px;
+    display: inline;
+    justify-content: center;
+    box-shadow: none;
+    
+}
+/*.wrapper div:nth-child(1) {
+    display: inline;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    width: 40%;
+    color: yellow;
+}
+.wrapper div:nth-child(2) {
+   display: inline;
+   width: 20%;
+}
+.wrapper div:nth-child(3) {
+   
+}
+.wrapper div:nth-child(4) {
+  
+    
+}*/
+
+
+

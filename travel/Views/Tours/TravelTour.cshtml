@@ -1,88 +1,90 @@
 ﻿
 @{
     ViewBag.Title = "TravelTour";
+    
 }
 
 <div class="travelTour mt-5 mb-5">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12 col-md-3 col-lg-3">
-                <br>
-                <div class="tour border p-3 shadow rounded">
-                    <table>
-                        <tr>
-                            <form>
-                                <div class="form-group">
-                                    <label for="formGroupExampleInput"><strong>Bạn muốn chọn loại tour nào?</strong></label>
-                                    <select class="form-control" name="status">
-                                        <option value="0">Tour du lịch</option>
-                                        <option value="1">Tour trải nghiệm</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="formGroupExampleInput2">Thời gian khởi hành</label>
-                                    <input type="text" class="form-control" placeholder="Chọn ngày" id="datetimepickerTour_in" data-toggle="datetimepicker" data-target="#datetimepickerTour_in">
-                                </div>
-                                <div class="form-group">
-                                    <label for="formGroupExampleInput2">Thời gian kết thúc</label>
-                                    <input type="text" class="form-control" placeholder="Chọn ngày" id="datetimepickerTour_out" data-toggle="datetimepicker" data-target="#datetimepickerTour_out">
-                                </div>
-                                <button type="submit" class="btn btn-danger btn-block"> Tìm kiếm </button>
-                            </form>
-                        </tr>
-                    </table>
-                </div>
-                <hr>
-                <div class="tour border p-3 rounded shadow">
-                    <table>
-                        <tr>
-                            <form>
-                                <div class="form-group ">
-                                    <label for="formGroupExampleInput"><strong>Tour liên quan </strong></label><hr>
-                                </div>
-                                <div id="place">
-                                    <div class="row place-related ">
-                                        <div class="col-sm-12 col-md-12 col-lg-12 mb-3">
-                                            <div class="row">
-                                                <div class="col-sm-6"><img src="~/Content/images/hue2.jpg" class="img-fluid tour-related-img rounded-lg"></div>
-                                                <div class="col-sm-6">Tham quan thuyền rồng trên Sông Hương</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </tr>
-                    </table>
-                </div>
-                <hr>
-                <div class="tour border p-3 rounded shadow">
-                    <table>
-                        <tr>
-                            <form>
-                                <div class="form-group ">
-                                    <label for="formGroupExampleInput"><strong>Gợi ý ấm thực Huế </strong></label><hr>
-                                </div>
-                                <div id="place">
-                                    <div class="row place-related ">
-                                        <div class="col-sm-12 col-md-12 col-lg-12 mb-3">
-                                            <div class="row">
-                                                <div class="col-sm-6"><img src="~/Content/images/banhbeo.jpg" class="img-fluid tour-related-img rounded-lg"></div>
-                                                <div class="col-sm-6">Bánh Bèo </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </tr>
-                    </table>
-                </div>
+            @*<div class="col-sm-12 col-md-4 col-lg-4">
+            <br>
+            <div class="tour border p-3 shadow rounded">
+                <table>
+                    <tr>
+                        <form>
+                            <div class="form-group">
+                                <label for="formGroupExampleInput"><strong>Bạn muốn chọn loại tour nào?</strong></label>
+                                <select class="form-control" name="status">
+                                    <option value="0">Tour du lịch</option>
+                                    <option value="1">Tour trải nghiệm</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="formGroupExampleInput2">Thời gian khởi hành</label>
+                                <input type="text" class="form-control" placeholder="Chọn ngày" id="datetimepickerTour_in" data-toggle="datetimepicker" data-target="#datetimepickerTour_in">
+                            </div>
+                            <div class="form-group">
+                                <label for="formGroupExampleInput2">Thời gian kết thúc</label>
+                                <input type="text" class="form-control" placeholder="Chọn ngày" id="datetimepickerTour_out" data-toggle="datetimepicker" data-target="#datetimepickerTour_out">
+                            </div>
+                            <button type="submit" class="btn btn-danger btn-block"> Tìm kiếm </button>
+                        </form>
+                    </tr>
+                </table>
             </div>
             <hr>
-            <div class="col-sm-12 col-md-9 col-lg-9 hidden-sm">
+            <div class="tour border p-3 rounded shadow">
+                <table>
+                    <tr>
+                        <form>
+                            <div class="form-group ">
+                                <label for="formGroupExampleInput"><strong>Tour liên quan </strong></label><hr>
+                            </div>
+                            <div id="place">
+                                <div class="row place-related ">
+                                    <div class="col-sm-12 col-md-12 col-lg-12 mb-3">
+                                        <div class="row">
+                                            <div class="col-sm-6"><img src="~/Content/images/hue2.jpg" class="img-fluid tour-related-img rounded-lg"></div>
+                                            <div class="col-sm-6">Tham quan thuyền rồng trên Sông Hương</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </tr>
+                </table>
+            </div>
+            <hr>
+            <div class="tour border p-3 rounded shadow">
+                <table>
+                    <tr>
+                        <form>
+                            <div class="form-group ">
+                                <label for="formGroupExampleInput"><strong>Gợi ý ấm thực Huế </strong></label><hr>
+                            </div>
+                            <div id="place">
+                                <div class="row place-related ">
+                                    <div class="col-sm-12 col-md-12 col-lg-12 mb-3">
+                                        <div class="row">
+                                            <div class="col-sm-6"><img src="~/Content/images/banhbeo.jpg" class="img-fluid tour-related-img rounded-lg"></div>
+                                            <div class="col-sm-6">Bánh Bèo </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </tr>
+                </table>
+            </div>
+        </div>*@
+            @RenderSection("LeftSection");
+            <hr>
+            <div class="col-sm-12 col-md-8 col-lg-8 hidden-sm">
                 <div>
                     <h5>Đại Nội Huế</h5>
                     <div class="row place-related ">
-                        <div class="col-sm-4"><img src="~/Content/images/daiNoi.jpg" class="img-fluid"></div>
+                        <div class="col-sm-4"><img src="~/Content/images/daiNoi.jpg" class="img-fluid shadow"></div>
                         <div class="col-sm-4">
                             <p>
                                 <strong>Ngày khởi hành: </strong>01/02/2020<br>
@@ -109,7 +111,7 @@
                 <div>
                     <h5>Chùa Từ Hiếu</h5>
                     <div class="row place-related ">
-                        <div class="col-sm-4"><img src="~/Content/images/chuatuhieu.jpg" class="img-fluid"></div>
+                        <div class="col-sm-4"><img src="~/Content/images/chuatuhieu.jpg" class="img-fluid shadow"></div>
                         <div class="col-sm-4">
                             <p>
                                 <strong>Ngày khởi hành: </strong>01/02/2020<br>
@@ -136,7 +138,7 @@
                 <div>
                     <h5>Du lịch trên Sông Hương</h5>
                     <div class="row place-related ">
-                        <div class="col-sm-4"><img src="~/Content/images/huemua.jpg" class="img-fluid"></div>
+                        <div class="col-sm-4"><img src="~/Content/images/huemua.jpg" class="img-fluid shadow"></div>
                         <div class="col-sm-4">
                             <p>
                                 <strong>Ngày khởi hành: </strong>01/02/2020<br>

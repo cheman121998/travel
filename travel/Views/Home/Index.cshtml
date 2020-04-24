@@ -1,13 +1,14 @@
-﻿@{
+﻿
+@using travel.Models
+@model  List<travel.Models.Post>
+    
+@{ 
     ViewBag.Title = "Home Page";
 }
-
 <!DOCTYPE html>
 <html>
 <body>
-    @* Luôn dùng absolute url cho các đối tượng content *@
-    @* fontawesome với css với js thì tạo 1 folder trong Content luôn anh ha *@
-    @* 3 nơi chứa content, script, font, content, giả sử e dùng library ở chỗ khác về, thì copy nguyên folder vào content để, nếu chỉ là file css font, thì cứ ném vào Content, tạo folder tương ứng, a suggest là đối với các library ngoài thì sử dụng URL của người ta, đừng tốn công tải về làm gì *@
+
     <section class="banner mb-5">
         <div class="site_title position-absolute">
             <h1>Huế Và Những Điểm Đến</h1>
@@ -15,9 +16,9 @@
         </div>
         <div class="black-cover"></div>
 
-        <img src="~/Content/images/doiVongCanh.jpg" alt="Alternate Text" class="w-100 img-fluid object-fit-cover" />
+        <img src="~/Content/images/doiVongCanh.jpg" alt="Alternate Text" class="w-100 img-fluid  object-fit-cover shadow" />
     </section>
-   
+
     <section class="about-hue">
         <div class="container">
             <div class="row">
@@ -28,8 +29,10 @@
                     <h4 class="mt-5">Giới thiệu</h4>
                     <h1 class="mt-5">Huế trong tôi</h1>
                     <p class="mt-5 text-justify">Huế cổ đại, nằm bên bờ sông Hương, được UNESCO công nhận là một trong những Di sản Thế giới. Thành phố này là cái nôi của văn hóa Việt Nam và từng là thủ đô quốc gia, trung tâm giáo dục, văn hóa và chính trị của Việt Nam dưới triều Nguyễn. Lịch sử độc đáo của Huế, hấp dẫn bất kỳ người yêu thích lịch sử nào.</p>
-                    <p class="mt-5 text-justify">Một phần tạo nên sự quyến rũ của Huế đó là Huê trải dọc hai bên bờ sông Hương - đẹp như tranh vẽ. Ngày nay, thành phố đã pha trộn giữa cái mới và cái cũ chẳng hạn như những khách sạn hiện đại
-                    kiểu dáng đẹp trên những bức tường thành của thế kỷ 19 đổ nát.</p>
+                    <p class="mt-5 text-justify">
+                        Một phần tạo nên sự quyến rũ của Huế đó là Huê trải dọc hai bên bờ sông Hương - đẹp như tranh vẽ. Ngày nay, thành phố đã pha trộn giữa cái mới và cái cũ chẳng hạn như những khách sạn hiện đại
+                        kiểu dáng đẹp trên những bức tường thành của thế kỷ 19 đổ nát.
+                    </p>
                 </div>
             </div>
         </div>
@@ -40,117 +43,41 @@
             <h2>Gợi ý địa điểm nổi bật</h2>
         </div>
         <div class="first-popular mt-5">
-            <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-6">
-                    <img src="~/Content/images/hue1.jpg" alt="Alternate Text" class="img-fluid object-fit-cover position-relative" />
-                    <div class="hover position-absolute">
-                        <p class="price">FROM <span>$355</span></p>
-                        <h4 class="name">Sông Hương</h4>
-                        <p class="schedule">Lịch trình</p>
+            <div class="row wrapper ">
+                @foreach (var item in Model)
+                {
+                    <div class="col-sm-12 col-md-3 col-lg-3 mt-3">
+                        <a href="/Posts/Details/item.Id"> <img src="@item.Image" alt="Alternate Text" class="img-fluid shadow object-fit-cover position-relative" /></a>
+                        <div class="hover position-absolute">
+                            <p class="price">FROM <span>$355</span></p>
+                            <h4 class="name"><a href="/posts/Details/@item.Id">@item.Title</a></h4>
+                            <p class="schedule">Lịch trình</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-12 col-md-3 col-lg-3">
-                    <img src="~/Content/images/hue2.jpg" alt="Alternate Text" class="img-fluid object-fit-cover position-relative" />
-                    <div class="hover position-absolute">
-                        <p class="price">FROM <span>$355</span></p>
-                        <h4 class="name">Sông Hương</h4>
-                        <p class="schedule">Lịch trình</p>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-3 col-lg-3">
-                    <img src="~/Content/images/hue3.jpg" alt="Alternate Text" class="img-fluid object-fit-cover position-relative" />
-                    <div class="hover position-absolute ">
-                        <p class="price">FROM <span>$355</span></p>
-                        <h4 class="name">Sông Hương</h4>
-                        <p class="schedule">Lịch trình</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-3 mb-5">
-                <div class="col-sm-12 col-md-3 col-lg-3">
-                    <img src="~/Content/images/hue2.jpg" alt="Alternate Text" class="img-fluid object-fit-cover position-relative" />
-                    <div class="hover position-absolute">
-                        <p class="price">FROM <span>$355</span></p>
-                        <h4 class="name">Sông Hương</h4>
-                        <p class="schedule">Lịch trình</p>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-3 col-lg-3">
-                    <img src="~/Content/images/hue3.jpg" alt="Alternate Text" class="img-fluid object-fit-cover position-relative" />
-                    <div class="hover position-absolute">
-                        <p class="price">FROM <span>$355</span></p>
-                        <h4 class="name">Sông Hương</h4>
-                        <p class="schedule">Lịch trình</p>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-6">
-                    <img src="~/Content/images/hue3.jpg" alt="Alternate Text" class="img-fluid object-fit-cover position-relative" />
-                    <div class="hover position-absolute">
-                        <p class="price">FROM <span>$355</span></p>
-                        <h4 class="name">Sông Hương</h4>
-                        <p class="schedule">Lịch trình</p>
-                    </div>
-                </div>
+                }
+
             </div>
         </div>
+
         <div class="text-center text-uppercase mt-5">
             <p>Những món ăn không thể bỏ qua</p>
             <h2>Ẩm thực Huế</h2>
         </div>
         <div class="first-popular mt-5">
-            <div class="row">
-                <div class="col-sm-12 col-md-3 col-lg-3">
-                    <img src="~/Content/images/banhbeo.jpg" alt="Alternate Text" class="img-fluid object-fit-cover position-relative" />
-                    <div class="hover position-absolute">
-                        <h4 class="name">Bánh bèo Huế</h4>
-                        <p class="schedule">Địa chỉ</p>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-3 col-lg-3">
-                    <img src="~/Content/images/banhnam.jpg" alt="Alternate Text" class="img-fluid object-fit-cover position-relative" />
-                    <div class="hover position-absolute">
-                        <h4 class="name">Bánh nậm Huế</h4>
-                        <p class="schedule">Địa chỉ</p>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-3 col-lg-3">
-                    <img src="~/Content/images/banhcuon.jpg" alt="Alternate Text" class="img-fluid object-fit-cover position-relative" />
-                    <div class="hover position-absolute">
-                        <h4 class="name">Bánh cuốn Huế</h4>
-                        <p class="schedule">Địa chỉ</p>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-3 col-lg-3">
-                    <img src="~/Content/images/banhit.jpg" alt="Alternate Text" class="img-fluid object-fit-cover position-relative" />
-                    <div class="hover position-absolute ">
-                        <h4 class="name">Bánh ít chiên giòn</h4>
-                        <p class="schedule">Địa chỉ</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col-sm-12 col-md-3 col-lg-3">
-                    <img src="~/Content/images/banhnam.jpg" alt="Alternate Text" class="img-fluid object-fit-cover position-relative" />
-                    <div class="hover position-absolute">
-                        <h4 class="name">Bánh nậm</h4>
-                        <p class="schedule">Lịch trình</p>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-6">
-                    <img src="~/Content/images/bunheo.jpg" alt="Alternate Text" class="img-fluid object-fit-cover position-relative" />
-                    <div class="hover position-absolute">
-                        <h4 class="name">Bún Huế</h4>
-                        <p class="schedule">Địa chỉ</p>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-3 col-lg-3">
-                    <img src="~/Content/images/nemcong.jpg" alt="Alternate Text" class="img-fluid object-fit-cover position-relative" />
-                    <div class="hover position-absolute">
-                        <h4 class="name">Nem công chả phượng</h4>
-                        <p class="schedule">Địa chỉ</p>
-                    </div>
-                </div>
-
+            <div class="row wrapper">
+               
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-sm-12 col-md-3 col-lg-3 mt-3">
+                            <a href="/Posts/Details/@item.Id"> <img src="@item.Image" alt="Alternate Text" class="img-fluid shadow object-fit-cover position-relative" /></a>
+                            <div class="hover position-absolute">
+                                <p class="price">FROM <span>$355</span></p>
+                                <h4 class="name"><a href="/posts/Details/@item.Id">@item.Title)</a></h4>
+                                <p class="schedule">Lịch trình</p>
+                            </div>
+                        </div>
+                    }
+                
             </div>
         </div>
     </section>
@@ -168,7 +95,7 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-4 col-lg-4">
                                 <a href="#" class="explore-item d-block text-decoration-none bg-white border radius-sm shadow-sm p-3">
-                                    <img src="~/Content/images/daiNoi.jpg" class="img-fluid w-100 object-fit-cover mb-2">
+                                    <img src="~/Content/images/daiNoi.jpg" class="img-fluid shadow w-100 object-fit-cover mb-2">
                                     <div class="explore-title text-capitalize font-title text-primary">Tour du lịch Đại Nội Huế</div>
                                     <div class="explore-shortdes text-muted">
                                         <div class="row">
@@ -182,7 +109,7 @@
 
                             <div class="col-sm-12 col-md-4 col-lg-4">
                                 <a href="#" class="explore-item d-block text-decoration-none bg-white border radius-sm shadow-sm p-3">
-                                    <img src="~/Content/images/chuatuhieu.jpg" class="img-fluid w-100 object-fit-cover mb-2">
+                                    <img src="~/Content/images/chuatuhieu.jpg" class="img-fluid shadow w-100 object-fit-cover mb-2">
                                     <div class="explore-title text-capitalize font-title text-primary">Tour du lịch Chùa Chiền</div>
                                     <div class="explore-shortdes text-muted">
                                         <div class="row">
@@ -196,7 +123,7 @@
                             <div class="col-sm-12 col-md-4 col-lg-4">
 
                                 <a href="#" class="explore-item d-block text-decoration-none bg-white border radius-sm shadow-sm p-3">
-                                    <img src="~/Content/images/doiVongCanh.jpg" class="img-fluid w-100 object-fit-cover mb-2">
+                                    <img src="~/Content/images/doiVongCanh.jpg" class="img-fluid shadow w-100 object-fit-cover mb-2">
                                     <div class="explore-title text-capitalize font-title text-primary">Tour du lịch Đồi Vọng Cảnh</div>
                                     <div class="explore-shortdes text-muted">
                                         <div class="row">
@@ -213,7 +140,7 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-4 col-lg-4">
                                 <a href="#" class="explore-item d-block text-decoration-none bg-white border radius-sm shadow-sm p-3">
-                                    <img src="~/Content/images/cotco.jpg" class="img-fluid w-100 object-fit-cover mb-2">
+                                    <img src="~/Content/images/cotco.jpg" class="img-fluid shadow w-100 object-fit-cover mb-2">
                                     <div class="explore-title text-capitalize font-title text-primary">Tour du lịch Đại Nội Huế</div>
                                     <div class="explore-shortdes text-muted">
                                         <div class="row">
@@ -228,7 +155,7 @@
                             <div class="col-sm-12 col-md-4 col-lg-4">
 
                                 <a href="#" class="explore-item d-block text-decoration-none bg-white border radius-sm shadow-sm p-3">
-                                    <img src="~/Content/images/huemua.jpg" class="img-fluid w-100 object-fit-cover mb-2">
+                                    <img src="~/Content/images/huemua.jpg" class="img-fluid shadow w-100 object-fit-cover mb-2">
                                     <div class="explore-title text-capitalize font-title text-primary">Tour du lịch Huế</div>
                                     <div class="explore-shortdes text-muted">
                                         <div class="row">
@@ -241,7 +168,7 @@
                             </div>
                             <div class="col-sm-12 col-md-4 col-lg-4">
                                 <a href="#" class="explore-item d-block text-decoration-none bg-white border radius-sm shadow-sm p-3">
-                                    <img src="~/Content/images/doiVongCanh.jpg" class="img-fluid w-100 object-fit-cover mb-2">
+                                    <img src="~/Content/images/doiVongCanh.jpg" class="img-fluid shadow w-100 object-fit-cover mb-2">
                                     <div class="explore-title text-capitalize font-title text-primary">Tour du lịch Đại Nội Huế</div>
                                     <div class="explore-shortdes text-muted">
                                         <div class="row">
@@ -258,7 +185,7 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-4 col-lg-4">
                                 <a href="#" class="explore-item d-block text-decoration-none bg-white border radius-sm shadow-sm p-3">
-                                    <img src="~/Content/images/hue1.jpg" class="img-fluid w-100  object-fit-cover mb-2">
+                                    <img src="~/Content/images/hue1.jpg" class="img-fluid shadow w-100  object-fit-cover mb-2">
                                     <div class="explore-title text-capitalize font-title text-primary">Tour du lịch Đại Nội Huế</div>
                                     <div class="explore-shortdes text-muted">
                                         <div class="row">
@@ -271,7 +198,7 @@
                             </div>
                             <div class="col-sm-12 col-md-4 col-lg-4">
                                 <a href="#" class="explore-item d-block text-decoration-none bg-white border radius-sm shadow-sm p-3">
-                                    <img src="~/Content/images/hue2.jpg" class="img-fluid w-100 object-fit-cover mb-2">
+                                    <img src="~/Content/images/hue2.jpg" class="img-fluid shadow w-100 object-fit-cover mb-2">
                                     <div class="explore-title text-capitalize font-title text-primary">Tour du lịch Đại Nội Huế</div>
                                     <div class="explore-shortdes text-muted">
                                         <div class="row">
@@ -284,7 +211,7 @@
                             </div>
                             <div class="col-sm-12 col-md-4 col-lg-4">
                                 <a href="#" class="explore-item d-block text-decoration-none bg-white border radius-sm shadow-sm p-3">
-                                    <img src="~/Content/images/hue3.jpg" class="img-fluid w-100 object-fit-cover mb-2">
+                                    <img src="~/Content/images/hue3.jpg" class="img-fluid shadow w-100 object-fit-cover mb-2">
                                     <div class="explore-title text-capitalize font-title text-primary">Tour du lịch Đại Nội Huế</div>
                                     <div class="explore-shortdes text-muted">
                                         <div class="row">
@@ -313,7 +240,7 @@
 
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
-  
+
 </body>
 </html>
 
