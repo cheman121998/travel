@@ -22,8 +22,7 @@ namespace travel.Controllers
             var posts = db.Posts.Include(p => p.Category);
             return View(await posts.ToListAsync());
         }
-
-
+        
         
         //Get: Post
        public async Task<ActionResult> Post()

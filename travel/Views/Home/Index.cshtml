@@ -1,230 +1,162 @@
-﻿
-@using travel.Models
-@model  List<travel.Models.Post>
-    
-@{ 
+﻿@model travel.Models.HomeModelView
+
+@{
     ViewBag.Title = "Home Page";
+    var posts = Model.Posts;
+    var tourDetails = Model.TourDetails;
+    var tours = Model.Tours;
+   
+
+
 }
-<!DOCTYPE html>
-<html>
-<body>
 
-    <section class="banner mb-5">
-        <div class="site_title position-absolute">
-            <h1>Huế Và Những Điểm Đến</h1>
-            <p>Hành trình tìm hiểu vẻ đẹp và ẩm thực Huế</p>
-        </div>
-        <div class="black-cover"></div>
 
-        <img src="~/Content/images/doiVongCanh.jpg" alt="Alternate Text" class="w-100 img-fluid  object-fit-cover shadow" />
-    </section>
+<section class="banner mb-5">
+    <div class="site_title position-absolute">
+        <h1>Huế Và Những Điểm Đến</h1>
+        <p>Hành trình tìm hiểu vẻ đẹp và ẩm thực Huế</p>
+    </div>
+    <div class="black-cover"></div>
 
-    <section class="about-hue">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-6">
-                    <img class="img-fluid object-fit-cover shadow-sm" src="/Content/images/thienmu.jpg" alt="Alternate Text" />
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-6">
-                    <h4 class="mt-5">Giới thiệu</h4>
-                    <h1 class="mt-5">Huế trong tôi</h1>
-                    <p class="mt-5 text-justify">Huế cổ đại, nằm bên bờ sông Hương, được UNESCO công nhận là một trong những Di sản Thế giới. Thành phố này là cái nôi của văn hóa Việt Nam và từng là thủ đô quốc gia, trung tâm giáo dục, văn hóa và chính trị của Việt Nam dưới triều Nguyễn. Lịch sử độc đáo của Huế, hấp dẫn bất kỳ người yêu thích lịch sử nào.</p>
-                    <p class="mt-5 text-justify">
-                        Một phần tạo nên sự quyến rũ của Huế đó là Huê trải dọc hai bên bờ sông Hương - đẹp như tranh vẽ. Ngày nay, thành phố đã pha trộn giữa cái mới và cái cũ chẳng hạn như những khách sạn hiện đại
-                        kiểu dáng đẹp trên những bức tường thành của thế kỷ 19 đổ nát.
-                    </p>
-                </div>
+    <img src="~/Content/images/doiVongCanh.jpg" alt="Alternate Text" class="w-100 img-fluid  object-fit-cover shadow" />
+</section>
+
+<section class="about-hue">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-6">
+                <img class="img-fluid object-fit-cover shadow-sm" src="/Content/images/thienmu.jpg" alt="Alternate Text" />
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6">
+                <h4 class="mt-5">Giới thiệu</h4>
+                <h1 class="mt-5">Huế trong tôi</h1>
+                <p class="mt-5 text-justify">Huế cổ đại, nằm bên bờ sông Hương, được UNESCO công nhận là một trong những Di sản Thế giới. Thành phố này là cái nôi của văn hóa Việt Nam và từng là thủ đô quốc gia, trung tâm giáo dục, văn hóa và chính trị của Việt Nam dưới triều Nguyễn. Lịch sử độc đáo của Huế, hấp dẫn bất kỳ người yêu thích lịch sử nào.</p>
+                <p class="mt-5 text-justify">
+                    Một phần tạo nên sự quyến rũ của Huế đó là Huê trải dọc hai bên bờ sông Hương - đẹp như tranh vẽ. Ngày nay, thành phố đã pha trộn giữa cái mới và cái cũ chẳng hạn như những khách sạn hiện đại
+                    kiểu dáng đẹp trên những bức tường thành của thế kỷ 19 đổ nát.
+                </p>
             </div>
         </div>
-    </section>
-    <section class="container-fluid popular-destination mt-5 mb-5">
-        <div class="text-center text-uppercase">
-            <p>Địa điểm du lịch nổi bật nhất tại Huế</p>
-            <h2>Gợi ý địa điểm nổi bật</h2>
-        </div>
-        <div class="first-popular mt-5">
-            <div class="row wrapper ">
-                @foreach (var item in Model)
-                {
-                    <div class="col-sm-12 col-md-3 col-lg-3 mt-3">
-                        <a href="/Posts/Details/item.Id"> <img src="@item.Image" alt="Alternate Text" class="img-fluid shadow object-fit-cover position-relative" /></a>
-                        <div class="hover position-absolute">
-                            <p class="price">FROM <span>$355</span></p>
-                            <h4 class="name"><a href="/posts/Details/@item.Id">@item.Title</a></h4>
-                            <p class="schedule">Lịch trình</p>
-                        </div>
+    </div>
+</section>
+<section class="container-fluid popular-destination mt-5 mb-5">
+    <div class="text-center text-uppercase">
+        <p>Địa điểm du lịch nổi bật nhất tại Huế</p>
+        <h2>Gợi ý địa điểm nổi bật</h2>
+    </div>
+    <div class="first-popular mt-5">
+        <div class="row wrapper ">
+            @foreach (var item in posts)
+            {
+                <div class="col-sm-12 col-md-3 col-lg-3 mt-3">
+                    <a href="/Posts/Details/item.Id"> <img src="@item.Image" alt="Alternate Text" class="img-fluid shadow object-fit-cover position-relative" /></a>
+                    <div class="hover position-absolute">
+                        <p class="price">FROM <span>$355</span></p>
+                        <h4 class="name"><a href="/posts/Details/@item.Id">@item.Title</a></h4>
+                        <p class="schedule">Lịch trình</p>
                     </div>
-                }
+                </div>
+            }
 
-            </div>
         </div>
+    </div>
 
-        <div class="text-center text-uppercase mt-5">
-            <p>Những món ăn không thể bỏ qua</p>
-            <h2>Ẩm thực Huế</h2>
+    <div class="text-center text-uppercase mt-5">
+        <p>Những món ăn không thể bỏ qua</p>
+        <h2>Ẩm thực Huế</h2>
+    </div>
+    <div class="first-popular mt-5">
+        <div class="row wrapper">
+            @*//Hay là k hiểu foreach là gì. var ... in ... là gì?
+                //foreach là vòng lặp
+                //var post in posts là khai báo biến post ở trong posts, rồi post này thay thế cho posts. khi nào dùng chỉ cần gọi post(1) thay vì posts (list)
+                //A k biết e hiểu đúng hay sai, nhưng trình bày ri là sai rồi
+                //var post in posts là khai báo 1 biến post, biến post này sẽ có kiểu dữ liệu giống như các thành phần trong danh sách posts, và lần lượt được gán dữ liệu cho các thành phần đó, lặp cho đến khi duyệt hết các thành phần của posts
+                //Dạ vậy ak,, em hiểu sai rồi, thay vì var i = 0, for i -> posts.count => ở trong gọi posts[i] thì người ta dùng for in như này
+                //làm tiếp đi dạ
+                //Tour là tour, post là post, 2 thằng 2 kiểu dữ liệu khác nhau, k dùng chung đc, 2 class rõ ràng khác nhau, e khai báo kiểu chi 1 biến dùng 2 kiểu đc*@
+            @foreach (var post in posts)// Model mô đây nữa mà Model, khai báo posts với tour ở trên rồi???? vì ở phần này em vừa lấy dữ liệu ở Posts và Tour nên em phải gọi cả 2, 2 thằng này gộp kiểu giề mà in cả 2...hiihi e có ngôn ngữ lập trình nào for in mà gộp kiểu này đc k, lặp có điều kiện, thì lặp từ 1->n, điều kiện dừng, for in là gì?
+            {
+                <div class="col-sm-12 col-md-3 col-lg-3 mt-3">
+                    <a href="/Posts/Details/@post.Id"> <img src="@post.Image" alt="Alternate Text" class="img-fluid shadow object-fit-cover position-relative" /></a>
+                    <div class="hover position-absolute">
+                        <p class="price">FROM <span>$355</span></p>
+                        <h4 class="name"><a href="/posts/Details/@post.Id">@post.Title</a></h4>
+                        <p class="schedule">Lịch trình</p>
+                    </div>
+                </div>
+            }
         </div>
-        <div class="first-popular mt-5">
-            <div class="row wrapper">
-               
-                    @foreach (var item in Model)
-                    {
-                        <div class="col-sm-12 col-md-3 col-lg-3 mt-3">
-                            <a href="/Posts/Details/@item.Id"> <img src="@item.Image" alt="Alternate Text" class="img-fluid shadow object-fit-cover position-relative" /></a>
-                            <div class="hover position-absolute">
-                                <p class="price">FROM <span>$355</span></p>
-                                <h4 class="name"><a href="/posts/Details/@item.Id">@item.Title)</a></h4>
-                                <p class="schedule">Lịch trình</p>
+    </div>
+</section>
+<section class="trip mt-5 mb-5 mt-5 pt-5 position-relative">
+
+    <div class="container mt-5">
+        <div class="text-center mt-5 text-white">
+            <h5>Tour phổ biến</h5>
+            <h1>Chúng tôi mang đến cho bạn sự trải nghiệm tuyệt vời nhất</h1>
+            <p>Sự hài lòng của bạn là niềm vui của chúng tôi. Được phục vụ bạn là niềm vinh dự của chúng tôi</p>
+        </div>
+        <div id="carouselExampleControls" class="carousel slide p-5" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row">
+                        @foreach (var tour in tours)
+                        {
+                            <div class="col-sm-12 col-md-4 col-lg-4">
+                                <a href="/Tours/TravelTour" class="explore-item d-block text-decoration-none bg-white border radius-sm shadow-sm p-3">
+                                    <img src="@tour.Image" class="img-fluid shadow w-100 object-fit-cover mb-2">
+                                    <div class="explore-title text-capitalize font-title text-primary">@tour.Name</div>
+                                    <div class="explore-shortdes text-muted">
+                                        <div class="row">
+                                            <div class="col-8 d-flex"><div><i class="far fa-clock mr-2"></i></div> <div> 2 ngày 3 đêm </div></div>
+                                            <div class="col-4 text-danger">From $320</div>
+                                        </div>
+                                        <button class="btn mt-1 btn-warning text-light">View more</button>
+                                    </div>
+                                </a>
                             </div>
-                        </div>
-                    }
+                        }
+                    </div>
+                    <div class="row">
+                        @foreach (var tour in tours)
+                        {
+                            <div class="col-sm-12 col-md-4 col-lg-4">
+                                <a href="/Tours/TravelTour" class="explore-item d-block text-decoration-none bg-white border radius-sm shadow-sm p-3">
+                                    <img src="@tour.Image" class="img-fluid shadow w-100 object-fit-cover mb-2">
+                                    <div class="explore-title text-capitalize font-title text-primary">@tour.Name</div>
+                                    <div class="explore-shortdes text-muted">
+                                        <div class="row">
+                                            <div class="col-8 d-flex"><div><i class="far fa-clock mr-2"></i></div> <div> 2 ngày 3 đêm </div></div>
+                                            <div class="col-4 text-danger">From $320</div>
+                                        </div>
+                                        <button class="btn mt-1 btn-warning text-light">View more</button>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+                    </div>
+                    <div class="row">
+                        @foreach (var tour in tours)
+                        {
+                            <div class="col-sm-12 col-md-4 col-lg-4">
+                                <a href="/Tours/TravelTour" class="explore-item d-block text-decoration-none bg-white border radius-sm shadow-sm p-3">
+                                    <img src="@tour.Image" class="img-fluid shadow w-100 object-fit-cover mb-2">
+                                    <div class="explore-title text-capitalize font-title text-primary">@tour.Name</div>
+                                    <div class="explore-shortdes text-muted">
+                                        <div class="row">
+                                            <div class="col-8 d-flex"><div><i class="far fa-clock mr-2"></i></div> <div> 2 ngày 3 đêm </div></div>
+                                            <div class="col-4 text-danger">From $320</div>
+                                        </div>
+                                        <button class="btn mt-1 btn-warning text-light">View more</button>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+                    </div>
+                </div>
+
                 
-            </div>
-        </div>
-    </section>
-    <section class="trip mt-5 mb-5 mt-5 pt-5 position-relative">
-
-        <div class="container mt-5">
-            <div class="text-center mt-5 text-white">
-                <h5>Tour phổ biến</h5>
-                <h1>Chúng tôi mang đến cho bạn sự trải nghiệm tuyệt vời nhất</h1>
-                <p>Sự hài lòng của bạn là niềm vui của chúng tôi. Được phục vụ bạn là niềm vinh dự của chúng tôi</p>
-            </div>
-            <div id="carouselExampleControls" class="carousel slide p-5" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="row">
-                            <div class="col-sm-12 col-md-4 col-lg-4">
-                                <a href="#" class="explore-item d-block text-decoration-none bg-white border radius-sm shadow-sm p-3">
-                                    <img src="~/Content/images/daiNoi.jpg" class="img-fluid shadow w-100 object-fit-cover mb-2">
-                                    <div class="explore-title text-capitalize font-title text-primary">Tour du lịch Đại Nội Huế</div>
-                                    <div class="explore-shortdes text-muted">
-                                        <div class="row">
-                                            <div class="col-8 d-flex"><div><i class="far fa-clock mr-2"></i></div> <div> 2 ngày 3 đêm </div></div>
-                                            <div class="col-4 text-danger">From $320</div>
-                                        </div>
-                                        <button class="btn mt-1 btn-warning text-light">View more</button>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="col-sm-12 col-md-4 col-lg-4">
-                                <a href="#" class="explore-item d-block text-decoration-none bg-white border radius-sm shadow-sm p-3">
-                                    <img src="~/Content/images/chuatuhieu.jpg" class="img-fluid shadow w-100 object-fit-cover mb-2">
-                                    <div class="explore-title text-capitalize font-title text-primary">Tour du lịch Chùa Chiền</div>
-                                    <div class="explore-shortdes text-muted">
-                                        <div class="row">
-                                            <div class="col-8 d-flex"><div><i class="far fa-clock mr-2"></i></div> <div> 2 ngày 3 đêm </div></div>
-                                            <div class="col-4 text-danger">From $320</div>
-                                        </div>
-                                        <button class="btn mt-1 btn-warning text-light">View more</button>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-sm-12 col-md-4 col-lg-4">
-
-                                <a href="#" class="explore-item d-block text-decoration-none bg-white border radius-sm shadow-sm p-3">
-                                    <img src="~/Content/images/doiVongCanh.jpg" class="img-fluid shadow w-100 object-fit-cover mb-2">
-                                    <div class="explore-title text-capitalize font-title text-primary">Tour du lịch Đồi Vọng Cảnh</div>
-                                    <div class="explore-shortdes text-muted">
-                                        <div class="row">
-                                            <div class="col-8 d-flex"><div><i class="far fa-clock mr-2"></i></div> <div> 2 ngày 3 đêm </div></div>
-                                            <div class="col-4 text-danger">From $320</div>
-                                        </div>
-                                        <button class="btn mt-1 btn-warning text-light">View more</button>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row">
-                            <div class="col-sm-12 col-md-4 col-lg-4">
-                                <a href="#" class="explore-item d-block text-decoration-none bg-white border radius-sm shadow-sm p-3">
-                                    <img src="~/Content/images/cotco.jpg" class="img-fluid shadow w-100 object-fit-cover mb-2">
-                                    <div class="explore-title text-capitalize font-title text-primary">Tour du lịch Đại Nội Huế</div>
-                                    <div class="explore-shortdes text-muted">
-                                        <div class="row">
-                                            <div class="col-8 d-flex"><div><i class="far fa-clock mr-2"></i></div> <div> 2 ngày 3 đêm </div></div>
-                                            <div class="col-4 text-danger">From $320</div>
-                                        </div>
-                                        <button class="btn mt-1 btn-warning text-light">View more</button>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="col-sm-12 col-md-4 col-lg-4">
-
-                                <a href="#" class="explore-item d-block text-decoration-none bg-white border radius-sm shadow-sm p-3">
-                                    <img src="~/Content/images/huemua.jpg" class="img-fluid shadow w-100 object-fit-cover mb-2">
-                                    <div class="explore-title text-capitalize font-title text-primary">Tour du lịch Huế</div>
-                                    <div class="explore-shortdes text-muted">
-                                        <div class="row">
-                                            <div class="col-8 d-flex"><div><i class="far fa-clock mr-2"></i></div> <div> 2 ngày 3 đêm </div></div>
-                                            <div class="col-4 text-danger">From $320</div>
-                                        </div>
-                                        <button class="btn mt-1 btn-warning text-light">View more</button>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-sm-12 col-md-4 col-lg-4">
-                                <a href="#" class="explore-item d-block text-decoration-none bg-white border radius-sm shadow-sm p-3">
-                                    <img src="~/Content/images/doiVongCanh.jpg" class="img-fluid shadow w-100 object-fit-cover mb-2">
-                                    <div class="explore-title text-capitalize font-title text-primary">Tour du lịch Đại Nội Huế</div>
-                                    <div class="explore-shortdes text-muted">
-                                        <div class="row">
-                                            <div class="col-8 d-flex"><div><i class="far fa-clock mr-2"></i></div> <div> 2 ngày 3 đêm </div></div>
-                                            <div class="col-4 text-danger">From $320</div>
-                                        </div>
-                                        <button class="btn mt-1 btn-warning text-light">View more</button>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row">
-                            <div class="col-sm-12 col-md-4 col-lg-4">
-                                <a href="#" class="explore-item d-block text-decoration-none bg-white border radius-sm shadow-sm p-3">
-                                    <img src="~/Content/images/hue1.jpg" class="img-fluid shadow w-100  object-fit-cover mb-2">
-                                    <div class="explore-title text-capitalize font-title text-primary">Tour du lịch Đại Nội Huế</div>
-                                    <div class="explore-shortdes text-muted">
-                                        <div class="row">
-                                            <div class="col-8 d-flex"><div><i class="far fa-clock mr-2"></i></div> <div> 2 ngày 3 đêm </div></div>
-                                            <div class="col-4 text-danger">From $320</div>
-                                        </div>
-                                        <button class="btn mt-1 btn-warning text-light">View more</button>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-sm-12 col-md-4 col-lg-4">
-                                <a href="#" class="explore-item d-block text-decoration-none bg-white border radius-sm shadow-sm p-3">
-                                    <img src="~/Content/images/hue2.jpg" class="img-fluid shadow w-100 object-fit-cover mb-2">
-                                    <div class="explore-title text-capitalize font-title text-primary">Tour du lịch Đại Nội Huế</div>
-                                    <div class="explore-shortdes text-muted">
-                                        <div class="row">
-                                            <div class="col-8 d-flex"><div><i class="far fa-clock mr-2"></i></div> <div> 2 ngày 3 đêm </div></div>
-                                            <div class="col-4 text-danger">From $320</div>
-                                        </div>
-                                        <button class="btn mt-1 btn-warning text-light">View more</button>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-sm-12 col-md-4 col-lg-4">
-                                <a href="#" class="explore-item d-block text-decoration-none bg-white border radius-sm shadow-sm p-3">
-                                    <img src="~/Content/images/hue3.jpg" class="img-fluid shadow w-100 object-fit-cover mb-2">
-                                    <div class="explore-title text-capitalize font-title text-primary">Tour du lịch Đại Nội Huế</div>
-                                    <div class="explore-shortdes text-muted">
-                                        <div class="row">
-                                            <div class="col-8 d-flex"><div><i class="far fa-clock mr-2"></i></div> <div> 2 ngày 3 đêm </div></div>
-                                            <div class="col-4 text-danger">From $320</div>
-                                        </div>
-                                        <button class="btn mt-1 btn-warning text-light">View more</button>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
@@ -234,14 +166,13 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
+            </div>
+            <div class="black-cover-second"></div>
         </div>
-        <div class="black-cover-second"></div>
-    </section>
+   
+        </section>
 
-    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
-
-</body>
-</html>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
 
 

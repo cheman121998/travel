@@ -60,7 +60,7 @@ namespace travel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Name,Policy,Schedule,DateStart,Destination,DeparturePlace,CategoryTourId")] Tour tour)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Name,Policy,Schedule,DateStart,Destination,DeparturePlace,CategoryTourId,Image")] Tour tour)
         {
             if (ModelState.IsValid)
             {
@@ -94,7 +94,7 @@ namespace travel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Policy,Schedule,DateStart,Destination,DeparturePlace,CategoryTourId")] Tour tour)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Policy,Schedule,DateStart,Destination,DeparturePlace,CategoryTourId,Image")] Tour tour)
         {
             if (ModelState.IsValid)
             {

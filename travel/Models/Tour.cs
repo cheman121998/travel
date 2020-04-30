@@ -10,6 +10,7 @@ namespace travel.Models
     {
         public long Id { get; set; } //Tour id đây là LONG
         public string Name { get; set; }
+        public string Image { get; set; }
         public string Policy { get; set; }
         public string Schedule { get; set; }
         public DateTime DateStart { get; set; }

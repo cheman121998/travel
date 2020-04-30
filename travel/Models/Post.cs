@@ -25,4 +25,10 @@ namespace travel.Models
         [ForeignKey("CategoryId")]
         public virtual ICollection<Post> Posts { get; set; } //1 Category có nhiều Post, được liên kết bởi khoá ngoại CategoryId
     }
+
+    public class PostModelView
+    {
+        public Post post { get; set; }
+        public List<Post> posts { get; set; }
+    }
 }

@@ -1,84 +1,17 @@
-﻿
+﻿@model travel.Models.Tour
+@using travel.Models
 @{
-    ViewBag.Title = "TravelTour";
-    
+    ViewBag.Name = Model.Name; 
+
 }
+
 
 <div class="travelTour mt-5 mb-5">
     <div class="container">
         <div class="row">
-            @*<div class="col-sm-12 col-md-4 col-lg-4">
-            <br>
-            <div class="tour border p-3 shadow rounded">
-                <table>
-                    <tr>
-                        <form>
-                            <div class="form-group">
-                                <label for="formGroupExampleInput"><strong>Bạn muốn chọn loại tour nào?</strong></label>
-                                <select class="form-control" name="status">
-                                    <option value="0">Tour du lịch</option>
-                                    <option value="1">Tour trải nghiệm</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="formGroupExampleInput2">Thời gian khởi hành</label>
-                                <input type="text" class="form-control" placeholder="Chọn ngày" id="datetimepickerTour_in" data-toggle="datetimepicker" data-target="#datetimepickerTour_in">
-                            </div>
-                            <div class="form-group">
-                                <label for="formGroupExampleInput2">Thời gian kết thúc</label>
-                                <input type="text" class="form-control" placeholder="Chọn ngày" id="datetimepickerTour_out" data-toggle="datetimepicker" data-target="#datetimepickerTour_out">
-                            </div>
-                            <button type="submit" class="btn btn-danger btn-block"> Tìm kiếm </button>
-                        </form>
-                    </tr>
-                </table>
-            </div>
-            <hr>
-            <div class="tour border p-3 rounded shadow">
-                <table>
-                    <tr>
-                        <form>
-                            <div class="form-group ">
-                                <label for="formGroupExampleInput"><strong>Tour liên quan </strong></label><hr>
-                            </div>
-                            <div id="place">
-                                <div class="row place-related ">
-                                    <div class="col-sm-12 col-md-12 col-lg-12 mb-3">
-                                        <div class="row">
-                                            <div class="col-sm-6"><img src="~/Content/images/hue2.jpg" class="img-fluid tour-related-img rounded-lg"></div>
-                                            <div class="col-sm-6">Tham quan thuyền rồng trên Sông Hương</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </tr>
-                </table>
-            </div>
-            <hr>
-            <div class="tour border p-3 rounded shadow">
-                <table>
-                    <tr>
-                        <form>
-                            <div class="form-group ">
-                                <label for="formGroupExampleInput"><strong>Gợi ý ấm thực Huế </strong></label><hr>
-                            </div>
-                            <div id="place">
-                                <div class="row place-related ">
-                                    <div class="col-sm-12 col-md-12 col-lg-12 mb-3">
-                                        <div class="row">
-                                            <div class="col-sm-6"><img src="~/Content/images/banhbeo.jpg" class="img-fluid tour-related-img rounded-lg"></div>
-                                            <div class="col-sm-6">Bánh Bèo </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </tr>
-                </table>
-            </div>
-        </div>*@
-            @RenderSection("LeftSection");
+            @{
+                Html.RenderPartial("_LeftOfLayout");
+            }
             <hr>
             <div class="col-sm-12 col-md-8 col-lg-8 hidden-sm">
                 <div>
@@ -166,71 +99,71 @@
     </div>
 </div>
 <div class="modal fade" id="modalInfoTravel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Lịch trình chuyến đi</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <div class="row">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Lịch trình chuyến đi</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
                 <div class="row">
-                    <div class="col-4">
-                        <div class="list-group" id="list-tab" role="tablist">
-                            <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Thông tin chuyến đi</a>
-                            <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Giá bao gồm</a>
-                            <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Lịch trình</a>
-                            <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Chính sách</a>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="list-group" id="list-tab" role="tablist">
+                                <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Thông tin chuyến đi</a>
+                                <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Giá bao gồm</a>
+                                <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Lịch trình</a>
+                                <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Chính sách</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-8">
-                        <div class="tab-content" id="nav-tabContent">
-                            <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
-                                Tour ID: 123 <br>
-                                Ngày khởi hành: Hàng ngày <br>
-                                Thời gian: 1 ngày 0 đêm <br>
-                                Điểm khởi hành: Khách sạn Cung Đình Huế <br>
-                                Điểm đến: Đại Nội Huế <br>
-                                Phương tiện: Ô tô
+                        <div class="col-8">
+                            <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+                                    Tour ID: 123 <br>
+                                    Ngày khởi hành: Hàng ngày <br>
+                                    Thời gian: 1 ngày 0 đêm <br>
+                                    Điểm khởi hành: Khách sạn Cung Đình Huế <br>
+                                    Điểm đến: Đại Nội Huế <br>
+                                    Phương tiện: Ô tô
 
-                            </div>
-                            <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">Xe, hướng dẫn viên, phí tham quan, nước suối</div>
-                            <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+                                </div>
+                                <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">Xe, hướng dẫn viên, phí tham quan, nước suối</div>
+                                <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
 
-                                <strong>8h30 – 9h00:</strong> Đón khách tại Khách sạn Tham quan: Vườn Hoa và Vườn Rau Vạn Thànhbr<br>
+                                    <strong>8h30 – 9h00:</strong> Đón khách tại Khách sạn Tham quan: Vườn Hoa và Vườn Rau Vạn Thànhbr<br>
 
-                                <strong>9h00 – 9h30:</strong> Nuôi  Tằm<br>
+                                    <strong>9h00 – 9h30:</strong> Nuôi  Tằm<br>
 
-                                <strong>9h45 – 10h20:</strong> Cơ sở Quấn tơ- Dệt Lụa<br>
+                                    <strong>9h45 – 10h20:</strong> Cơ sở Quấn tơ- Dệt Lụa<br>
 
-                                <strong>10h30 – 11h30:</strong> Chùa Linh Ấn<br>
+                                    <strong>10h30 – 11h30:</strong> Chùa Linh Ấn<br>
 
-                                <strong>12h00:</strong> Đoàn Dùng cơm trưa tại thị trấn Nam Bang<br>
+                                    <strong>12h00:</strong> Đoàn Dùng cơm trưa tại thị trấn Nam Bang<br>
 
-                                <strong>13h30 – 14h00:</strong> Nông Trại Nấm<br>
+                                    <strong>13h30 – 14h00:</strong> Nông Trại Nấm<br>
 
-                                <strong>14h00 – 14h30:</strong> Trại nuôi Dế<br>
+                                    <strong>14h00 – 14h30:</strong> Trại nuôi Dế<br>
 
-                                <strong>14h40 – 15h00:</strong> Cơ sở nấu rượu Gạo Nguyên Chất- Xem cách Nuôi Nuôi Chồn để sản xuất cà phê Chồn nổi tiếng - Thưởng thức cà phê nguyên chất.<br>
+                                    <strong>14h40 – 15h00:</strong> Cơ sở nấu rượu Gạo Nguyên Chất- Xem cách Nuôi Nuôi Chồn để sản xuất cà phê Chồn nổi tiếng - Thưởng thức cà phê nguyên chất.<br>
 
-                                <strong>15h00 – 15h40:</strong> Thác Voi - Chùa Linh Ấn<br>
-                            </div>
-                            <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
-                                <strong>8h30:</strong> sáng hàng ngày, Đón khách tại khách sạn. <br>
+                                    <strong>15h00 – 15h40:</strong> Thác Voi - Chùa Linh Ấn<br>
+                                </div>
+                                <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
+                                    <strong>8h30:</strong> sáng hàng ngày, Đón khách tại khách sạn. <br>
 
-                                Chúng tôi cam kết đón khách đúng giờ, đúng chương trình, Không đưa khách vào các điểm ăn, uống mà giá cả không hợp lý - Trên đường đi các bạn có thể dừng chụp hình theo ý muốn - Chúng tôi phục vụ để các bạn hài lòng nhất.
+                                    Chúng tôi cam kết đón khách đúng giờ, đúng chương trình, Không đưa khách vào các điểm ăn, uống mà giá cả không hợp lý - Trên đường đi các bạn có thể dừng chụp hình theo ý muốn - Chúng tôi phục vụ để các bạn hài lòng nhất.
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
         </div>
     </div>
-</div>
 </div>
 

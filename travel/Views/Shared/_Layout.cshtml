@@ -29,8 +29,8 @@
             <div class="navbar-collapse collapse" style="justify-content:space-between">
                 <ul class="nav navbar-nav">
                     <li class="pr-3 pl-3 border-right text-uppercase">@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li class="pr-3 pl-3 border-right text-uppercase">@Html.ActionLink("Place", "Details", "Posts")</li>
-                    <li class="pr-3 pl-3 border-right text-uppercase">@Html.ActionLink("Food", "Details", "Posts")</li>
+                    <li class="pr-3 pl-3 border-right text-uppercase">@Html.ActionLink("Place", "Details/7", "Posts")</li>
+                    <li class="pr-3 pl-3 border-right text-uppercase">@Html.ActionLink("Food", "Details/7", "Posts")</li>
                     <li class="pr-3 pl-3 border-right text-uppercase">@Html.ActionLink("Tour", "TravelTour", "Tours")</li>
                     <li class="pr-3 pl-3 border-right text-uppercase">@Html.ActionLink("About", "About", "Home")</li>
                     <li class="pr-3 pl-3 text-uppercase">@Html.ActionLink("Contact", "Contact", "Home")</li>
@@ -41,8 +41,6 @@
     </div>
     <div class="body-content">
         @RenderBody()
-
-
     </div>
     <footer class="bg-dark text-white footer pt-5">
         <div class="container mt-5 mb-5">
