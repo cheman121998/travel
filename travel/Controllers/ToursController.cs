@@ -64,6 +64,8 @@ namespace travel.Controllers
         {
             if (ModelState.IsValid)
             {
+                tour.CreatedAt = DateTime.Now;
+                tour.UpdatedAt = DateTime.Now;
                 db.Tours.Add(tour);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -98,6 +100,7 @@ namespace travel.Controllers
         {
             if (ModelState.IsValid)
             {
+                tour.UpdatedAt = DateTime.Now;
                 db.Entry(tour).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
