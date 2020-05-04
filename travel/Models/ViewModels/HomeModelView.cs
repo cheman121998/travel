@@ -7,7 +7,8 @@ namespace travel.Models
 {
     public class HomeModelView
     {
-        public List<Post> Posts { get; set; }
+        public List<Post> Places { get; set; }
+        public List<Post> Foods { get; set; }
         public List<Tour> Tours { get; set; }
         public List<TourDetail> TourDetails { get; set; }
     }

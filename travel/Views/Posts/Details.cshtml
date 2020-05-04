@@ -21,9 +21,8 @@
         <div class="travelTour mt-5 mb-5">
             <div class="container">
                 <div class="row">
-                    @{
-                        Html.RenderPartial("_LeftOfLayout");
-                    }
+                    @* Load partial post relations *@
+                    @Html.Action("RelatedPosts", "Post")
 
                     <div class="col-sm-12 col-md-8 col-lg-8">
                         <div class="title">
@@ -49,7 +48,7 @@
                         <hr />
                         <div class="post-food">
                             <div>
-                              @Html.Raw(Model.Content)
+                                @Html.Raw(Model.Content)
                             </div>
                         </div>
                         <hr />

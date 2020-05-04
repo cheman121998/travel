@@ -195,7 +195,8 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\CustomModelView.cs" />
+    <Compile Include="Models\ViewModels\PostPartialModelView.cs" />
+    <Compile Include="Models\ViewModels\HomeModelView.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -706,6 +707,9 @@
     <Content Include="Views\Tours\BookingTour.cshtml" />
     <Content Include="Views\Posts\Post.cshtml" />
     <Content Include="Views\Shared\_LeftOfLayout.cshtml" />
+    <Content Include="Views\Home\Place.cshtml" />
+    <Content Include="Views\Home\Food.cshtml" />
+    <Content Include="Views\Posts\_RelatedPostsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
