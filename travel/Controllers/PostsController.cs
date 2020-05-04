@@ -105,6 +105,7 @@ namespace travel.Controllers
         {
             if (ModelState.IsValid)
             {
+                post.UpdatedAt = DateTime.Now;
                 db.Entry(post).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
