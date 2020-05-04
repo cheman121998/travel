@@ -20,7 +20,6 @@
 
     <img src="~/Content/images/doiVongCanh.jpg" alt="Alternate Text" class="w-100 img-fluid  object-fit-cover shadow" />
 </section>
-
 <section class="about-hue">
     <div class="container">
         <div class="row">
@@ -40,15 +39,15 @@
     </div>
 </section>
 <section class="container-fluid popular-destination mt-5 mb-5">
-    <div class="text-center text-uppercase">
-        <p>Địa điểm du lịch nổi bật nhất tại Huế</p>
-        <h2>Gợi ý địa điểm nổi bật</h2>
+    <div class="text-center text-uppercase mt-5">
+        <h4>Địa điểm du lịch nổi bật nhất tại Huế</h4>
+        <h1>Gợi ý địa điểm nổi bật</h1>
     </div>
     <div class="first-popular mt-5">
-        <div class="row wrapper ">
+        <div class="row">
             @foreach (var item in posts)
             {
-                <div class="col-sm-12 col-md-3 col-lg-3 mt-3">
+                <div class="col-sm-12 col-md-3 col-lg-3 mt-3 wrapper">
                     <a href="/Posts/Details/item.Id"> <img src="@item.Image" alt="Alternate Text" class="img-fluid shadow object-fit-cover position-relative" /></a>
                     <div class="hover position-absolute">
                         <p class="price">FROM <span>$355</span></p>
@@ -57,7 +56,6 @@
                     </div>
                 </div>
             }
-
         </div>
     </div>
 
