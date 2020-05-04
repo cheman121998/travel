@@ -47,7 +47,7 @@ namespace travel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Name")] Category category)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Name,Type")] Category category)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace travel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Name")] Category category)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Type")] Category category)
         {
             if (ModelState.IsValid)
             {

@@ -46,8 +46,8 @@ namespace travel.Controllers
             ////đại diện cho những loại danh sách của đối tươ... Dòng cuối T is Post :D thấy rõ chưa? dạ rồi, ở đây var hay khai báo như vậy vẫn đc, vì var tự định nghĩa kiểu dữ liệu đối với hàm trả về đúng kiểu
 
             var model = new HomeModelView(); 
-            model.Places = db.Posts.Where(x=>x.Category.Name=="Place").OrderByDescending(x=>x.CreatedAt).Take(7).ToList();
-            model.Foods = db.Posts.Where(x=>x.Category.Name== "Food").OrderByDescending(x=>x.CreatedAt).Take(7).ToList();
+            model.Places = db.Posts.Where(x=>x.Category.Type=="Place").OrderByDescending(x=>x.CreatedAt).Take(7).ToList();
+            model.Foods = db.Posts.Where(x=>x.Category.Type == "Food").OrderByDescending(x=>x.CreatedAt).Take(7).ToList();
             model.Tours = db.Tours.OrderByDescending(x=>x.CreatedAt).Take(9).ToList(); 
             return View(model);
         }
@@ -55,13 +55,13 @@ namespace travel.Controllers
         public async Task<ActionResult> Place(int page = 1)
         {
             ViewBag.page = page;
-            var places = db.Posts.Where(x => x.Category.Name == "Place").OrderByDescending(x => x.CreatedAt).Skip((page-1)*12).Take(12).ToList();
+            var places = db.Posts.Where(x => x.Category.Type == "Place").OrderByDescending(x => x.CreatedAt).Skip((page-1)*12).Take(12).ToList();
             return View(places);
         }
         public async Task<ActionResult> Food(int page = 1)
         {
             ViewBag.page = page;
-            var places = db.Posts.Where(x => x.Category.Name == "Food").OrderByDescending(x => x.CreatedAt).Skip((page - 1) * 12).Take(12).ToList();
+            var places = db.Posts.Where(x => x.Category.Type == "Food").OrderByDescending(x => x.CreatedAt).Skip((page - 1) * 12).Take(12).ToList();
             return View(places);
         }
 
@@ -76,6 +76,16 @@ namespace travel.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public PartialViewResult FooterPartial()
+        {
+            var model = new HomeModelView();
+            model.Places = db.Posts.Where(x => x.Category.Type == "Place").OrderByDescending(x => x.CreatedAt).Take(6).ToList();
+            model.Foods = db.Posts.Where(x => x.Category.Type == "Food").OrderByDescending(x => x.CreatedAt).Take(6).ToList();
+            model.Tours = db.Tours.OrderByDescending(x => x.CreatedAt).Take(6).ToList();
+
+            return PartialView("_FooterPartial",model);
         }
     }
 }

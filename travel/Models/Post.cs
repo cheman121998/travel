@@ -22,6 +22,7 @@ namespace travel.Models
     {
         public long Id { get; set; }
         public string Name { get; set; }
+        public string Type { get; set; }
         [ForeignKey("CategoryId")]
         public virtual ICollection<Post> Posts { get; set; } //1 Category có nhiều Post, được liên kết bởi khoá ngoại CategoryId
     }

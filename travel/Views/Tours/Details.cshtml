@@ -7,6 +7,10 @@
 <h2>Details</h2>
 
 <div>
+    <div class="col-md-4 col-sm-12 col-lg-4">
+        @Html.Action("RelatedPosts", "Posts")
+    </div>
+
     <h4>Tour</h4>
     <hr />
     <dl class="dl-horizontal">
@@ -69,7 +73,7 @@
             @Html.DisplayNameFor(model => model.Image)
         </dt>
         <dd>
-           @Html.DisplayFor(model => model.Image)
+            @Html.DisplayFor(model => model.Image)
         </dd>
 
     </dl>

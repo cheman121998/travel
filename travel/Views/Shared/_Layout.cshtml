@@ -10,7 +10,10 @@
     <link rel="stylesheet" type="text/css" href="~/Content/font-awesome-all.css">
     @Styles.Render("~/Content/bootstrap.min.css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/owl.carousel.min.css" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/612c72adec.js" crossorigin="anonymous"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
 </head>
 <body>
     <div class="navbar navbar-expand-lg navbar-dark text-light bg-dark">
@@ -29,8 +32,8 @@
             <div class="navbar-collapse collapse" style="justify-content:space-between">
                 <ul class="nav navbar-nav">
                     <li class="pr-3 pl-3 border-right text-uppercase">@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li class="pr-3 pl-3 border-right text-uppercase">@Html.ActionLink("Place", "Details/7", "Posts")</li>
-                    <li class="pr-3 pl-3 border-right text-uppercase">@Html.ActionLink("Food", "Details/7", "Posts")</li>
+                    <li class="pr-3 pl-3 border-right text-uppercase">@Html.ActionLink("Place", "Place", "Home")</li>
+                    <li class="pr-3 pl-3 border-right text-uppercase">@Html.ActionLink("Food", "Food", "Home")</li>
                     <li class="pr-3 pl-3 border-right text-uppercase">@Html.ActionLink("Tour", "TravelTour", "Tours")</li>
                     <li class="pr-3 pl-3 border-right text-uppercase">@Html.ActionLink("About", "About", "Home")</li>
                     <li class="pr-3 pl-3 text-uppercase">@Html.ActionLink("Contact", "Contact", "Home")</li>
@@ -44,130 +47,9 @@
     </div>
     <footer class="bg-dark text-white footer pt-5">
         <div class="container mt-5 mb-5">
-            <div class="row">
-                <div class="col-sm-3 col-md-3 col-lg-3">
-                    <h5>Địa điểm du lịch nổi bật</h5>
-                    <div class="container-fluid">
-                        <div class="row pt-3">
-                            <div class="d-flex" style="padding-right: 30px;">
-                                <img src="~/Content/images/daiNoi.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
-                            </div>
-                            <div>
-                                <img src="~/Content/images/doiVongCanh.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container-fluid">
-                        <div class="row pt-1">
-                            <div class="d-flex" style="padding-right: 30px;">
-                                <img src="~/Content/images/daiNoi.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
-                            </div>
-                            <div>
-                                <img src="~/Content/images/doiVongCanh.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container-fluid">
-                        <div class="row pt-1">
-                            <div class="d-flex" style="padding-right: 30px;">
-                                <img src="~/Content/images/daiNoi.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
-                            </div>
-                            <div>
-                                <img src="~/Content/images/doiVongCanh.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3 col-md-3 col-lg-3">
-                    <h5>Ẩm thực Huế</h5>
-                    <div class="container-fluid">
-                        <div class="row pt-3">
-                            <div class="d-flex" style="padding-right: 30px;">
-                                <img src="~/Content/images/banhbeo.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
-                            </div>
-                            <div>
-                                <img src="~/Content/images/banhcuon.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container-fluid">
-                        <div class="row pt-1">
-                            <div class="d-flex" style="padding-right: 30px;">
-                                <img src="~/Content/images/banhit.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
-                            </div>
-                            <div>
-                                <img src="~/Content/images/banhnam.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container-fluid">
-                        <div class="row pt-1">
-                            <div class="d-flex" style="padding-right: 30px;">
-                                <img src="~/Content/images/bunheo.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
-                            </div>
-                            <div>
-                                <img src="~/Content/images/che.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3 col-md-3 col-lg-3">
-                    <h5>Tours</h5>
-                    <div class="container-fluid">
-                        <div class="row pt-3">
-                            <div class="d-flex" style="padding-right: 30px;">
-                                <img src="~/Content/images/daiNoi.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
-                            </div>
-                            <div>
-                                <img src="~/Content/images/doiVongCanh.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container-fluid">
-                        <div class="row pt-1">
-                            <div class="d-flex" style="padding-right: 30px;">
-                                <img src="~/Content/images/daiNoi.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
-                            </div>
-                            <div>
-                                <img src="~/Content/images/doiVongCanh.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container-fluid">
-                        <div class="row pt-1">
-                            <div class="d-flex" style="padding-right: 30px;">
-                                <img src="~/Content/images/daiNoi.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
-                            </div>
-                            <div>
-                                <img src="~/Content/images/doiVongCanh.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-3 col-lg-3 contact">
-                    <img src="~/Content/images/logo.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" style="width: auto; border: solid 1px white;" />
-
-                    <div class="row">
-                        <div class="col-6">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <h6><strong>99 Ho Dac Di</strong></h6>
-                            <p>Thành phố Huế</p>
-                        </div>
-                        <div class=" col-6">
-                            <i class="fas fa-phone"></i>
-                            <h6><strong>0123 23032 28</strong></h6>
-                            <p>Phone me</p>
-                        </div>
-                    </div>
-                    <hr class="bg-white m-0 mb-1" />
-                    <div class="">
-                        <i class="far fa-clock"></i>
-                        <h6><strong>Monday-Sartuday: 9:00 -19:00</strong></h6>
-                        <p>Sunday closed</p>
-                    </div>
-                </div>
-            </div>
+            @Html.Action("FooterPartial", "Home")
         </div>
+
         <hr class="bg-white" />
         <div class="container">
             <div class="row">
@@ -185,8 +67,7 @@
         </div>
 
     </footer>
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+   
     @RenderSection("scripts", required: false)
 </body>
 

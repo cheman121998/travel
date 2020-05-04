@@ -251,6 +251,7 @@
     <Content Include="Content\jquery-3.2.1.min.js" />
     <Content Include="Content\jquery.elevateZoom-3.0.8.min.js" />
     <Content Include="Content\moment-with-locales.min.js" />
+    <Content Include="Content\owl.carousel.min.css" />
     <Content Include="Content\style.css" />
     <Content Include="Content\tempusdominus-bootstrap-4.min.css" />
     <Content Include="Content\tempusdominus-bootstrap-4.min.js" />
@@ -580,6 +581,14 @@
     <Content Include="Content\Site.css" />
     <Content Include="Content\bootstrap-reboot.min.css.map" />
     <Content Include="Content\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\assets\ajax-loader.gif" />
+    <Content Include="Scripts\assets\owl.carousel.css" />
+    <Content Include="Scripts\assets\owl.carousel.min.css" />
+    <Content Include="Scripts\assets\owl.theme.default.css" />
+    <Content Include="Scripts\assets\owl.theme.default.min.css" />
+    <Content Include="Scripts\assets\owl.theme.green.css" />
+    <Content Include="Scripts\assets\owl.theme.green.min.css" />
+    <Content Include="Scripts\assets\owl.video.play.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -627,6 +636,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\owl.carousel.min.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
@@ -710,6 +720,7 @@
     <Content Include="Views\Home\Place.cshtml" />
     <Content Include="Views\Home\Food.cshtml" />
     <Content Include="Views\Posts\_RelatedPostsPartial.cshtml" />
+    <Content Include="Views\Shared\_FooterPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,5 +1,5 @@
 ﻿@model travel.Models.Post
-    @using travel.Models
+
 @{
     ViewBag.Title = Model.Title;
 
@@ -22,7 +22,9 @@
             <div class="container">
                 <div class="row">
                     @* Load partial post relations *@
-                    @Html.Action("RelatedPosts", "Post")
+                    <div class="col-md-4 col-sm-12 col-lg-4">
+                        @Html.Action("RelatedPosts", "Posts")
+                    </div>
 
                     <div class="col-sm-12 col-md-8 col-lg-8">
                         <div class="title">
