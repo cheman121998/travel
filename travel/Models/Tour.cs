@@ -17,9 +17,10 @@ namespace travel.Models
         public string Destination { get; set; }
         public string DeparturePlace { get; set; }
         public long CategoryTourId { get; set; } //Thấy long k
-        public virtual CategoryTour CategoryTour { get; set; } 
-       
+        public virtual CategoryTour CategoryTour { get; set; }
 
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
     }
     public class CategoryTour
     {

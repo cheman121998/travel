@@ -45,6 +45,14 @@ namespace travel.Controllers
             return View(post);
         }
 
+        public PartialViewResult RelatedPosts()
+        {
+            var model = new PostPartialModelView();
+            model.Places = db.Posts.Where(x => x.Category.Name == "Place").OrderByDescending(x => x.CreatedAt).Take(4).ToList();
+            model.Foods = db.Posts.Where(x => x.Category.Name == "Food").OrderByDescending(x => x.CreatedAt).Take(4).ToList();
+            return PartialView("_RelatedPostsPartial", model);
+        }
+
         // GET: Posts/Create
         public ActionResult Create()
         {
