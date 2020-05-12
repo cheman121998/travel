@@ -5,9 +5,81 @@
     var places = Model.Places;
 }
 
-<div>
-   Đây là partial view - left sidebar
-    có @foods.Count foods và @places.Count
-    @* pokie chưa? phần này tự style lại giống cái leftlayout của e là đc, em đọc nhầm :D oki anh*@
-    @* a ví dụ cho cái footer mà xem BÊ dễ như nào *@
+<div class="search bg-danger">
+    <nav class="navbar navbar-light">
+        <form class="form-inline text-white">
+            <div>Chọn loại tour du lịch</div>
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
 </div>
+    <div class="" style="margin: 24px 0;">
+        <h5 class="text-center bg-success text-white p-2 border" style="margin-bottom: 0;">
+            Địa điểm du lịch
+        </h5>
+        @foreach (var item in places)
+        {
+            <a href="/Posts/Details/@item.Id">
+                <div class="leftLayout ">
+                    <div class="d-flex">
+                        <div class="" style="width: 140px;height: 110px;">
+                            <img class="img-fluid object-fit-cover" src="@item.Image" alt="Card image cap">
+                        </div>
+                        <div class="" style="padding: 16px; flex: 1;">@item.Title</div>
+                    </div>
+                </div>
+            </a>
+        }
+    </div>
+    <div class="bg-dark ood-left" style="margin: 24px 0;">
+        <h5 class="text-center bg-primary text-white p-2" style="margin-bottom: 0;">
+            Ẩm thực Huế
+        </h5>
+        @foreach (var item in foods)
+        {
+        <div class="" style="display: grid; grid-template-columns: 1fr 1fr;grid-template-rows: 160px;grid-gap: 12px;padding: 12px;">
+            <a href="/Posts/Details/@item.Id" style="">
+                <div class="style-item">
+                    <img class="img-fluid object-fit-cover position-relative" src="@item.Image" alt="Alternate Text" style="height: 120px; width: 100%;">
+                    <div class="" style="font-size: 16px;font-weight: 500;line-height: 30px;text-align: center;">@item.Title</div>
+                </div>
+            </a>
+        </div>
+        }
+    </div>
+
+
+
+
+@*<div class="bg-light p-4 card mt-3">
+
+    <h5 class="text-center bg-success text-white p-2 border">Địa điểm du lịch</h5>
+    
+        @foreach (var item in places)
+        {
+            <a href="/Posts/Details/@item.Id">
+                <div class="card leftLayout m-2">
+                    <div class="d-flex">
+                        <div class="col-6"><img class="img-fluid object-fit-cover" src="@item.Image" alt="Card image cap"></div>
+                        <div class="col-6 mt-3">@item.Title</div>
+                    </div>
+                </div>
+            </a>
+        }
+
+</div>
+<div class="card bg-dark p-4 food-left mt-3 mb-5">
+    <h5 class="text-center bg-primary text-white p-2 border">Ẩm thực Huế</h5>
+    <div class="d-flex flex-wrap">
+        @foreach (var item in foods)
+        {
+            <a href="/Posts/Details/@item.Id">
+                <div class="style-item mr-3">
+                    <img class="img-fluid object-fit-cover position-relative" src="@item.Image" alt="Alternate Text" />
+                    <div class="position-absolute food-left-item">@item.Title</div>
+                </div>
+            </a>
+        }
+    </div>
+    </div>*@

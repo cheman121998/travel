@@ -195,6 +195,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ViewModels\BookingModelView.cs" />
     <Compile Include="Models\ViewModels\PostPartialModelView.cs" />
     <Compile Include="Models\ViewModels\HomeModelView.cs" />
     <Compile Include="Models\Post.cs" />
@@ -203,6 +204,7 @@
     <Compile Include="Models\Tour.cs" />
     <Compile Include="Models\TourDetail.cs" />
     <Compile Include="Models\TravelService.cs" />
+    <Compile Include="Models\ViewModels\TourPartialModelView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -220,14 +222,26 @@
     <Content Include="Content\images\banhcuon.jpg" />
     <Content Include="Content\images\banhit.jpg" />
     <Content Include="Content\images\banhnam.jpg" />
+    <Content Include="Content\images\bien.jpg" />
+    <Content Include="Content\images\bien1.jpeg" />
+    <Content Include="Content\images\bien2.jpg" />
+    <Content Include="Content\images\bundau.jpg" />
+    <Content Include="Content\images\bundau1.jpg" />
+    <Content Include="Content\images\bundau2.jpg" />
     <Content Include="Content\images\bunheo.jpg" />
+    <Content Include="Content\images\bunhue.jpg" />
+    <Content Include="Content\images\bunhue1.jpg" />
     <Content Include="Content\images\cautrangtien.jpg" />
     <Content Include="Content\images\che.jpg" />
+    <Content Include="Content\images\checungdinh.jpg" />
     <Content Include="Content\images\chuatuhieu.jpg" />
     <Content Include="Content\images\colau.jpg" />
     <Content Include="Content\images\cotco.jpg" />
+    <Content Include="Content\images\cungdinh.jpg" />
     <Content Include="Content\images\cungdinh1.jpg" />
     <Content Include="Content\images\daiNoi.jpg" />
+    <Content Include="Content\images\deohaivan.jpg" />
+    <Content Include="Content\images\deohaivan1.jpg" />
     <Content Include="Content\images\doiVongCanh.jpg" />
     <Content Include="Content\images\hoaphuong.jpg" />
     <Content Include="Content\images\hoasen.jpg" />
@@ -236,22 +250,33 @@
     <Content Include="Content\images\hue3.jpg" />
     <Content Include="Content\images\huemua.jpg" />
     <Content Include="Content\images\logo.jpg" />
+    <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\map.jpg" />
     <Content Include="Content\images\moncungdinh.jpg" />
+    <Content Include="Content\images\moncungdinh1.jpg" />
+    <Content Include="Content\images\moncungdinh2.jpg" />
+    <Content Include="Content\images\moncungdinh3.jpg" />
     <Content Include="Content\images\nemcong.jpg" />
     <Content Include="Content\images\nemcong1.jpg" />
     <Content Include="Content\images\nemcong2.jpg" />
+    <Content Include="Content\images\nemcong3.jpg" />
     <Content Include="Content\images\nemlui.jpg" />
+    <Content Include="Content\images\pass.jpg" />
     <Content Include="Content\images\phongcanh.jpg" />
+    <Content Include="Content\images\register.jpg" />
     <Content Include="Content\images\rucha.jpg" />
+    <Content Include="Content\images\rucha1.jpg" />
     <Content Include="Content\images\sen.jpg" />
     <Content Include="Content\images\thienmu.jpg" />
     <Content Include="Content\images\thienmu1.jpg" />
     <Content Include="Content\images\truongtientoi.jpg" />
     <Content Include="Content\jquery-3.2.1.min.js" />
     <Content Include="Content\jquery.elevateZoom-3.0.8.min.js" />
+    <Content Include="Content\images\login.jpg" />
     <Content Include="Content\moment-with-locales.min.js" />
     <Content Include="Content\owl.carousel.min.css" />
+    <Content Include="Content\owl.theme.default.css" />
+    <Content Include="Content\pass.jpg" />
     <Content Include="Content\style.css" />
     <Content Include="Content\tempusdominus-bootstrap-4.min.css" />
     <Content Include="Content\tempusdominus-bootstrap-4.min.js" />
@@ -721,6 +746,7 @@
     <Content Include="Views\Home\Food.cshtml" />
     <Content Include="Views\Posts\_RelatedPostsPartial.cshtml" />
     <Content Include="Views\Shared\_FooterPartial.cshtml" />
+    <Content Include="Views\Tours\_RelatedToursPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

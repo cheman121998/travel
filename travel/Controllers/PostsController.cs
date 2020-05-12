@@ -26,9 +26,9 @@ namespace travel.Controllers
         
         //Get: Post
        public async Task<ActionResult> Post()
-        {
+       {
             return View();
-        }
+       }
 
         // GET: Posts/Details/5pub 
         public async Task<ActionResult> Details(long? id)
@@ -95,6 +95,8 @@ namespace travel.Controllers
             ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", post.CategoryId, "Image");
             return View(post);
         }
+
+       
 
         // POST: Posts/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 

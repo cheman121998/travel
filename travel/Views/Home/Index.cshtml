@@ -14,7 +14,7 @@
     </div>
     <div class="black-cover"></div>
 
-    <img src="~/Content/images/doiVongCanh.jpg" alt="Alternate Text" class="w-100 img-fluid  object-fit-cover shadow" />
+    <img src="~/Content/images/doiVongCanh.jpg" alt="Alternate Text" class="w-100 img-fluid object-fit-cover shadow" />
 </section>
 <section class="about-hue">
     <div class="container">
@@ -35,17 +35,17 @@
     </div>
 </section>
 <section class="container-fluid popular-destination mt-5 mb-5">
-    <div class="text-center text-uppercase mt-5">
+    <div class="text-center mt-5">
         <h4>Địa điểm du lịch nổi bật nhất tại Huế</h4>
-        <h1>Gợi ý địa điểm nổi bật</h1>
+        <h1>Gợi Ý Địa Điểm Nổi Bật</h1>
     </div>
     <div class="first-popular mt-5">
-        <div class="row">
+        <div>
             @foreach (var item in places)
             {
-                <div class="col-sm-12 col-md-3 col-lg-3 mt-3 wrapper">
+                <div class="wrapper">
                     <a href="/Posts/Details/@item.Id"> <img src="@item.Image" alt="Alternate Text" class="img-fluid shadow object-fit-cover position-relative" /></a>
-                    <div class="hover position-absolute">
+                    <div class="hover">
                         <p class="price">FROM <span>$355</span></p>
                         <h4 class="name"><a href="/posts/Details/@item.Id">@item.Title</a></h4>
                         <p class="schedule">@item.Category.Name</p>
@@ -55,12 +55,12 @@
         </div>
     </div>
 
-    <div class="text-center text-uppercase mt-5">
-        <p>Những món ăn không thể bỏ qua</p>
-        <h2>Ẩm thực Huế</h2>
+    <div class="text-center  mt-5">
+        <h4>Những món ăn không thể bỏ qua</h4>
+        <h1>Ẩm Thực Huế</h1>
     </div>
     <div class="first-popular mt-5">
-        <div class="row wrapper">
+        <div>
             @*//Hay là k hiểu foreach là gì. var ... in ... là gì?
                 //foreach là vòng lặp
                 //var post in posts là khai báo biến post ở trong posts, rồi post này thay thế cho posts. khi nào dùng chỉ cần gọi post(1) thay vì posts (list)
@@ -71,9 +71,9 @@
                 //Tour là tour, post là post, 2 thằng 2 kiểu dữ liệu khác nhau, k dùng chung đc, 2 class rõ ràng khác nhau, e khai báo kiểu chi 1 biến dùng 2 kiểu đc*@
             @foreach (var post in foods)// Model mô đây nữa mà Model, khai báo posts với tour ở trên rồi???? vì ở phần này em vừa lấy dữ liệu ở Posts và Tour nên em phải gọi cả 2, 2 thằng này gộp kiểu giề mà in cả 2...hiihi e có ngôn ngữ lập trình nào for in mà gộp kiểu này đc k, lặp có điều kiện, thì lặp từ 1->n, điều kiện dừng, for in là gì?
             {
-                <div class="col-sm-12 col-md-3 col-lg-3 mt-3">
-                    <a href="/Posts/Details/@post.Id"> <img src="@post.Image" alt="Alternate Text" class="img-fluid shadow object-fit-cover position-relative" /></a>
-                    <div class="hover position-absolute">
+                <div class="mt-3 wrapper">
+                    <a href="/Posts/Details/@post.Id"> <img src="@post.Image" alt="Alternate Text" class="img-fluid shadow object-fit-cover" /></a>
+                    <div class="hover">
                         <p class="price">FROM <span>$355</span></p>
                         <h4 class="name"><a href="/posts/Details/@post.Id">@post.Title</a></h4>
                         <p class="schedule">Lịch trình</p>
@@ -86,49 +86,53 @@
 <section class="trip mt-5 mb-5 mt-5 pt-5 position-relative">
 
     <div class="container mt-5">
-        <div class="text-center mt-5 text-white">
-            <h5>Tour phổ biến</h5>
+        <div class="black-cover-second"></div>
+        <div class="text-center mt-5 text-white position-relative">
+            <h4>Tour phổ biến</h4>
             <h1>Chúng tôi mang đến cho bạn sự trải nghiệm tuyệt vời nhất</h1>
             <p>Sự hài lòng của bạn là niềm vui của chúng tôi. Được phục vụ bạn là niềm vinh dự của chúng tôi</p>
         </div>
-            <div class="owl-carousel">
+        <div class="owl-carousel">
 
-                @foreach (var tour in tours)
-                {
-                    <div class="item">
-                        <a href="/Tours/Details/@tour.Id" class="explore-item d-block text-decoration-none bg-white border radius-sm shadow-sm p-3">
-                            <img src="@tour.Image" class="img-fluid shadow w-100 object-fit-cover mb-2">
-                            <div class="explore-title text-capitalize font-title text-primary">@tour.Name</div>
-                            <div class="explore-shortdes text-muted">
-                                <div class="row">
-                                    <div class="col-8 d-flex"><div><i class="far fa-clock mr-2"></i></div> <div> 2 ngày 3 đêm </div></div>
-                                    <div class="col-4 text-danger">From $320</div>
-                                </div>
-                                <button class="btn mt-1 btn-warning text-light">View more</button>
+            @foreach (var tour in tours)
+            {
+                <div class="item">
+                    <div  class="explore-item d-block text-decoration-none bg-white border radius-sm shadow-sm p-3">
+                        <img src="@tour.Image" class="img-fluid shadow w-100 object-fit-cover mb-2">
+                        <a href="/Tours/Details/@tour.Id" class="explore-title text-capitalize font-title text-primary">@tour.Name</a>
+                        <div class="explore-shortdes text-muted">
+                            <div class="row">
+                                <div class="col-8 d-flex"><div><i class="far fa-clock mr-2"></i></div> <div> 2 ngày 3 đêm </div></div>
+                                <div class="col-4 text-danger">From $320</div>
                             </div>
-                        </a>
+                            <a href="/Tours/Details/@tour.Id" class="btn mt-1 btn-warning text-light">View more</a>
+                        </div>
                     </div>
-                }
-            </div>
-        <div class="black-cover-second"></div>
+                </div>
+            }
+
+        </div>
+
     </div>
 
 </section>
 
 <script src="~/Scripts/owl.carousel.min.js"></script>
+  
 <script>
     $('.owl-carousel').owlCarousel({
         loop: true,
         margin: 10,
+        autoplay: true,
         nav: true,
         responsive: {
             0: {
                 items: 1
             },
-            600: {
+            200: {
                 items: 2
             },
-            1000: {
+            400: {
                 items: 3
             }
         }

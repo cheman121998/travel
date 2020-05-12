@@ -100,7 +100,7 @@ body {
     left: 0;
     right: 0;
     z-index: 2;
-    bottom: -45px;
+    bottom: -50px;
     background: rgba(0, 0, 0, 0.4);
    
 }
@@ -110,9 +110,10 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    /*background: rgba(0, 0, 0, 0.4)*/
-    z-index: 2;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 0;
 }
+
 
 .footer .fab{
     font-size: 30px;
@@ -135,6 +136,7 @@ body {
 .about-hue img{
     width: 90%;
     height: 550px;
+    border: 1px solid grey;
 }
 .about-hue img:hover {
     box-sizing: border-box;
@@ -155,20 +157,46 @@ body {
 .first-popular img {
     height: 235px;
     width: 100%;
-    border: dashed 1px black;
 }
 .first-popular .hover{
+    position: absolute;
     bottom: 30px;
     left: 60px;
    
 }
-    .first-popular .wrapper:hover {
-        background-image: -webkit-linear-gradient(45deg, red 0, orange 50%, yellow 100%);
-        width: 100%;
-        height: 100%;
-        opacity: 0.3;
-       
-    } 
+.first-popular .wrapper:hover {
+    background-image: -webkit-linear-gradient(grey 1%);
+    height: 100%;
+    opacity: 0.3;
+    z-index: 3;       
+    color: red;
+}
+.first-popular .wrapper{
+   display: inline-block;
+   width: 24%;
+   margin: 4px;
+}
+.first-popular .wrapper:first-child{
+    width: 49%;
+}
+.first-popular:last-child .wrapper:last-child {
+    width: 49%;
+}
+ 
+.first-popular:last-child .wrapper:first-child {
+    width: 24%;
+}
+
+.first-popular a {
+   color: white;
+   font-weight: 600;
+}
+
+.card-title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
 
 .trip {
     position: absolute;
@@ -180,12 +208,19 @@ body {
     width: 100%;
     object-fit: cover;
     z-index: 1;
+    font-family: Tahoma;
 }
 .trip .object-fit-cover {
     height: 300px;
 }
 .object-fit-cover {
     object-fit: cover;
+}
+
+.trip p, h4 {
+    letter-spacing: 3px;
+    margin-top: 15px;
+    margin-bottom: 25px;
 }
 
 .footer img{
@@ -229,6 +264,22 @@ body {
     height: 450px;
 }
 
+.card-post {
+    width: 30%;
+    margin-right: 25px;
+    margin-bottom: 25px;
+}
+.card-post img{
+    height: 200px;
+    width: 92%;
+    overflow: hidden;
+}
+    .card-post:hover {
+        transform: scale(1.1);
+        overflow: hidden;
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
 
 .post .body-content .banner-item .black-cover {
     position: absolute;
@@ -267,6 +318,7 @@ body {
     height: 80px!important;
 }
 /* Style TravelTour*/
+
 .travelTour .tour #place .img-fluid {
     max-width: 100%;
     height: 110px;
@@ -275,6 +327,10 @@ body {
 .travelTour .tour-related-img {
     width: 100%;
     height: 65px;
+}
+
+.place-related strong{
+    font-weight: 600;
 }
 
 .day-la-class-custom {
@@ -291,8 +347,11 @@ body {
     box-shadow: 2px 2px 15px 1px rgba(0, 0, 0, 0.5)
 }
 
+.place-related img{
+    width: 100%;
+    height: 150px;
+}
 /*Style Post Detail*/
-
 .banner-post {
     height: 450px;
     position: relative;
@@ -349,6 +408,90 @@ body {
   
     
 }*/
+
+
+/*style Left layout*/
+
+
+
+.leftLayout img {
+    /* margin: 5px; */
+    width: 100%;
+    height: 100%;
+    /* border: 5px solid #eeeff4;*/
+}
+.leftLayout {
+    color: dimgray;
+    /* text-align: justify; */
+    font-weight: 500;
+    padding: 16px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.food-left img {
+    height: 120px;
+    width: 100px;
+    border: 5px solid white;
+    margin: 17px;
+}
+
+
+.style-item {
+      color: white;
+}
+.style-item:nth-child(2n){
+    margin-right: 0;
+}
+
+.password .m-5.border.bg-white.w-50 {
+    position: absolute;
+    top: 150px;
+    left: 100px;
+}
+
+
+
+/*Style login*/
+    .login {
+    background-color: grey;
+    padding: 80px 15%;
+}
+/*#loginForm{
+    margin: 5px;
+
+}*/
+#loginForm h4 {
+    letter-spacing: 0px;
+}
+section#loginForm {
+    background: white;
+    /* border-radius: 5px; */
+    padding: 40px;
+    margin-left: 0;
+    height: 100%;
+}
+
+.login .col-lg-6 {
+    padding: 1px;
+}
+.login img{
+    height: 445px;
+}
+.resigter {
+    padding: 30px;
+}
+.img-register img {
+    height: 488px;
+    width: 440px;
+}
+
+
+/*Style Tour Details*/
+.tour-details-img img{
+    width: 100%;
+    height: 335px;
+    margin-top: 10px;
+}
 
 
 

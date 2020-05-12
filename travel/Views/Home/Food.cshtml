@@ -5,7 +5,42 @@
     var posts = Model; // Posts là danh sách 12 foods mới nhất
 }
 
-<div>
-    @* Code UI logic *@
-    Demo dữ liệu @posts.Count
+
+
+<section class="banner mb-5">
+    <div class="site_title position-absolute">
+        <h1>Ẩm thực xứ Huế</h1>
+        <p>Những món ăn gây thương nhớ</p>
+    </div>
+    <div class="black-cover"></div>
+
+    <img src="~/Content/images/che.jpg" alt="Alternate Text" class="w-100 img-fluid object-fit-cover shadow" />
+</section>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-12 col-md-4 col-lg-4">
+            @Html.Action("RelatedPosts", "Posts")
+        </div>
+        <div class="col-sm-12 col-md-8 col-lg-8">
+            @*<div>
+            <h2>Ẩm thực xứ Huế</h2>
+            <h4>Những món ăn gây thương nhớ</h4>
+        </div>
+        <hr />*@
+            <div class="row">
+                @foreach (var item in posts)
+                {
+                    <div class="card-post shadow card">
+                        <img class="img-fluid object-fit-cover m-2" src="@item.Image" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Title</h5>
+                           
+                            <a href="/Posts/Details/@item.Id" class="btn btn-block btn-primary">Chi tiết bài viết</a>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
 </div>

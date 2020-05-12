@@ -1,6 +1,8 @@
-﻿
+﻿@model travel.Models.BookingModelView
 @{
     ViewBag.Title = "BookingTour";
+    var user = Model.user;
+    var tour = Model.tour;
 }
 
 <div class="main mt-5 mb-5">
@@ -14,19 +16,19 @@
                             <h4> 1. Thông tin liên lạc</h4>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Họ tên</label>
-                                <input type="name" class="form-control" id="exampleInputName" placeholder="Nhập họ và tên" name="fullname">
+                                <input type="name" class="form-control" id="exampleInputName"  placeholder="Nhập họ và tên" name="fullname"> 
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Số điện thoại</label>
-                                <input name="phoneNumber" type="phone" class="form-control" id="exampleInputPhone" placeholder="Nhập số điện thoại">
+                                <input name="phoneNumber" type="phone" class="form-control"  value="@user.PhoneNumber" id="exampleInputPhone" placeholder="Nhập số điện thoại">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Gmail</label>
-                                <input name="gmail" type="gmail" class="form-control" id="exampleInputGmail" aria-describedby="emailHelp" placeholder="Nhập gmail">
+                                <input name="gmail" type="gmail" class="form-control" id="exampleInputGmail"  value="@user.Email" aria-describedby="emailHelp" placeholder="Nhập gmail">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Ngày khởi hành</label>
-                                <input disabled="true" type="text" class="form-control" id="date_start" name="date_start" value="date_start">
+                                <input type="date" class="form-control" id="date_start" name="date_start">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Số người</label>
@@ -54,7 +56,7 @@
                         <th scope="row"><img style="width: 100% ; height: 250px;" class="img-fluid object-fit-cover" src="~/Content/images/cautrangtien.jpg"></th>
                     </tr>
                     <tr>
-                        <th scope="row"><p>Tour du lịch Đại Nội Huế</p></th>
+                        <th scope="row"><p>@tour.Name</p></th>
                     </tr>
                 </table>
                 <table class="border p-3 shadow" style="background-color: #b3e6ff;">
@@ -86,7 +88,7 @@
                             <ul class="pl-3">
                                 <li>Quý khách có thể thanh toán trước bằng thẻ tại đây.</li>
                                 <li>Mytour sẽ liên hệ với quý khách (qua email hoặc điện thoại) trong vòng 30 phút (T2-CN: 08:00 - 23:00) để xác nhận tour và thời hạn thanh toán.</li>
-                                <li>Quý khách sẽ thanh toán (tại nhà, tại HueTravel, chuyển khoản hay thẻ) sau khi có xác nhận còn tour từ Mytour.</li>
+                                <li>Quý khách sẽ thanh toán (tại nhà, tại HueTravel, chuyển khoản hay thẻ) sau khi có xác nhận còn tour từ HueTravel.</li>
                                 <li>
                                     Trường hợp Quý khách muốn xác nhận ngay, vui lòng liên hệ với  </tr>
                 </table>

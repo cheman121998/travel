@@ -1,99 +1,44 @@
-﻿@model travel.Models.Tour
-@using travel.Models
+﻿@model List<travel.Models.Tour>
+
 @{
-    ViewBag.Name = "Travel Tour"; 
-
+    ViewBag.Title = "Tour du lịch";
+    var tours = Model; 
 }
-
 
 <div class="travelTour mt-5 mb-5">
     <div class="container">
         <div class="row">
-            @{
-                Html.RenderPartial("_LeftOfLayout");
-            }
-            <hr>
-            <div class="col-sm-12 col-md-8 col-lg-8 hidden-sm">
-                <div>
-                    <h5>Đại Nội Huế</h5>
-                    <div class="row place-related ">
-                        <div class="col-sm-4"><img src="~/Content/images/daiNoi.jpg" class="img-fluid shadow"></div>
-                        <div class="col-sm-4">
-                            <p>
-                                <strong>Ngày khởi hành: </strong>01/02/2020<br>
-                                <strong>Thời gian: </strong>2 ngày 3 đêm<br>
-                                <strong>Địa điểm khởi hành: </strong>Khách sạn Morin<br>
-                                <strong>Phương tiện: </strong>Xe xích lô<br>
-                                <pre>Đảm bảo giá tốt nhất</pre>
-                            </p>
-                        </div>
-                        <div class="col-sm-4">
-                            <p><strong>Giá:</strong></p>
-                            <a href="#" class="btn btn-primary">Đặt tour</a>
 
-                        </div>
-                        <div>
-                            <!-- Button trigger modal -->
-                            <div class="col-sm-12"><button class="btn btn-success text-capitalize mt-3" data-toggle="modal" data-target="#modalInfoTravel">lịch trình</button></div>
+            <div class="col-sm-12 col-md-4 col-lg-4">
+                @Html.Action("RelatedPosts", "Posts")
+            </div>
+            <div class="col-sm-12 col-md-8 col-lg-8">
+                @foreach (var item in tours)
+                {
+                    <div>
+                        <a href="/Tours/Details/@item.Id"><h5>@item.Name</h5></a>
+                        <div class="row place-related ">
+                            <div class="col-sm-4"><a href="/Tours/Details/@item.Id"><img src="@item.Image" class="img-fluid shadow object-fit-cover"/></a></div>
+                            <div class="col-sm-4">
+                                <p>
+                                    <strong>Ngày khởi hành: </strong>@item.DateStart<br>
+                                    <strong>Thời gian: </strong>2 ngày 3 đêm<br>
+                                    <strong>Địa điểm khởi hành: </strong>@item.DeparturePlace<br>
+                                    <strong>Phương tiện: </strong>Xe xích lô<br>
+                                    <pre>Đảm bảo giá tốt nhất</pre>
+                                </p>
+                            </div>
+                            <div class="col-sm-4">
+                                <p><strong>Giá:</strong></p>
+                                <a href="/Tours/BookingTour" class="btn btn-primary">Đặt tour</a>
+                                <div><button class="btn btn-success text-capitalize mt-3" data-toggle="modal" data-target="#modalInfoTravel">lịch trình</button></div>
 
-                            <!-- Modal -->
+                            </div>
                         </div>
                     </div>
-                </div>
-                <hr>
-                <div>
-                    <h5>Chùa Từ Hiếu</h5>
-                    <div class="row place-related ">
-                        <div class="col-sm-4"><img src="~/Content/images/chuatuhieu.jpg" class="img-fluid shadow"></div>
-                        <div class="col-sm-4">
-                            <p>
-                                <strong>Ngày khởi hành: </strong>01/02/2020<br>
-                                <strong>Thời gian: </strong>2 ngày 3 đêm<br>
-                                <strong>Địa điểm khởi hành: </strong>Khách sạn Morin<br>
-                                <strong>Phương tiện: </strong>Xe xích lô<br>
-                                <pre>Đảm bảo giá tốt nhất</pre>
-                            </p>
-                        </div>
-                        <div class="col-sm-4">
-                            <p><strong>Giá:</strong></p>
-                            <a href="#" class="btn btn-primary">Đặt tour</a>
+                    <hr>
+                }
 
-                        </div>
-                        <div>
-                            <!-- Button trigger modal -->
-                            <div class="col-sm-12"><button class="btn btn-success text-capitalize mt-3" data-toggle="modal" data-target="#modalInfoTravel">lịch trình</button></div>
-
-                            <!-- Modal -->
-                        </div>
-                    </div>
-                </div>
-                <hr />
-                <div>
-                    <h5>Du lịch trên Sông Hương</h5>
-                    <div class="row place-related ">
-                        <div class="col-sm-4"><img src="~/Content/images/huemua.jpg" class="img-fluid shadow"></div>
-                        <div class="col-sm-4">
-                            <p>
-                                <strong>Ngày khởi hành: </strong>01/02/2020<br>
-                                <strong>Thời gian: </strong>2 ngày 3 đêm<br>
-                                <strong>Địa điểm khởi hành: </strong>Khách sạn Morin<br>
-                                <strong>Phương tiện: </strong>Xe xích lô<br>
-                                <pre>Đảm bảo giá tốt nhất</pre>
-                            </p>
-                        </div>
-                        <div class="col-sm-4">
-                            <p><strong>Giá:</strong></p>
-                            <a href="#" class="btn btn-primary">Đặt tour</a>
-
-                        </div>
-                        <div>
-                            <!-- Button trigger modal -->
-                            <div class="col-sm-12"><button class="btn btn-success text-capitalize mt-3" data-toggle="modal" data-target="#modalInfoTravel">lịch trình</button></div>
-
-                            <!-- Modal -->
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

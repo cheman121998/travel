@@ -29,6 +29,11 @@ namespace travel.Models
         [ForeignKey("CategoryTourId")]
         public virtual ICollection<Tour> Tours { get; set; }
     }
+    public class TourModelView
+    {
+        public Tour tour { get; set; }
+        public List<Tour> tours { get; set; }
+    }
 } 
 //Xong, a vừa liên kết giữa user và tour, e cần update database tiếp
 

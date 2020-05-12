@@ -6,116 +6,50 @@
     var tours = Model.Tours;
 }
 
-<div>
-    Đây là partial view - footer
-    có @foods.Count foods và @places.Count places và @tours.Count tours okie chưa? Tour ni em sẽ làm lại theo ý em.. chứ chưa có chi cả, ời, 
-    E thấy BE làm chi mô chủ yếu là FE cả, BE chỉ đóng vai trò nhỏ xíu, còn lại là tư duy FE nhiều...sao em sai từ đầu tới đuôi vậy nhỉ :D để em coi
-    e check mấy dòng code a code là thấy, a có làm chi mấy mô, sáng ni a mới ngồi mần xí cho đúng yêu cầu của LEADER thôi =))))) :(((((((((anh được,,,
-    Vậy em làm tiếp hấy okie
-</div>
     <div class="row">
         <div class="col-sm-3 col-md-3 col-lg-3">
             <h5>Địa điểm du lịch nổi bật</h5>
+           
             <div class="container-fluid">
-                <div class="row pt-3">
-                    <div class="d-flex" style="padding-right: 30px;">
-                        <img src="~/Content/images/daiNoi.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
-                    </div>
-                    <div>
-                        <img src="~/Content/images/doiVongCanh.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
-                    </div>
+               
+                <div class="row">
+                    @foreach (var item in places)
+                    {
+                        <a class="pr-4 pb-2" href="/Post/Details/@item.Id"><img src="@item.Image" alt="Alternate Text" class="img-fluid object-fit-cover" /></a>
+                    }
                 </div>
+               
             </div>
-            <div class="container-fluid">
-                <div class="row pt-1">
-                    <div class="d-flex" style="padding-right: 30px;">
-                        <img src="~/Content/images/daiNoi.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
-                    </div>
-                    <div>
-                        <img src="~/Content/images/doiVongCanh.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
-                    </div>
-                </div>
-            </div>
-            <div class="container-fluid">
-                <div class="row pt-1">
-                    <div class="d-flex" style="padding-right: 30px;">
-                        <img src="~/Content/images/daiNoi.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
-                    </div>
-                    <div>
-                        <img src="~/Content/images/doiVongCanh.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
-                    </div>
-                </div>
-            </div>
+           
         </div>
         <div class="col-sm-3 col-md-3 col-lg-3">
             <h5>Ẩm thực Huế</h5>
             <div class="container-fluid">
-                <div class="row pt-3">
-                    <div class="d-flex" style="padding-right: 30px;">
-                        <img src="~/Content/images/banhbeo.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
-                    </div>
-                    <div>
-                        <img src="~/Content/images/banhcuon.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
-                    </div>
+                <div class="row">
+                        @foreach (var item in foods)
+                        {
+                            <a class="pr-4 pb-2" href="/Posts/Details/@item.Id"><img src="@item.Image" alt="Alternate Text" class="img-fluid object-fit-cover" /></a>
+                        }
                 </div>
-            </div>
-            <div class="container-fluid">
-                <div class="row pt-1">
-                    <div class="d-flex" style="padding-right: 30px;">
-                        <img src="~/Content/images/banhit.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
-                    </div>
-                    <div>
-                        <img src="~/Content/images/banhnam.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
-                    </div>
-                </div>
-            </div>
-            <div class="container-fluid">
-                <div class="row pt-1">
-                    <div class="d-flex" style="padding-right: 30px;">
-                        <img src="~/Content/images/bunheo.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
-                    </div>
-                    <div>
-                        <img src="~/Content/images/che.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
-                    </div>
-                </div>
-            </div>
+           </div>
         </div>
         <div class="col-sm-3 col-md-3 col-lg-3">
             <h5>Tours</h5>
             <div class="container-fluid">
-                <div class="row pt-3">
-                    <div class="d-flex" style="padding-right: 30px;">
-                        <img src="~/Content/images/daiNoi.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
-                    </div>
-                    <div>
-                        <img src="~/Content/images/doiVongCanh.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
-                    </div>
-                </div>
-            </div>
-            <div class="container-fluid">
-                <div class="row pt-1">
-                    <div class="d-flex" style="padding-right: 30px;">
-                        <img src="~/Content/images/daiNoi.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
-                    </div>
-                    <div>
-                        <img src="~/Content/images/doiVongCanh.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
-                    </div>
-                </div>
-            </div>
-            <div class="container-fluid">
-                <div class="row pt-1">
-                    <div class="d-flex" style="padding-right: 30px;">
-                        <img src="~/Content/images/daiNoi.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
-                    </div>
-                    <div>
-                        <img src="~/Content/images/doiVongCanh.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" />
-                    </div>
+                <div class="row">
+                        @foreach(var item in tours)
+                        {
+                        <a class="pr-4 pb-2" href="/Tours/Details/@item.Id">
+                            <img src="@item.Image" alt="Alternate Text" class="img-fluid object-fit-cover" />
+                        </a>
+                        }
                 </div>
             </div>
         </div>
         <div class="col-sm-12 col-md-3 col-lg-3 contact">
-            <img src="~/Content/images/logo.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" style="width: auto; border: solid 1px white;" />
-
+            <a href="/Home">
+                <img src="~/Content/images/logo.jpg" alt="Alternate Text" class="img-fluid object-fit-cover" style="width: auto; border: solid 1px white;" />
+            </a>
             <div class="row">
                 <div class="col-6">
                     <i class="fas fa-map-marker-alt"></i>

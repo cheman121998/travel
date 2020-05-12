@@ -1,0 +1,35 @@
+﻿
+@model travel.Models.ViewModels.TourPartialModelView
+
+@{
+    var tours = Model.Tours;
+   
+}
+<div class="box shadow">
+    <div class="box-header">
+        <h4 class="box-title">
+            Tour du lịch nổi bật
+        </h4>
+    </div>
+    <hr />
+    <div class="box-body">
+        <div class="row pd-top-10 nav-thumbnails">
+            <div class="vertical-item col-sm-12">
+                <div class="item-thumbnail card card-header">
+                    @foreach (var item in tours)
+                    {
+                        <a href="/Tours/Details/@item.Id">
+                            <img class="img-fluid object-fit-cover shadow" src="@item.Image" alt="">
+                            <div class="item-name">
+                                @item.Name
+                            </div>
+                        </a>
+                        <hr />
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

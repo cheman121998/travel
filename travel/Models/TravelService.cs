@@ -14,7 +14,7 @@ namespace travel.Models
         public string Phone { get; set; }
         public string Email { get; set; }
         public string Website { get; set; }
-        public long Nnkd { get; set; } //Cái chi ri thuộc tính của travel service thôi anh, ý anh là gì, em search thuộc tính của travel service mà nó ra từ viết tắt vậy luôn chứ em k biết :D mà em thays 1 dãy số, e k biết nó là gì, cũng k biết nó dùng để làm giề trong hệ thống mà cũng đưa vào đc
+        public long Nnkd { get; set; } // Ngành nghề kinh doanh //Cái chi ri thuộc tính của travel service thôi anh, ý anh là gì, em search thuộc tính của travel service mà nó ra từ viết tắt vậy luôn chứ em k biết :D mà em thays 1 dãy số, e k biết nó là gì, cũng k biết nó dùng để làm giề trong hệ thống mà cũng đưa vào đc
         public string UserId { get; set; } 
         public virtual ApplicationUser User { get; set; }
     }
