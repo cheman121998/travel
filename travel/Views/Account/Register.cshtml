@@ -4,54 +4,49 @@
 }
 
 
-    <div class="">
-        <div class="login">
-            <div style="display: grid;grid-template-columns: 50% 50%;">
-                <div style="height: 100%;">
-                    <section id="loginForm">
-                        <div class="resigter">
-                            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                            {
-                                @Html.AntiForgeryToken()
+<div class="">
+    <div class="login">
+        <div style="display: grid; grid-template-columns: 50% 50%;">
+            <div style="height: 80%;">
+                <section id="loginForm">
+                    <div class="resigter">
+                        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div style="margin-bottom: 32px;">
                                 <h4>Tạo tài khoản mới</h4>
-                                <hr />
-                                @Html.ValidationSummary("", new { @class = "text-danger" })
-                                <div class="form-group">
-                                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-                                    <div class="col-md-8">
-                                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                                    </div>
+                            </div>
+                            @Html.ValidationSummary("", new { @class = "text-danger" })
+                            <div class="form-group">
+                                <div style="margin-bottom: 32px;">
+                                    @Html.TextBoxFor(m => m.Email, new { placeholder = "Nhập địa chỉ Email", @class = "form-control" })
                                 </div>
-                                <div class="form-group">
-                                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                                    <div class="col-md-8">
-                                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                                    </div>
+                            </div>
+                            <div class="form-group">
+                                <div style="margin-bottom: 32px;">
+                                    @Html.PasswordFor(m => m.Password, new { placeholder = "Nhập mật khẩu", @class = "form-control" })
                                 </div>
-                                <div class="form-group">
-                                    @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-                                    <div class="col-md-8">
-                                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-                                    </div>
+                            </div>
+                            <div class="form-group">
+                                <div style="margin-bottom: 32px;">
+                                    @Html.PasswordFor(m => m.ConfirmPassword, new {placeholder = "Xác nhận mật khẩu", @class = "form-control" })
                                 </div>
-                                <div class="form-group">
-                                    <div class="col-md-4 col-md-8">
-                                        <input type="submit" class="btn btn-default btn-block btn-dark" value="Tạo tài khoản" />
-                                    </div>
+                            </div>
+                            <div class="form-group">
+                                <div style="max-width: 65%;">
+                                    <input type="submit" class="btn btn-default btn-block btn-dark" value="Tạo tài khoản"/>
                                 </div>
-                            }
-                        </div>
-                    </section>
-                </div>
-                <div style="height: 100%;">
-                    <img src="~/Content/images/register.jpg" alt="Alternate Text" style="width: 100%;height: 100%; object-fit: cover;" />
-                </div>
+                            </div>
+                        }
+                    </div>
+                </section>
+            </div>
+            <div style="height: 80%;">
+                <img src="~/Content/images/register.jpg" alt="Alternate Text" style="width: 100%; height: 100%; object-fit: cover;" />
             </div>
         </div>
     </div>
-
-
-
+</div>
 
 
 @section Scripts {

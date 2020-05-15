@@ -78,21 +78,19 @@
                             <dd>
                                 @Html.DisplayFor(model => model.DeparturePlace)
                             </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Price)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Price)
+                            </dd>
 
                         </dl>
                     </div>
                     <div class="col-sm-12 col-md-2 col-lg-2">
-                        <div class="text-success">Thêm giá vào DB nhé :(</div>
-                        <a class="btn btn-primary" href="/Tours/BookingTour">Đặt ngay</a>
+                        <div class="text-success" style="font-weight: 600; font-size: 30px;">@Model.Price $</div>
+                        <a class="btn btn-primary" href="/Tours/BookingTour/@Model.Id">Đặt ngay</a>
                     </div>
-                </div>
-
-            </div>
-            <div class="card mt-4">
-                <div>
-                    Tên nhà cung cấp <br />
-                    Địa chỉ <br />
-                    SĐT
                 </div>
             </div>
             <div class="card border-primary mt-4 mb-4">
@@ -127,7 +125,7 @@
             <div class="card border-warning">
                 <div class="card-header accordion">Lịch trình <i class="fas fa-chevron-circle-down"></i></div>
                 <div class="panel">
-                    <div>content lịch trình</div>
+                    <div style="margin-left: 20px;">@Model.Schedule</div>
                 </div>
             </div>
             <div class="card border-success mt-4">
@@ -200,16 +198,3 @@
     }
 </script>
 
-@*<div class="row">
-        <div class="col-md-4 col-sm-12 col-lg-4">
-            @Html.Action("RelatedTours", "Tours")
-        </div>
-
-        <h4>Tour</h4>
-        <hr />
-
-    </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>*@

@@ -17,6 +17,8 @@ namespace travel.Models
         public string Destination { get; set; }
         public string DeparturePlace { get; set; }
         public long CategoryTourId { get; set; } //Thấy long k
+        public long Price { get; set; }  //Giá ở đây là giá tour
+        public string ShortDes { get; set; } 
         public virtual CategoryTour CategoryTour { get; set; }
 
         public DateTime CreatedAt { get; set; }

@@ -36,14 +36,9 @@
                                         <div class="pr-1"><i class="far fa-calendar-alt"></i></div>
                                         @*<div>@post.UpdatedAt.ToShortDateString()</div>*@
                                     </div>
-                                    <div class="d-flex pr-3">
-                                        <div class="pr-1"><i class="fas fa-eye"></i></div>
-                                        <div> 123</div>
-                                    </div>
-                                    <div class="d-flex p-2 btn btn-primary">
-                                        <div class="pr-1"><i class="far fa-thumbs-up"></i></div>
-                                        <div>Thích 34</div>
-                                    </div>
+                                    <div>
+                                        <iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Flocalhost%3A61393%2FTours%2FDetails%2F3&width=159&layout=button_count&action=like&size=large&share=true&height=46&appId" width="159" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                                                                 
                                 </div>
                             </div>
                         </div>
@@ -54,27 +49,25 @@
                             </div>
                         </div>
                         <hr />
-                        <section class="comment">
+                        <section class="comment" style="width: 100%;">
                             <div class="container row" style="justify-content: space-between;">
 
-                                <div> 1 bình luận </div>
+                                <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-numposts="5" data-width=""></div>
 
-                                <div class="row">
-                                    <div class="pr-1">Sắp xếp theo:</div>
-                                    <select>
-                                        <option selected>Choose...</option>
-                                        <option value="1">Mới nhất</option>
-                                        <option value="2">Cũ nhất</option>
 
-                                    </select>
-                                </div>
                             </div>
                         </section>
                     </div>
+                    
                 </div>
+               
             </div>
         </div>
     </section>
 
-</body>
 
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v7.0"></script>
+
+</body>

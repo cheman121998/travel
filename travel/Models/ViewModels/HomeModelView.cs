@@ -10,6 +10,6 @@ namespace travel.Models
         public List<Post> Places { get; set; }
         public List<Post> Foods { get; set; }
         public List<Tour> Tours { get; set; }
-        public List<TourDetail> TourDetails { get; set; }
+        public List<BookingTour> TourDetails { get; set; }
     }
 }

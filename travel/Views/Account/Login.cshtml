@@ -5,35 +5,33 @@
 }
 
 
-@*<div class="container mt-5 mb-5 login">
-        <div class="row m-5">
-            <div class="col-sm-12 col-md-6 col-lg-6">
-                <img class="img-fluid object-fit-cover" src="~/Content/images/login.jpg" alt="Alternate Text" />
+<div class="login">
+        <div class="" style="display: grid; grid-template-columns: 50% 50%;">
+            <div style="height: 100%;">
+                <img src="~/Content/images/login.jpg" alt="Alternate Text" style="width: 100%;height: 100%; object-fit: cover;" />
             </div>
-            <div class="col-md-6 col-lg-6 col-sm-12">
+            <div style="height: 100%;">
                 <section id="loginForm">
                     @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                     {
                         @Html.AntiForgeryToken()
-                        <h4>Đăng nhập</h4>
-                        <hr />
+                        <h3 style="margin-bottom: 32px;">Đăng nhập</h3>
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         <div class="form-group">
-                            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-                            <div class="col-md-10">
-                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                          
+                            <div style="margin: 24px 0;">
+                                @Html.TextBoxFor(m => m.Email, new { placeholder = "Nhập địa chỉ Email", @class = "form-control" })
                                 @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-group">
-                            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                            <div class="col-md-10">
-                                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                            <div style="margin: 24px 0;">
+                                @Html.PasswordFor(m => m.Password, new { placeholder = "Nhập mật khẩu",  @class = "form-control" })
                                 @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-md-4 col-md-8">
+                            <div>
                                 <div class="checkbox">
                                     @Html.CheckBoxFor(m => m.RememberMe)
                                     @Html.LabelFor(m => m.RememberMe)
@@ -41,73 +39,26 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-md-4 col-md-8">
+                            <div style="max-width: 65%;">
                                 <input type="submit" value="Đăng nhập" class="btn btn-dark btn-block btn-default" />
                             </div>
                         </div>
-                        <div class="ml-2">
+                        <div style="padding-top: 24px;margin-top: 32px;border-top: 1px solid #e1e1e1;">
                             <p style="font-weight: 600">
-                                @Html.ActionLink("Đăng ký tài khoản mới", "Register")
+                                @Html.ActionLink("Đăng ký tài khoản mới", "Register", new{ @class="register-item"})
                             </p>
 
                             <p>
-                                @Html.ActionLink("Quên mật khẩu", "ForgotPassword")
+                                @Html.ActionLink("Quên mật khẩu", "ForgotPassword", new { @class="forgotPass"})
                             </p>
+                           
                         </div>
                     }
                 </section>
             </div>
         </div>
-    </div>*@
-
-<div class="">
-    <div class="login ">
-        <div class="" style="display: grid;grid-template-columns: 50% 50%;">
-            <div class="" style="/* flex: 1; */height: 100%;">
-                <img class="" src="/Content/images/login.jpg" alt="Alternate Text" style="width: 100%;height: 100%; object-fit: cover;">
-            </div>
-            <div class="" style="/* flex: 1; */ height: 100%;">
-                <section id="loginForm">
-                    <form action="/Account/Login" class="form-horizontal" method="post" role="form" novalidate="novalidate">
-                        <input name="__RequestVerificationToken" type="hidden" value="36FQtMXLEK4g5f8jWCy52lN3PsNYBiqrJpOsB5BFjOtNQ2eaQwfXPo3juEumLP-wUdE56IMfk0dtaOwObOakUmbaJ1-_o3ApiyjkYNEO1QU1">
-                        <h3 style="margin-bottom: 32px;">
-                            Đăng nhập
-                        </h3>
-                        <div style="margin: 24px 0;">
-                            <input class="form-control" data-val="true" data-val-email="The Email field is not a valid e-mail address." data-val-required="The Email field is required." id="Email" name="Email" type="text" value="" placeholder="Nhập địa chỉ Email">
-                            <div></div>
-                        </div>
-                        <div style="margin: 24px 0;">
-                            <input placeholder="Nhập mật khẩu" class="form-control" data-val="true" data-val-required="The Mật khẩu field is required." id="Password" name="Password" type="password">
-                        </div>
-                        <div class="form-group">
-                            <div class="">
-                                <div class="checkbox">
-                                    <input data-val="true" data-val-required="The Lưu mật khẩu field is required." id="RememberMe" name="RememberMe" type="checkbox" value="true"><input name="RememberMe" type="hidden" value="false">
-                                    <label for="RememberMe">Lưu mật khẩu</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="" style="max-width: 65%;">
-                                <input type="submit" value="Đăng nhập" class="btn btn-dark btn-block btn-default">
-                            </div>
-                        </div>
-                        <div class="" style="padding-top: 24px;margin-top: 32px;border-top: 1px solid #e1e1e1;">
-                            <p style="font-weight: 600">
-                                <a href="/Account/Register" style="color: #484848;">Đăng ký tài khoản mới</a>
-                            </p>
-
-                            <p>
-                                <a href="/Account/ForgotPassword" style="color: #6e6e6e; margin-bottom: 0;">Quên mật khẩu</a>
-                            </p>
-                        </div>
-                    </form>
-                </section>
-            </div>
-        </div>
     </div>
-</div>
+
 
 
 

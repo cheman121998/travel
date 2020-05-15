@@ -5,12 +5,12 @@ using System.Web;
 
 namespace travel.Models
 {
-    public class TourDetail
+    public class BookingTour
     {
         public long Id { get; set; }
         public long CountAdult { get; set; }
         public long CountChild { get; set; }
-        public long Price { get; set; }
+        public long Price { get; set; } //Giá ở đây là tổng số tiền mà khách phải trả
         public DateTime DateBook { get; set; }
         public string UserId { get; set; }
         public virtual ApplicationUser User { get; set; }

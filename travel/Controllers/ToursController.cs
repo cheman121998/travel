@@ -24,12 +24,14 @@ namespace travel.Controllers
         }
 
         //Get: TravelTour
-        [Authorize] //như này là bắt login vào mới đc dùng => okie cái đăng nhập này chưa, controller nào cần thì cứ nhét cái đó zô trên cái controller là đc dạ, do em k hiểu chữ nào,, tưởng anh đang hỏi
-        public async Task<ActionResult> TravelTour(int page=1)
+        //như này là bắt login vào mới đc dùng => okie cái đăng nhập này chưa, controller nào cần thì cứ nhét cái đó zô trên cái controller là đc dạ, do em k hiểu chữ nào,, tưởng anh đang hỏi
+        public async Task<ActionResult> TravelTour(string search, int page=1)
         {
             ViewBag.page = page;
-            var tours = db.Tours.OrderByDescending(x => x.CreatedAt).Skip((page - 1) * 12).Take(12).ToList();
-            return View(tours);
+           
+                var tours = db.Tours.Where(x => x.Name.Contains(search) || x.DeparturePlace.Contains(search)).OrderByDescending(x => x.CreatedAt).Skip((page - 1) * 12).Take(12).ToList();
+                return View(tours);
+           
         }
         //Giờ BE cần gì nào, cái trang đặt tour,,, cần lưu thông tin user và tour =, lấy được thông tin tour
         // Chức năng gì trước, cái nào cần trước? Danh sách tour hay là chi tiết tour hay là đặt tour????  lấy thông tin tour cần trước, xong lưu thông tin
@@ -88,12 +90,13 @@ namespace travel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Name,Policy,Schedule,DateStart,Destination,DeparturePlace,CategoryTourId,Image")] Tour tour)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Name,Policy,Schedule,DateStart,Destination,DeparturePlace,CategoryTourId,Image,Price")] Tour tour)
         {
             if (ModelState.IsValid)
             {
                 tour.CreatedAt = DateTime.Now;
                 tour.UpdatedAt = DateTime.Now;
+                tour.DateStart = DateTime.Now;
                 db.Tours.Add(tour);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -124,7 +127,7 @@ namespace travel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Policy,Schedule,DateStart,Destination,DeparturePlace,CategoryTourId,Image")] Tour tour)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Policy,Schedule,DateStart,Destination,DeparturePlace,CategoryTourId,Image,Price")] Tour tour)
         {
             if (ModelState.IsValid)
             {

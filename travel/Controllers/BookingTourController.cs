@@ -11,7 +11,7 @@ using travel.Models;
 
 namespace travel.Controllers
 {
-    public class TourDetailsController : Controller
+    public class BookingTourController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
@@ -29,7 +29,7 @@ namespace travel.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TourDetail tourDetail = await db.TourDetails.FindAsync(id);
+            BookingTour tourDetail = await db.TourDetails.FindAsync(id);
             if (tourDetail == null)
             {
                 return HttpNotFound();
@@ -50,7 +50,7 @@ namespace travel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,CountAdult,CountChild,Price,DateBook,UserId,TourId")] TourDetail tourDetail)
+        public async Task<ActionResult> Create([Bind(Include = "Id,CountAdult,CountChild,Price,DateBook,UserId,TourId")] BookingTour tourDetail)
         {
             if (ModelState.IsValid)
             {
@@ -71,7 +71,7 @@ namespace travel.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TourDetail tourDetail = await db.TourDetails.FindAsync(id);
+            BookingTour tourDetail = await db.TourDetails.FindAsync(id);
             if (tourDetail == null)
             {
                 return HttpNotFound();
@@ -86,7 +86,7 @@ namespace travel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,CountAdult,CountChild,Price,DateBook,UserId,TourId")] TourDetail tourDetail)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,CountAdult,CountChild,Price,DateBook,UserId,TourId")] BookingTour tourDetail)
         {
             if (ModelState.IsValid)
             {
@@ -106,7 +106,7 @@ namespace travel.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TourDetail tourDetail = await db.TourDetails.FindAsync(id);
+            BookingTour tourDetail = await db.TourDetails.FindAsync(id);
             if (tourDetail == null)
             {
                 return HttpNotFound();
@@ -119,7 +119,7 @@ namespace travel.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(long id)
         {
-            TourDetail tourDetail = await db.TourDetails.FindAsync(id);
+            BookingTour tourDetail = await db.TourDetails.FindAsync(id);
             db.TourDetails.Remove(tourDetail);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");

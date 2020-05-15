@@ -12,7 +12,7 @@ namespace travel.Models
     public class ApplicationUser : IdentityUser
     {
         [ForeignKey("UserId")]
-        public virtual ICollection<TourDetail> TourDetails { get; set; }
+        public virtual ICollection<BookingTour> TourDetails { get; set; }
         [ForeignKey("UserId")]
         public virtual ICollection<TravelService> TravelServices { get; set; }
 
@@ -36,7 +36,7 @@ namespace travel.Models
         public DbSet<Category> Categories { get; set; }
         public DbSet<Tour> Tours { get; set; }
         public DbSet<CategoryTour> CategoryTours { get; set; }
-        public DbSet<TourDetail> TourDetails { get; set; } //2 thằng này e tự add hay họ tự tạo, họ tạo anh, em chưa làm gì trong file này cả
+        public DbSet<BookingTour> TourDetails { get; set; } //2 thằng này e tự add hay họ tự tạo, họ tạo anh, em chưa làm gì trong file này cả
         public DbSet<TravelService> TravelServices { get; set; } //E tự add vào đây mới chạy được
 
         public ApplicationDbContext()

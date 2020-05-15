@@ -8,6 +8,7 @@ namespace travel.Models
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
+        public string Phone { get; set; }
     }
 
     public class ExternalLoginListViewModel
