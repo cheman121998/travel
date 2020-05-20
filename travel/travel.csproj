@@ -19,8 +19,8 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress />
-    <IISExpressSSLPort />
+    <Use64BitIISExpress>false</Use64BitIISExpress>
+    <IISExpressSSLPort>44337</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -58,6 +58,9 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -66,6 +69,12 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -178,7 +187,9 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -204,6 +215,7 @@
     <Compile Include="Models\Tour.cs" />
     <Compile Include="Models\BookingTour.cs" />
     <Compile Include="Models\TravelService.cs" />
+    <Compile Include="Views\Admin\SidebarViewModel.cs" />
     <Compile Include="Models\ViewModels\TourDetailModelView.cs" />
     <Compile Include="Models\ViewModels\TourPartialModelView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -220,23 +232,31 @@
     <Content Include="Content\font-awesome-all.css" />
     <Content Include="Content\images\avt.jpg" />
     <Content Include="Content\images\banhbeo.jpg" />
+    <Content Include="Content\images\banhcanhnampho.jpg" />
+    <Content Include="Content\images\banhcanhnampho1.jpg" />
     <Content Include="Content\images\banhcuon.jpg" />
     <Content Include="Content\images\banhit.jpg" />
     <Content Include="Content\images\banhnam.jpg" />
     <Content Include="Content\images\bien.jpg" />
     <Content Include="Content\images\bien1.jpeg" />
     <Content Include="Content\images\bien2.jpg" />
+    <Content Include="Content\images\bunbohue.jpg" />
     <Content Include="Content\images\bundau.jpg" />
     <Content Include="Content\images\bundau1.jpg" />
     <Content Include="Content\images\bundau2.jpg" />
     <Content Include="Content\images\bunheo.jpg" />
     <Content Include="Content\images\bunhue.jpg" />
     <Content Include="Content\images\bunhue1.jpg" />
+    <Content Include="Content\images\bunThitNuong.jpg" />
+    <Content Include="Content\images\bunthitnuong1.jpg" />
+    <Content Include="Content\images\canbangamduong.jpg" />
     <Content Include="Content\images\cautrangtien.jpg" />
     <Content Include="Content\images\che.jpg" />
     <Content Include="Content\images\checungdinh.jpg" />
     <Content Include="Content\images\chuatuhieu.jpg" />
     <Content Include="Content\images\colau.jpg" />
+    <Content Include="Content\images\comhen.jpg" />
+    <Content Include="Content\images\comhen1.jpg" />
     <Content Include="Content\images\cotco.jpg" />
     <Content Include="Content\images\cungdinh.jpg" />
     <Content Include="Content\images\cungdinh1.jpg" />
@@ -251,7 +271,6 @@
     <Content Include="Content\images\hue3.jpg" />
     <Content Include="Content\images\huemua.jpg" />
     <Content Include="Content\images\logo.jpg" />
-    <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\map.jpg" />
     <Content Include="Content\images\moncungdinh.jpg" />
     <Content Include="Content\images\moncungdinh1.jpg" />
@@ -262,22 +281,30 @@
     <Content Include="Content\images\nemcong2.jpg" />
     <Content Include="Content\images\nemcong3.jpg" />
     <Content Include="Content\images\nemlui.jpg" />
+    <Content Include="Content\images\nemlui1.jpg" />
+    <Content Include="Content\images\nhavuon.jpg" />
+    <Content Include="Content\images\nhavuon1.jpg" />
     <Content Include="Content\images\pass.jpg" />
+    <Content Include="Content\images\pho.jpg" />
     <Content Include="Content\images\phongcanh.jpg" />
     <Content Include="Content\images\register.jpg" />
     <Content Include="Content\images\rucha.jpg" />
     <Content Include="Content\images\rucha1.jpg" />
     <Content Include="Content\images\sen.jpg" />
+    <Content Include="Content\images\songhuong.jpg" />
+    <Content Include="Content\images\songhuong1.jpg" />
     <Content Include="Content\images\thienmu.jpg" />
     <Content Include="Content\images\thienmu1.jpg" />
     <Content Include="Content\images\truongtientoi.jpg" />
     <Content Include="Content\jquery-3.2.1.min.js" />
     <Content Include="Content\jquery.elevateZoom-3.0.8.min.js" />
     <Content Include="Content\images\login.jpg" />
+    <Content Include="Content\images\logo.png" />
     <Content Include="Content\moment-with-locales.min.js" />
     <Content Include="Content\owl.carousel.min.css" />
     <Content Include="Content\owl.theme.default.css" />
     <Content Include="Content\pass.jpg" />
+    <Content Include="Content\sb-admin-2.min.css" />
     <Content Include="Content\style.css" />
     <Content Include="Content\tempusdominus-bootstrap-4.min.css" />
     <Content Include="Content\tempusdominus-bootstrap-4.min.js" />
@@ -619,6 +646,11 @@
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\chart-area-demo.js" />
+    <Content Include="Scripts\chart-bar-demo.js" />
+    <Content Include="Scripts\chart-pie-demo.js" />
+    <Content Include="Scripts\Chart.min.js" />
+    <Content Include="Scripts\datatables-demo.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
@@ -667,6 +699,7 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\sb-admin-2.min.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
@@ -748,9 +781,17 @@
     <Content Include="Views\Posts\_RelatedPostsPartial.cshtml" />
     <Content Include="Views\Shared\_FooterPartial.cshtml" />
     <Content Include="Views\Tours\_RelatedToursPartial.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Tour.cshtml" />
+    <Content Include="Views\Admin\Create.cshtml" />
+    <Content Include="Views\Admin\CreateTour.cshtml" />
+    <Content Include="Views\Admin\Sidebar.cshtml" />
+    <Content Include="Views\Admin\EditTour.cshtml" />
+    <Content Include="Views\Admin\DeleteTour.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\" />
     <Folder Include="Image\" />
   </ItemGroup>
   <ItemGroup>
@@ -788,7 +829,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>61393</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:61393/</IISUrl>
+          <IISUrl>http://localhost:1234/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

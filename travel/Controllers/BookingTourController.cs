@@ -49,7 +49,6 @@ namespace travel.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "Id,CountAdult,CountChild,Price,DateBook,UserId,TourId")] BookingTour tourDetail)
         {
             if (ModelState.IsValid)

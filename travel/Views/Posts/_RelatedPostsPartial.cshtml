@@ -9,24 +9,24 @@
     <nav class="navbar navbar-light">
         <form class="form-inline text-white" action="/Tours/TravelTour/">
             <div>Chọn loại tour du lịch</div>
-            <input class="form-control" type="text" placeholder="Search" aria-label="Search" name="search">
-            <button class="btn btn-primary my-2 my-sm-0" type="submit">Search <i class="fa fa-search"></i></button>
+            <input class="form-control" type="text" placeholder="Nhập thông tin" aria-label="Search" name="search">
+            <button class="btn btn-primary my-2 my-sm-0" type="submit">Tìm kiếm</button>
         </form>
     </nav>
 </div>
-    <div class="bg-light p-1" style="margin: 24px 0;">
-        <h5 class="text-center bg-success text-white p-2 border" style="margin-bottom: 0;">
+    <div class="bg-dark" style="margin: 24px 0;">
+        <h5 class="text-center bg-primary text-white p-2" style="margin-bottom: 0;">
             Địa điểm du lịch
         </h5>
         @foreach (var item in places)
         {
             <a href="/Posts/Details/@item.Id">
-                <div class="leftLayout ">
+                <div class="leftLayout p-1">
                     <div class="d-flex">
                         <div class="" style="width: 140px;height: 110px;">
                             <img class="img-fluid object-fit-cover" src="@item.Image" alt="Card image cap">
                         </div>
-                        <div class="" style="padding: 16px; flex: 1;">@item.Title</div>
+                        <div class="text-white" style="padding: 16px; flex: 1;">@item.Title</div>
                     </div>
                 </div>
             </a>
@@ -39,7 +39,7 @@
         <div class="food-leftlayout">
             @foreach (var item in foods)
             {
-                <div class="man" style="padding: 12px;">
+                <div style="padding: 12px;">
                     <a href="/Posts/Details/@item.Id" style="">
                         <div class="style-item">
                             <img class="img-fluid object-fit-cover position-relative" src="@item.Image" alt="Alternate Text" style="height: 120px; width: 100%;">

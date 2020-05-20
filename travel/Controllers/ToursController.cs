@@ -25,7 +25,7 @@ namespace travel.Controllers
 
         //Get: TravelTour
         //như này là bắt login vào mới đc dùng => okie cái đăng nhập này chưa, controller nào cần thì cứ nhét cái đó zô trên cái controller là đc dạ, do em k hiểu chữ nào,, tưởng anh đang hỏi
-        public async Task<ActionResult> TravelTour(string search, int page=1)
+        public async Task<ActionResult> TravelTour(string search="", int page=1)
         {
             ViewBag.page = page;
            

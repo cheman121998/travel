@@ -7,7 +7,9 @@
     <link rel="stylesheet" type="text/css" href="~/Content/bootstrap-reboot.min.css.map">
     <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="~/Content/font-awesome-all.css">
-    @Styles.Render("~/Content/bootstrap.min.css")
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
     @Scripts.Render("~/bundles/modernizr")
     <link href="~/Content/owl.carousel.min.css" rel="stylesheet" />
     <link href="~/Content/owl.theme.default.min.css" rel="stylesheet" type="text/css" />
@@ -17,7 +19,7 @@
     <link rel="stylesheet" type="text/css" href="~/Content/style.css">
 </head>
 <body>
-    <div class="navbar navbar-expand-lg navbar-dark text-light bg-dark">
+    <div id="mainNav" class="navbar navbar-expand-lg navbar-dark text-light bg-dark">
         <div class="container">
             <div class="navbar-expand-lg">
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
@@ -28,16 +30,15 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="/Home"><img src="~/Content/images/logo.jpg" class="img-fluid object-fit-cover mr-5" alt="Alternate Text" style="width: 150px;" /></a>
+                <a href="/Home"><img src="~/Content/images/logo.jpg" class="img-fluid object-fit-cover mr-5" alt="Alternate Text" style="width: 230px; height: 70px;" /></a>
             </div>
             <div class="navbar-collapse collapse" style="justify-content:space-between">
                 <ul class="nav navbar-nav">
-                    <li class="pr-3 pl-3 border-right text-uppercase">@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li class="pr-3 pl-3 border-right text-uppercase">@Html.ActionLink("Place", "Place", "Home")</li>
-                    <li class="pr-3 pl-3 border-right text-uppercase">@Html.ActionLink("Food", "Food", "Home")</li>
+                    <li class="pr-3 pl-3 border-right text-uppercase">@Html.ActionLink("Trang Chủ", "Index", "Home")</li>
+                    <li class="pr-3 pl-3 border-right text-uppercase">@Html.ActionLink("Địa điểm", "Place", "Home")</li>
+                    <li class="pr-3 pl-3 border-right text-uppercase">@Html.ActionLink("Ẩm thực", "Food", "Home")</li>
                     <li class="pr-3 pl-3 border-right text-uppercase">@Html.ActionLink("Tour", "TravelTour", "Tours")</li>
-                    <li class="pr-3 pl-3 border-right text-uppercase">@Html.ActionLink("About", "About", "Home")</li>
-                    <li class="pr-3 pl-3 text-uppercase">@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li class="pr-3 pl-3 text-uppercase">@Html.ActionLink("Liên lạc", "Contact", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -46,30 +47,88 @@
     <div class="body-content">
         @RenderBody()
     </div>
-    <footer class="bg-dark text-white footer pt-5">
-        <div class="container mt-5 mb-5">
-            @Html.Action("FooterPartial", "Home")
-        </div>
-
-        <hr class="bg-white" />
+   
+    <footer class="bg-dark p-5">
         <div class="container">
             <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-6">
-                    <p>&copy; @DateTime.Now.Year - Man Man Stronger</p>
+                <div class="col-md-3 info">
+                    <h5> <img src="~/Content/images/logo.jpg"></h5>
+                    <div>
+                        <p>Sự hài lòng của các bạn là niềm hạnh phúc của chúng tôi.</p>
+                        <br>
+                        <p><b>Địa chỉ:</b></p>
+                        <p>99 Hồ Đắc Di, Thành phố Huế</p>
+                        <br>
+                        <p><b>Phone:</b> 1234567890</p>
+                        <p><b>Fax:</b> 1234567890</p>
+                        <p><b>Email:</b> travel@gmail.com</p>
+                    </div>
                 </div>
-                <div class="col-sm-6 col-md-6 col-lg-6">
-                    <i class="fab fa-facebook-square"></i>
-                    <i class="fab fa-google-plus-square"></i>
-                    <i class="fab fa-twitter-square"></i>
-                    <i class="fab fa-skype"></i>
-                    <i class="fab fa-instagram-square"></i>
+                <div class="col-md-5">
+                    <h5 class="text-uppercase">Những bài viết gần đây</h5>
+                    <div class="blog">
+                        <a href="#">Amazing post with all the goodies </a>
+                        <span>March 23, 2013</span>
+                    </div>
+                    <hr>
+                    <div class="blog">
+                        <a href="#">Amazing post with all the goodies </a>
+                        <span>March 23, 2013</span>
+                    </div>
+                    <hr>
+                    <div class="blog">
+                        <a href="#">Amazing post with all the goodies </a>
+                        <span>March 23, 2013</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="text-uppercase">Bài viết nổi bật</h5>
+                    <div class="gallery">
+                        <img src="~/Content/images/banhcanhnampho.jpg" alt="1">
+                        <img src="~/Content/images/bundau.jpg" alt="1">
+                        <img src="~/Content/images/che.jpg" alt="1">
+                        <img src="~/Content/images/chuatuhieu.jpg" alt="1">
+                        <img src="~/Content/images/daiNoi.jpg" alt="1">
+                        <img src="~/Content/images/bien.jpg" alt="1">
+                        <img src="~/Content/images/cotco.jpg" alt="1">
+                        <img src="~/Content/images/bien2.jpg" alt="1">
+                        <img src="~/Content/images/hue2.jpg" alt="1">
+                    </div>
                 </div>
             </div>
         </div>
-
     </footer>
-   
+    <div class="footer-copyright">
+        <div class="container d-flex justify-content-between align-items-center">
+            <span class="copyright">COPYRIGHT © 2020 - Man Man Stronger</span>
+            <ul class="list-inline social-buttons">
+                <li class="list-inline-item">
+                    <a href="#" style="line-height: 30px;"><i class="fa fa-facebook"></i></a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
     @RenderSection("scripts", required: false)
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <script src="~/Content/agency.js"></script>
 </body>
 
 </html>

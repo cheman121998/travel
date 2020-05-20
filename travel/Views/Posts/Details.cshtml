@@ -9,9 +9,9 @@
     <section class="banner-post mb-5">
         <div class="black-cover-2">
             <div class="title-post">
-                <div>
+                <div class="title-banner-item">
                     <h1>@Model.Title</h1>
-                    <h6 class="text-white" style="font-weight: 600; font-size: 20px;">@Html.ActionLink("HOME", "Index", "Home")</h6>
+                    <h6 style="font-weight: 600; font-size: 20px;">@Html.ActionLink("HOME", "Index", "Home")</h6>
                 </div>
             </div>
         </div>
@@ -26,38 +26,30 @@
                         @Html.Action("RelatedPosts", "Posts")
                     </div>
 
-                    <div class="col-sm-12 col-md-8 col-lg-8 border">
+                    <div class="col-sm-12 col-md-8 col-lg-8">
                         <div class="title">
-                            <h3 class="mt-3 card-header-tabs">@Model.Title</h3>
-                            <br />
-                            <div class="container">
-                                <div class="row">
-                                    <div class="d-flex pr-3">
-                                        <div class="pr-1"><i class="far fa-calendar-alt"></i></div>
-                                        @*<div>@post.UpdatedAt.ToShortDateString()</div>*@
-                                    </div>
-                                    <div>
-                                        <iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Flocalhost%3A61393%2FTours%2FDetails%2F3&width=159&layout=button_count&action=like&size=large&share=true&height=46&appId" width="159" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                                                                 
+                            <div class="post-food">
+                                <div>
+                                    @Html.Raw(Model.Content)
                                 </div>
                             </div>
-                        </div>
-                        <hr />
-                        <div class="post-food">
-                            <div>
-                                @Html.Raw(Model.Content)
+                            <hr />
+                            <div class="container">
+                                <div class="row">
+                                    <div>
+                                        <div class="fb-like" data-href="http://localhost:1234/posts/Details/@Model.Id" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
+                                    </div>
+                                </div>
                             </div>
+                            
+                            <section class="comment" style="width: 100%;">
+                                <div class="container row" style="justify-content: space-between;">
+
+                                    <div class="fb-comments" data-href="http://localhost:61393/Posts/Details/@Model.Id" data-numposts="5" data-width=""></div>
+
+                                </div>
+                            </section>
                         </div>
-                        <hr />
-                        <section class="comment" style="width: 100%;">
-                            <div class="container row" style="justify-content: space-between;">
-
-                                <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-numposts="5" data-width=""></div>
-
-
-                            </div>
-                        </section>
-                    </div>
                     
                 </div>
                
