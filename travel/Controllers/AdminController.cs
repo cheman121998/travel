@@ -12,7 +12,7 @@ using Microsoft.AspNet.Identity;
 
 namespace travel.Controllers
 {
-    [Authorize(Roles ="Admin")]
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -20,8 +20,8 @@ namespace travel.Controllers
         public async Task<ActionResult> Index()
         {
             ViewBag.numberUsers = db.Users.Count();
-            ViewBag.numberPlaces = db.Posts.Where(x=>x.Category.Type=="Place").Count();
-            ViewBag.numberFood = db.Posts.Where(x=>x.Category.Type=="Food").Count();
+            ViewBag.numberPlaces = db.Posts.Where(x => x.Category.Type == "Place").Count();
+            ViewBag.numberFood = db.Posts.Where(x => x.Category.Type == "Food").Count();
             ViewBag.numberTour = db.Tours.Count();
             return View();
         }
@@ -101,19 +101,93 @@ namespace travel.Controllers
             {
                 return HttpNotFound();
             }
-            return View(tour);
-        }
-
-        // POST: Tours/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(long id)
-        {
-            Tour tour = await db.Tours.FindAsync(id);
             db.Tours.Remove(tour);
             await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+            return RedirectToAction("Tour");
         }
 
+        public async Task<ActionResult> Post()
+        {
+            var posts = db.Posts.Include(t => t.Category);
+            return View(await posts.ToListAsync());
+        }
+
+        // GET: Posts/Create
+        public ActionResult CreatePost()
+        {
+            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", "Image");
+            return View();
+        }
+
+        // POST: Posts/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        public async Task<ActionResult> CreatePost([Bind(Include = "Id,Title,Content,CategoryId,Image")] Post post)
+        {
+            if (ModelState.IsValid)
+            {
+                post.CreatedAt = DateTime.Now;
+                post.UpdatedAt = DateTime.Now;
+                db.Posts.Add(post);
+                await db.SaveChangesAsync();
+                return RedirectToAction("Post");
+            }
+
+            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", post.CategoryId, "Image");
+            return View(post);
+        }
+
+        // GET: Posts/Edit/5
+        public async Task<ActionResult> EditPost(long? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Post post = await db.Posts.FindAsync(id);
+            if (post == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", post.CategoryId, "Image");
+            return View(post);
+        }
+
+
+
+        // POST: Posts/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost, ValidateInput(false)]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> EditPost([Bind(Include = "Id,Title,Content,CreatedAt,UpdatedAt,CategoryId,Image")] Post post)
+        {
+            if (ModelState.IsValid)
+            {
+                post.UpdatedAt = DateTime.Now;
+                db.Entry(post).State = EntityState.Modified;
+                await db.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", post.CategoryId, "Image");
+            return View(post);
+        }
+
+        // GET: Posts/Delete/5
+        public async Task<ActionResult> DeletePost(long? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Post post = await db.Posts.FindAsync(id);
+            if (post == null)
+            {
+                return HttpNotFound();
+            }
+            return View(post);
+        }
+    
     }
 }

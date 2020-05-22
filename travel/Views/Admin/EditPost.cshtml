@@ -1,11 +1,12 @@
-﻿@model IEnumerable<travel.Models.Tour>
+﻿@model travel.Models.Post
+
+@{
+    ViewBag.Title = "Edit";
+}
 
 <link href="~/Content/sb-admin-2.min.css" rel="stylesheet">
-<link href="~/Content/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 <style>
-
-
     footer, #mainNav {
         display: none;
     }
@@ -14,6 +15,8 @@
         display: none;
     }
 </style>
+
+
 
 <div id="wrapper">
 
@@ -213,73 +216,78 @@
 
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Quản lý Tour</h1>
-                    <a class="btn btn-primary d-sm-inline-block d-none shadow-sm" href="/admin/createtour"><i class="fas fa-plus"></i> Tạo tour mới</a>
+                    <h1 class="h3 mb-0 text-gray-800">Chỉnh sửa bài viết</h1>
                 </div>
 
-                <div class="card shadow mb-4">
+                <div class="card">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
 
-                    @{
-                        ViewBag.Title = "Tour";
-                    }
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Danh sách tour</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            Tour du lịch
-                                        </th>
-                                        <th>
-                                            Ngày bắt đầu
-                                        </th>
-                                        <th>
-                                            Nơi đến
-                                        </th>
-                                        <th>
-                                            Xuất phát
-                                        </th>
-                                        <th>
-                                            Giá
-                                        </th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var item in Model)
-                                    {
-                                        <tr>
+                        <div class="form-horizontal m-3">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(model => model.Id)
 
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Name)
-                                            </td>
-                                            <td>
-                                                @item.DateStart.ToString("dd/MM/yyyy")
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Destination)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.DeparturePlace)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Price)
-                                            </td>
-                                            <td>
-                                                <a href="/admin/EditTour/@item.Id" class="btn btn-sm btn-primary"><i class="fas fa-pen"></i></a>
-                                                <a href="/admin/Deletetour/@item.Id" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                                            </td>
-                                        </tr>
-                                    }
-                                </tbody>
-                            </table>
+                            <div class="form-group">
+                                                         
+                                <div class="col-md-10">
+                                    <div>Tiêu đề</div>
+                                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
 
+                            <div class="form-group">
+                                
+                                <div class="col-md-10">
+                                    <div>Nội dung</div>
+                                    @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                
+                                <div class="col-md-10">
+                                    <div>Thời gian tạo</div>
+                                    @Html.EditorFor(model => model.CreatedAt, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.CreatedAt, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                            
+                                <div class="col-md-10">
+                                    <div>Thời gian chỉnh sửa</div>
+                                    @Html.EditorFor(model => model.UpdatedAt, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.UpdatedAt, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                
+                                <div class="col-md-10">
+                                    <div>Thể loại</div>
+                                    @Html.DropDownList("CategoryId", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                
+                                <div class="col-md-10">
+                                    <div>Hình ảnh</div>
+                                    @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Save" class="btn btn-primary" />
+                                </div>
+                            </div>
                         </div>
-                    </div>
-
+                    }
                 </div>
             </div>
             <!-- /.container-fluid -->
@@ -287,35 +295,12 @@
         </div>
         <!-- End of Main Content -->
         <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Your Website 2019</span>
-                </div>
-            </div>
-        </footer>
         <!-- End of Footer -->
 
     </div>
     <!-- End of Content Wrapper -->
 
 </div>
-<!-- End of Page Wrapper -->
-<!-- Scroll to Top Button-->
-<a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-</a>
-<script src="~/Scripts/sb-admin-2.min.js"></script>
-<script src="~/Scripts/jquery.dataTables.min.js"></script>
-<script src="~/Scripts/dataTables.bootstrap4.min.js"></script>
 
 
-<!-- Page level plugins -->
-<script src="~/Scripts/Chart.min.js"></script>
 
-<!-- Page level custom scripts -->
-<script>
-    $(document).ready(function () {
-        $('#dataTable').DataTable();
-    });
-</script>

@@ -1,19 +1,14 @@
-﻿@model IEnumerable<travel.Models.Tour>
-
+﻿@model travel.Models.Post
 <link href="~/Content/sb-admin-2.min.css" rel="stylesheet">
-<link href="~/Content/dataTables.bootstrap4.min.css" rel="stylesheet">
-
+@{
+    ViewBag.Title = "Create";
+}
 <style>
-
-
-    footer, #mainNav {
-        display: none;
-    }
-
-    .footer-copyright {
+    footer, #mainNav, .footer-copyright {
         display: none;
     }
 </style>
+
 
 <div id="wrapper">
 
@@ -210,75 +205,67 @@
             <!-- End of Topbar -->
             <!-- Begin Page Content -->
             <div class="container-fluid">
-
-                <!-- Page Heading -->
-                <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Quản lý Tour</h1>
-                    <a class="btn btn-primary d-sm-inline-block d-none shadow-sm" href="/admin/createtour"><i class="fas fa-plus"></i> Tạo tour mới</a>
+                <div class="ml-2">
+                    <h2>Tạo mới bài viết</h2>
                 </div>
+                <div class="card">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-horizontal m-2">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="container-fluid">
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.AntiForgeryToken()
 
-                <div class="card shadow mb-4">
+                                    <div class="form-horizontal">
 
-                    @{
-                        ViewBag.Title = "Tour";
-                    }
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Danh sách tour</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            Tour du lịch
-                                        </th>
-                                        <th>
-                                            Ngày bắt đầu
-                                        </th>
-                                        <th>
-                                            Nơi đến
-                                        </th>
-                                        <th>
-                                            Xuất phát
-                                        </th>
-                                        <th>
-                                            Giá
-                                        </th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var item in Model)
-                                    {
-                                        <tr>
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                        <div class="form-group">
+                                            <label class="control-label col-md-2" for="Name">Tiêu đề</label>
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
 
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Name)
-                                            </td>
-                                            <td>
-                                                @item.DateStart.ToString("dd/MM/yyyy")
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Destination)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.DeparturePlace)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Price)
-                                            </td>
-                                            <td>
-                                                <a href="/admin/EditTour/@item.Id" class="btn btn-sm btn-primary"><i class="fas fa-pen"></i></a>
-                                                <a href="/admin/Deletetour/@item.Id" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                                            </td>
-                                        </tr>
-                                    }
-                                </tbody>
-                            </table>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-2" for="Name">Hình ảnh</label>
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label col-md-2">Nội dung</label>
+                                            <div class="col-md-10">
+                                                <textarea name="Content" class="form-control"></textarea>
+                                                @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label col-md-2" for="Name">Loại bài viết</label>
+                                            <div class="col-md-10">
+                                                @Html.DropDownList("CategoryId", null, htmlAttributes: new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-md-offset-2 col-md-10">
+                                                <input type="submit" value="Tạo mới" class="btn btn-primary" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+
 
                         </div>
-                    </div>
+                    }
 
                 </div>
             </div>
@@ -306,16 +293,18 @@
     <i class="fas fa-angle-up"></i>
 </a>
 <script src="~/Scripts/sb-admin-2.min.js"></script>
-<script src="~/Scripts/jquery.dataTables.min.js"></script>
-<script src="~/Scripts/dataTables.bootstrap4.min.js"></script>
-
 
 <!-- Page level plugins -->
 <script src="~/Scripts/Chart.min.js"></script>
 
 <!-- Page level custom scripts -->
-<script>
-    $(document).ready(function () {
-        $('#dataTable').DataTable();
-    });
-</script>
+<script src="~/Scripts/chart-area-demo.js"></script>
+<script src="~/Scripts/chart-pie-demo.js"></script>
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

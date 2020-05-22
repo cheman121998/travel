@@ -29,7 +29,7 @@ namespace travel.Controllers
         {
             ViewBag.page = page;
            
-                var tours = db.Tours.Where(x => x.Name.Contains(search) || x.DeparturePlace.Contains(search)).OrderByDescending(x => x.CreatedAt).Skip((page - 1) * 12).Take(12).ToList();
+                var tours = db.Tours.Where(x => x.Name.Contains(search) || x.DeparturePlace.Contains(search)).OrderByDescending(x => x.CreatedAt).Skip((page - 1) * 12).Take(6).ToList();
                 return View(tours);
            
         }

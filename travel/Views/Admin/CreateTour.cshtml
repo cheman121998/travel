@@ -1,14 +1,6 @@
 ﻿@model travel.Models.Tour
 
 <link href="~/Content/sb-admin-2.min.css" rel="stylesheet">
-@{
-    /**/
-
-    var numberUsers = ViewBag.numberUsers;
-    var numberPlaces = ViewBag.numberPlaces;
-    var numberFood = ViewBag.numberFood;
-    var numberTours = ViewBag.numberTour;
-}
 <style>
 
 
@@ -217,17 +209,15 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Tour</h1>
-                </div>
+                <div class="m-2"> <h1 class="h3 mb-0 text-gray-800">Tạo mới Tour</h1></div>
 
-                <div>
+                <div class="card">
+
                     @using (Html.BeginForm())
                     {
                         @Html.AntiForgeryToken()
-
                         <div class="form-horizontal">
-                            <hr />
+
                             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                             <div class="form-group">
                                 <label class="control-label col-md-2" for="Name">Tour du lịch</label>
@@ -238,7 +228,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="control-label col-md-2" for="Policy">Chính sách</label>  
+                                <label class="control-label col-md-2" for="Policy">Chính sách</label>
                                 <div class="col-md-10">
                                     @Html.EditorFor(model => model.Policy, new { htmlAttributes = new { @class = "form-control" } })
                                     @Html.ValidationMessageFor(model => model.Policy, "", new { @class = "text-danger" })
@@ -302,7 +292,7 @@
 
                             <div class="form-group">
                                 <div class="col-md-offset-2 col-md-10">
-                                    <input type="submit" value="Create" class="btn btn-primary" />
+                                    <input type="submit" value="Tạo mới" class="btn btn-primary" />
                                 </div>
                             </div>
                         </div>

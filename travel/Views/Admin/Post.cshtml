@@ -1,7 +1,9 @@
-﻿@model IEnumerable<travel.Models.Tour>
-
+﻿@model IEnumerable<travel.Models.Post>
 <link href="~/Content/sb-admin-2.min.css" rel="stylesheet">
 <link href="~/Content/dataTables.bootstrap4.min.css" rel="stylesheet">
+@{
+    ViewBag.Title = "Index";
+}
 
 <style>
 
@@ -27,6 +29,7 @@
         <div id="content">
 
             <!-- Topbar -->
+            //Cái ni cho vô partial luôn này
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
                 <!-- Sidebar Toggle (Topbar) -->
@@ -213,66 +216,62 @@
 
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Quản lý Tour</h1>
-                    <a class="btn btn-primary d-sm-inline-block d-none shadow-sm" href="/admin/createtour"><i class="fas fa-plus"></i> Tạo tour mới</a>
+                    <h1 class="h3 mb-0 text-gray-800">Quản Lý Bài Viết</h1>
+                    <a class="btn btn-primary d-sm-inline-block d-none shadow-sm" href="/admin/createpost"><i class="fas fa-plus"></i> Tạo bài viết mới</a>
                 </div>
 
                 <div class="card shadow mb-4">
 
                     @{
-                        ViewBag.Title = "Tour";
+                        ViewBag.Title = "Bài viết";
                     }
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Danh sách tour</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Danh sách bài viết</h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>
-                                            Tour du lịch
+                                        <th style="max-width: 200px;">
+                                            Ảnh
+                                        </th>
+                                        <th style="max-width: 300px;">
+                                            Tiêu đề
                                         </th>
                                         <th>
-                                            Ngày bắt đầu
+                                            Thể loại
                                         </th>
+
                                         <th>
-                                            Nơi đến
+                                            Thời gian tạo
                                         </th>
-                                        <th>
-                                            Xuất phát
-                                        </th>
-                                        <th>
-                                            Giá
-                                        </th>
-                                        <th></th>
+
+                                        <th style="width: 70px;"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach (var item in Model)
                                     {
-                                        <tr>
+                                    <tr>
 
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Name)
-                                            </td>
-                                            <td>
-                                                @item.DateStart.ToString("dd/MM/yyyy")
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Destination)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.DeparturePlace)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Price)
-                                            </td>
-                                            <td>
-                                                <a href="/admin/EditTour/@item.Id" class="btn btn-sm btn-primary"><i class="fas fa-pen"></i></a>
-                                                <a href="/admin/Deletetour/@item.Id" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                                            </td>
-                                        </tr>
+                                        <td style="max-width: 200px;max-height: 100px">
+                                            <img style="width:100%" src="@item.Image"/>
+                                        </td>
+                                        <td style="max-width: 300px;">
+                                            @Html.DisplayFor(modelItem => item.Title)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Category.Name)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CreatedAt)
+                                        </td>
+                                        <td style="width: 70px;">
+                                            <a href="/admin/EditPost/@item.Id" class="btn btn-sm btn-primary"><i class="fas fa-pen"></i></a>
+                                            <a href="/admin/DeletePost/@item.Id" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                                        </td>
+                                    </tr>
                                     }
                                 </tbody>
                             </table>
@@ -319,3 +318,4 @@
         $('#dataTable').DataTable();
     });
 </script>
+
