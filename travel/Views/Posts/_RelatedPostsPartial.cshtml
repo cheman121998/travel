@@ -5,25 +5,24 @@
     var places = Model.Places;
 }
 
-<div class="search bg-danger">
-    <nav class="navbar navbar-light">
-        <form class="form-inline text-white" action="/Tours/TravelTour/">
-            <div>Chọn loại tour du lịch</div>
-            <input class="form-control" type="text" placeholder="Nhập thông tin" aria-label="Search" name="search">
-            <button class="btn btn-primary my-2 my-sm-0" type="submit">Tìm kiếm</button>
+<div class="search">
+    <nav>
+        <form action="/Tours/TravelTour/">
+            <input class="form-control" type="text" placeholder="Tìm tour du lịch..." aria-label="Search" name="search">
+            <button class="btn btn-primary my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
         </form>
     </nav>
 </div>
     <div class="bg-dark" style="margin: 24px 0;">
-        <h5 class="text-center bg-primary text-white p-2" style="margin-bottom: 0;">
+        <h5 class="text-center bg-primary text-uppercase text-white p-3" style="margin-bottom: 0;">
             Địa điểm du lịch
         </h5>
         @foreach (var item in places)
         {
             <a href="/Posts/Details/@item.Id">
-                <div class="leftLayout p-1">
-                    <div class="d-flex">
-                        <div class="" style="width: 140px;height: 110px;">
+                <div class="leftLayout p-3">
+                    <div class="d-flex align-items-center">
+                        <div style="width: 140px;height: 80px;">
                             <img class="img-fluid object-fit-cover" src="@item.Image" alt="Card image cap">
                         </div>
                         <div class="text-white" style="padding: 16px; flex: 1;">@item.Title</div>
@@ -33,7 +32,7 @@
         }
     </div>
     <div class="bg-dark ood-left" style="margin: 24px 0;">
-        <h5 class="text-center bg-primary text-white p-2" style="margin-bottom: 0;">
+        <h5 class="text-center text-uppercase bg-primary text-white p-2" style="margin-bottom: 0;">
             Ẩm thực Huế
         </h5>
         <div class="food-leftlayout">

@@ -1,0 +1,108 @@
+﻿@model System.Collections.Generic.IEnumerable<travel.Models.CategoryTour> 
+<link href = "~/Content/sb-admin-2.min.css" rel = "stylesheet"/>
+@{
+   ViewBag.Title = "Category Tour";
+}
+<style>
+    
+    footer, #mainNav, .footer-copyright {
+        display: none;
+    }
+</style>
+
+
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    @Html.Partial("Sidebar")
+    <!-- End of Sidebar -->
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            @Html.Partial("HeaderAdmin")
+            <!-- End of Topbar -->
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+                <div class="d-flex mb-2" style="justify-content: space-between;">
+                    <h2>Loại Tour</h2>
+                    <a class="btn btn-primary d-sm-inline-block d-none shadow-sm" href="/admin/createcategorytour"><i class="fas fa-plus"></i> Tạo mới</a>
+                </div>
+                <div class="card">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-horizontal m-2">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="container-fluid">
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <div class="form-horizontal m-5">
+                                        <table class="table">
+                                            <tr>
+                                                <th>
+                                                    Loại Tour
+                                                </th>
+                                                <th></th>
+                                            </tr>
+
+                                            @foreach (var item in Model)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Name)
+                                                    </td>
+                                                    <td>
+                                                        <a href="/admin/EditCategoryTour/@item.Id" class="btn btn-sm btn-primary"><i class="fas fa-pen"></i></a>
+                                                        <a href="/admin/DeleteCategoryTour/@item.Id" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                                                    </td>
+                                                </tr>
+                                            }
+
+                                        </table>
+                                    </div>
+                                }
+                            </div>
+
+
+                        </div>
+                    }
+
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright &copy; Your Website 2019</span>
+                </div>
+            </div>
+        </footer>
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+<script src="~/Scripts/sb-admin-2.min.js"></script>
+
+<!-- Page level plugins -->
+<script src="~/Scripts/Chart.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="~/Scripts/chart-area-demo.js"></script>
+<script src="~/Scripts/chart-pie-demo.js"></script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

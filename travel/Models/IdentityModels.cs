@@ -32,7 +32,7 @@ namespace travel.Models
         //Mấy cái đấy đâu cần đâu @@ a ví dụ mẫu ở trên rồi kìa, Vì răng e lại add nhiều vậy
         //Em tạo Model rồi tạo Controller xong nó tự ra View cho em như lời anh nói đó :|
 
-        public DbSet<Post> Posts { get; set; }  //Cái chi đây???????????????????????????
+        public DbSet<Post> Posts { get; set; } 
         public DbSet<Category> Categories { get; set; }
         public DbSet<Tour> Tours { get; set; }
         public DbSet<CategoryTour> CategoryTours { get; set; }

@@ -1,0 +1,98 @@
+﻿
+@model travel.Models.CategoryTour
+<link href="~/Content/sb-admin-2.min.css" rel="stylesheet">
+@{
+    ViewBag.Title = "Create CategoryTour";
+}
+<style>
+    footer, #mainNav, .footer-copyright {
+        display: none;
+    }
+</style>
+
+
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    @Html.Partial("Sidebar")
+    <!-- End of Sidebar -->
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            @Html.Partial("HeaderAdmin")
+            <!-- End of Topbar -->
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+                <div>
+                    <h2>Tạo mới loại tour</h2>
+                </div>
+                <div class="card">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-horizontal m-2">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="container-fluid">
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.AntiForgeryToken()
+
+                                <div class="form-horizontal m-5">
+
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="form-group row">
+                                        <label class="custom-control-label col-md-2">Loại Tour</label>
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <input type="submit" value="Tạo mới" class="btn btn-primary" />
+                                </div>
+                                }
+                                
+                            </div>
+
+
+                        </div>
+                    }
+
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright &copy; Your Website 2019</span>
+                </div>
+            </div>
+        </footer>
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+<script src="~/Scripts/sb-admin-2.min.js"></script>
+
+<!-- Page level plugins -->
+<script src="~/Scripts/Chart.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="~/Scripts/chart-area-demo.js"></script>
+<script src="~/Scripts/chart-pie-demo.js"></script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

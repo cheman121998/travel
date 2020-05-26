@@ -55,12 +55,12 @@ namespace travel.Controllers
             {
                 db.TourDetails.Add(tourDetail);
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return Redirect(Request.UrlReferrer.ToString());
             }
 
             ViewBag.TourId = new SelectList(db.Tours, "Id", "Name", tourDetail.TourId);
             ViewBag.UserId = new SelectList(db.Users, "Id", "Email", tourDetail.UserId);
-            return View(tourDetail);
+            return Redirect(Request.UrlReferrer.ToString());
         }
 
         // GET: TourDetails/Edit/5

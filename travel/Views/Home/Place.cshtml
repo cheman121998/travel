@@ -20,9 +20,6 @@
             @Html.Action("RelatedPosts", "Posts")
         </div>
         <div class="col-sm-12 col-md-8 col-lg-8">
-            <div>
-                <img src="~/Content/images/.jpg" alt="Alternate Text" />
-            </div>
             @*<div>
                     <h2>Ẩm thực xứ Huế</h2>
                     <h4>Những món ăn gây thương nhớ</h4>
@@ -31,7 +28,7 @@
             <div class="row">
                 @foreach (var item in posts)
                 {
-                    <div class="card-post shadow card">
+                    <div class="card-post shadow card mr-2 mb-2">
                         <img class="img-fluid object-fit-cover m-2" src="@item.Image" alt="Card image cap">
                         <div class="card-body">
                             <h6 class="card-title">@item.Title</h6>

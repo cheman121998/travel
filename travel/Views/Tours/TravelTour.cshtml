@@ -15,8 +15,8 @@
             <div class="col-sm-12 col-md-8 col-lg-8">
                 @foreach (var item in tours)
                 {
-                    <div>
-                        <a href="/Tours/Details/@item.Id"><h5>@item.Name</h5></a>
+                    <div style="padding: 12px 0px">
+                        <a href="/Tours/Details/@item.Id"><h4 style="font-weight: 600;margin-bottom: 16px;">@item.Name</h4></a>
                         <div class="row place-related ">
                             <div class="col-sm-4"><a href="/Tours/Details/@item.Id"><img src="@item.Image" class="img-fluid shadow object-fit-cover"/></a></div>
                             <div class="col-sm-4">
@@ -29,7 +29,7 @@
                                 </p>
                             </div>
                             <div class="col-sm-4">
-                                <p><strong class="text-primary">Giá: @item.Price $</strong></p>
+                                <p><strong class="text-warning" style="font-size: 22px; text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.35); color:#ffc107!important">Giá chỉ từ: @item.Price $</strong></p>
                                 <a href="/Tours/Details/@item.Id" class="btn btn-primary">Xem tour</a>
                                 <a href="/Tours/BookingTour/@item.Id" class="btn btn-success">Đặt tour</a>
 

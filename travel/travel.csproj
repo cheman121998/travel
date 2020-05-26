@@ -221,6 +221,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\caugo.jpg" />
     <Content Include="Content\agency.js" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -250,6 +251,7 @@
     <Content Include="Content\images\bunThitNuong.jpg" />
     <Content Include="Content\images\bunthitnuong1.jpg" />
     <Content Include="Content\images\canbangamduong.jpg" />
+    <Content Include="Content\images\caugo1.jpg" />
     <Content Include="Content\images\cautrangtien.jpg" />
     <Content Include="Content\images\che.jpg" />
     <Content Include="Content\images\checungdinh.jpg" />
@@ -786,7 +788,6 @@
     <Content Include="Views\Tours\TravelTour.cshtml" />
     <Content Include="Views\Tours\BookingTour.cshtml" />
     <Content Include="Views\Posts\Post.cshtml" />
-    <Content Include="Views\Shared\_LeftOfLayout.cshtml" />
     <Content Include="Views\Home\Place.cshtml" />
     <Content Include="Views\Home\Food.cshtml" />
     <Content Include="Views\Posts\_RelatedPostsPartial.cshtml" />
@@ -798,11 +799,17 @@
     <Content Include="Views\Admin\CreateTour.cshtml" />
     <Content Include="Views\Admin\Sidebar.cshtml" />
     <Content Include="Views\Admin\EditTour.cshtml" />
-    <Content Include="Views\Admin\DeleteTour.cshtml" />
     <Content Include="Views\Admin\Post.cshtml" />
     <Content Include="Views\Admin\CreatePost.cshtml" />
     <Content Include="Views\Admin\EditPost.cshtml" />
-    <Content Include="Views\Admin\DeletePost.cshtml" />
+    <Content Include="Views\Admin\HeaderAdmin.cshtml" />
+    <Content Include="Views\Admin\User.cshtml" />
+    <Content Include="Views\Admin\CategoryPost.cshtml" />
+    <Content Include="Views\Admin\CreateCategory.cshtml" />
+    <Content Include="Views\Admin\EditCategory.cshtml" />
+    <Content Include="Views\Admin\CategoryTour.cshtml" />
+    <Content Include="Views\Admin\CreateCategoryTour.cshtml" />
+    <Content Include="Views\Admin\EditCategoryTour.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

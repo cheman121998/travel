@@ -1,0 +1,87 @@
+﻿
+
+@model travel.Models.CategoryTour
+
+@{
+    ViewBag.Title = "Edit CategoryTour";
+}
+
+<link href="~/Content/sb-admin-2.min.css" rel="stylesheet">
+
+<style>
+    footer, #mainNav {
+        display: none;
+    }
+
+    .footer-copyright {
+        display: none;
+    }
+</style>
+
+
+
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    @Html.Partial("Sidebar")
+    <!-- End of Sidebar -->
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            @Html.Partial("HeaderAdmin")
+            <!-- End of Topbar -->
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">Chỉnh sửa loại tour</h1>
+                </div>
+
+                <div class="card">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal m-5">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(model => model.Id)
+                            
+                            <div class="form-group row">
+                                <label class="custom-control-label col-md-2">Loại Tour</label>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group row">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Lưu" class="btn btn-warning" />
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+        <!-- Footer -->
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+
+
+

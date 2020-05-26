@@ -1,4 +1,10 @@
 ﻿
+<style>
+/*Vứt mấy thằng scroll-to-top ở mấy trang kia đi, sidebar là đủ rồi*/
+    .scroll-to-top{
+        z-index: 99
+    }
+</style>
 <!-- Sidebar -->
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
@@ -14,7 +20,7 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
+    <li class="nav-item">
         <a class="nav-link" href="/Admin/Index">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>BẢNG THỐNG KÊ</span>
@@ -28,35 +34,43 @@
     <!-- Nav Item - Pages Collapse Menu -->
     <!-- Heading -->
     <div class="sidebar-heading">
-        Thêm vào
+        Quản lý
     </div>
 
 
-
+    <li class="nav-item">
+        <a class="nav-link" href="/Admin/user">
+            <i class="fas fa-fw fa-user"></i>
+            <span>Danh sách người dùng</span>
+        </a>
+     
+    </li>
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <div class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-fw fa-wrench"></i>
-            <span>Quản lý bài viết</span>
+        <div class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePost" aria-expanded="true" aria-controls="collapsePost">
+            <i class="far fa-fw fa-newspaper"></i>
+            <span>Bài viết</span>
         </div>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div id="collapsePost" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="/Admin/CreatePost">Thêm mới bài viết</a>
                 <a class="collapse-item" href="/Admin/Post">Danh sách bài viết</a>
-               
+                <a class="collapse-item" href="/Admin/CreatePost">Tạo mới bài viết</a>
+                <a class="collapse-item" href="/Admin/CategoryPost">Thể loại</a>
             </div>
         </div>
     </li>
     <li class="nav-item">
-        <div class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-fw fa-wrench"></i>
-            <span>Quản lý tour</span>
+        <div class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTour" aria-expanded="true" aria-controls="collapseTour">
+            <i class="fas fa-fw fa-plane"></i>
+            <span>Tour du lịch</span>
         </div>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div id="collapseTour" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="/Admin/CreateTour">Thêm mới tour</a>
-                <a class="collapse-item" href="/Admin/Tour">Danh sách tour</a>
+                <a class="collapse-item" href="/Admin/Tour">Danh sách Tour</a>
+                <a class="collapse-item" href="/Admin/CreateTour">Tạo mới Tour</a>
+                <a class="collapse-item" href="/Admin/CategoryTour">Thể loại</a>
+
             </div>
         </div>
     </li>
@@ -67,5 +81,11 @@
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        <a class="scroll-to-top rounded" href="#accordionSidebar">
+            <i class="fas fa-angle-up"></i>
+        </a>
 </ul>
 <!-- End of Sidebar -->
+<script>
+    //Cái ni tí về a viết script active navbar cho.
+</script>
