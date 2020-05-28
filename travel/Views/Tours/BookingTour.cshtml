@@ -12,51 +12,82 @@
 
             <div class="row">
                 <div class="col-sm-12 col-md-4 col-lg-4">
-                    <div class="tour border bg-light p-3 shadow">
                         <input name="TourId" hidden value="@tour.Id">
                         <input name="UserId" hidden value="@user.Id">
-                        <div style="border: 1px;">
-                            <h4> 1. Điền thông tin liên hệ</h4>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Họ tên</label>
-                                <input type="text" class="form-control" id="exampleInputName" placeholder="Nhập họ và tên" name="fullname">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Số điện thoại</label>
-                                <input name="phoneNumber" type="text" class="form-control" value="@user.PhoneNumber" id="exampleInputPhone" placeholder="Nhập số điện thoại">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Gmail</label>
-                                <input name="gmail" type="text" class="form-control" id="exampleInputGmail" value="@user.Email" aria-describedby="emailHelp" placeholder="Nhập gmail">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Ngày khởi hành</label>
-                                <input type="date" class="form-control" id="date_start" name="DateBook">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Số người lớn</label>
-                                <input name="CountAdult" type="number" class="form-control" id="numberOfAduld" placeholder="Nhập số người lớn" onchange="handlePrice()">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Số trẻ em</label>
-                                <input name="CountChild" type="number" class="form-control" id="numberOfChild" placeholder="Nhập số trẻ em" onchange="handlePrice()">
-                            </div>
-                        </div>
-
-                    </div>
+                        <table class="table table-striped border p-3 shadow">
+                            <tr>
+                                <th scope="col"><h4 class="mb-0 font-weight-bold" style="font-size: 22px;">1. Điền thông tin liên hệ</h4></th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Họ tên</label>
+                                        <input type="text" class="form-control" id="exampleInputName" placeholder="Nhập họ và tên" name="fullname">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Số điện thoại</label>
+                                        <input name="phoneNumber" type="text" class="form-control" value="@user.PhoneNumber" id="exampleInputPhone" placeholder="Nhập số điện thoại">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Gmail</label>
+                                        <input name="gmail" type="text" class="form-control" id="exampleInputGmail" value="@user.Email" aria-describedby="emailHelp" placeholder="Nhập gmail">
+                                    </div>
+                                   
+                                </th>
+                            </tr>
+                        </table>
+                    
                 </div>
                 <hr>
                 <div class="col-sm-12 col-md-4 col-lg-4">
                     <table class="table table-striped border p-3 shadow">
                         <tr>
-                            <th scope="col"><h4 class="mb-0">2. Xác nhận thông tin tour</h4></th>
+                            <th scope="col"><h4 class="mb-0 font-weight-bold" style="font-size: 22px;">2. Xác nhận thông tin tour</h4></th>
                         </tr>
                         <tr>
                             <th scope="row"><img style="width: 100% ; height: 200px;" class="img-fluid object-fit-cover" src="@tour.Image"></th>
                         </tr>
                         <tr>
-                            <th scope="row"><p>@tour.Name</p></th>
+                            <th>
+                                <div class="form-group">
+                                    <p class="bg-light p-2 rounded border">@tour.Name</p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Ngày khởi hành</label>
+                                    <input type="date" class="form-control" id="date_start" name="DateBook">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Số người lớn</label>
+                                    <input name="CountAdult" type="number" class="form-control" id="numberOfAduld" placeholder="Nhập số người lớn" onchange="handlePrice()">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Số trẻ em</label>
+                                    <input name="CountChild" type="number" class="form-control" id="numberOfChild" placeholder="Nhập số trẻ em" onchange="handlePrice()">
+                                </div>
+                            </th>
                         </tr>
+                       
+
+                    </table>
+                    
+                    
+
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-4">
+                    <table class="table table-striped border p-3 shadow">
+                        <tr>
+                            <th scope="col"><h4 class="mb-0 font-weight-bold" style="font-size: 22px;">3. Khi đặt tour</h4></th>
+                        </tr>
+
+                        <th scope="row">
+                            Lưu ý:
+                            <ul class="pl-3 font-weight-light">
+                                <li>Quý khách có thể thanh toán trước bằng thẻ tại đây.</li>
+                                <li>HueTravel sẽ liên hệ với quý khách (qua email hoặc điện thoại) trong vòng 30 phút (T2-CN: 08:00 - 23:00) để xác nhận tour và thời hạn thanh toán.</li>
+                                <li>Quý khách sẽ thanh toán (tại nhà, tại HueTravel, chuyển khoản hay thẻ) sau khi có xác nhận còn tour từ HueTravel.</li>
+                                <li>Trường hợp Quý khách muốn xác nhận ngay, vui lòng liên hệ với  </li>
+                            </ul>
+                        </th>
                     </table>
                     <table class="border p-3 shadow">
                         <tr>
@@ -72,25 +103,7 @@
                             <th scope="row" class="p-2">Tổng số tiền: <span id="totalPrice">0</span> $</th>
                         </tr>
                     </table>
-                    <button class="btn-danger btn btn-block font-weight-bold" type="submit" name="submit" value="submit">ĐẶT TOUR</button>
-
-                </div>
-                <div class="col-sm-12 col-md-4 col-lg-4">
-                    <table class="table table-striped border p-3 shadow">
-                        <tr>
-                            <th scope="col"><h4 class="mb-0">3. Khi đặt tour</h4></th>
-                        </tr>
-                      
-                        <th scope="row">
-                            Lưu ý:
-                            <ul class="pl-3">
-                                <li>Quý khách có thể thanh toán trước bằng thẻ tại đây.</li>
-                                <li>HueTravel sẽ liên hệ với quý khách (qua email hoặc điện thoại) trong vòng 30 phút (T2-CN: 08:00 - 23:00) để xác nhận tour và thời hạn thanh toán.</li>
-                                <li>Quý khách sẽ thanh toán (tại nhà, tại HueTravel, chuyển khoản hay thẻ) sau khi có xác nhận còn tour từ HueTravel.</li>
-                                <li>Trường hợp Quý khách muốn xác nhận ngay, vui lòng liên hệ với  </li>
-                            </ul>
-                        </th>
-                    </table>
+                    <button class="btn-danger btn btn-block font-weight-bold mt-4" type="submit" name="submit" value="submit">ĐẶT TOUR</button>
                 </div>
             </div>
         </form>

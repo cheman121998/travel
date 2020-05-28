@@ -7,158 +7,159 @@
     var tours = Model.Tours;
 }
 
-<section class="banner mb-5">
-    <div class="black-cover"></div>
-    <div class="site_title position-absolute">
-        <h1>Huế Và Những Điểm Đến</h1>
-        <p>Hành trình tìm hiểu vẻ đẹp và ẩm thực Huế</p>
-    </div>
-
-
-    <img src="~/Content/images/doiVongCanh.jpg" alt="Alternate Text" class="w-100 img-fluid object-fit-cover shadow" />
-</section>
-<section class="about-hue">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-md-6 col-lg-6">
-                <img class="img-fluid object-fit-cover" src="/Content/images/thienmu.jpg" alt="Alternate Text" />
+<div class="index">
+    <section class="banner">
+        <div class="black-cover"></div>
+        <div class="site_title position-absolute">
+            <h1>Huế Và Những Điểm Đến</h1>
+            <p>Hành trình tìm hiểu vẻ đẹp và ẩm thực Huế</p>
+        </div>
+        <img src="~/Content/images/doiVongCanh.jpg" alt="Alternate Text" class="w-100 img-fluid object-fit-cover shadow" />
+    </section>
+    <section class="about-hue">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <img class="img-fluid object-fit-cover" src="/Content/images/thienmu.jpg" alt="Alternate Text" />
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <h4>Giới thiệu</h4>
+                    <h1 class="mt-5">Huế trong tôi</h1>
+                    <p class="mt-5 text-justify">Huế cổ đại, nằm bên bờ sông Hương, được UNESCO công nhận là một trong những Di sản Thế giới. Thành phố này là cái nôi của văn hóa Việt Nam và từng là thủ đô quốc gia, trung tâm giáo dục, văn hóa và chính trị của Việt Nam dưới triều Nguyễn. Lịch sử độc đáo của Huế, hấp dẫn bất kỳ người yêu thích lịch sử nào.</p>
+                    <p class="mt-5 text-justify">
+                        Một phần tạo nên sự quyến rũ của Huế đó là Huê trải dọc hai bên bờ sông Hương - đẹp như tranh vẽ. Ngày nay, thành phố đã pha trộn giữa cái mới và cái cũ chẳng hạn như những khách sạn hiện đại
+                        kiểu dáng đẹp trên những bức tường thành của thế kỷ 19 đổ nát.
+                    </p>
+                </div>
             </div>
-            <div class="col-sm-12 col-md-6 col-lg-6">
-                <h4 class="mt-5">Giới thiệu</h4>
-                <h1 class="mt-5">Huế trong tôi</h1>
-                <p class="mt-5 text-justify">Huế cổ đại, nằm bên bờ sông Hương, được UNESCO công nhận là một trong những Di sản Thế giới. Thành phố này là cái nôi của văn hóa Việt Nam và từng là thủ đô quốc gia, trung tâm giáo dục, văn hóa và chính trị của Việt Nam dưới triều Nguyễn. Lịch sử độc đáo của Huế, hấp dẫn bất kỳ người yêu thích lịch sử nào.</p>
-                <p class="mt-5 text-justify">
-                    Một phần tạo nên sự quyến rũ của Huế đó là Huê trải dọc hai bên bờ sông Hương - đẹp như tranh vẽ. Ngày nay, thành phố đã pha trộn giữa cái mới và cái cũ chẳng hạn như những khách sạn hiện đại
-                    kiểu dáng đẹp trên những bức tường thành của thế kỷ 19 đổ nát.
-                </p>
-            </div>
         </div>
-    </div>
-</section>
-<section class="container-fluid popular-destination mt-5 mb-5">
-    <div class="text-center mt-5">
+    </section>
+    <section class="container-fluid popular-destination">
+        <div class="text-center m-5">
 
-        <h1>Địa điểm du lịch nổi bật nhất tại Huế</h1>
-    </div>
-    <div class="first-popular mt-5">
-        <div class="grid">
-            @foreach (var item in places.GetRange(0, 3))
-            {
-                <div class="wrapper">
-                    <img src="@item.Image" alt="Alternate Text" class="img-fluid object-fit-cover position-relative" />
-                    <div class="info">
-                        <a href="/posts/Details/@item.Id">@item.Title</a>
-                    </div>
-                </div>
-            }
+            <h1>Địa điểm du lịch nổi bật nhất tại Huế</h1>
         </div>
-        <div class="grid">
-            @foreach (var item in places.GetRange(3, 3))
-            {
-                <div class="wrapper">
-                    <img src="@item.Image" alt="Alternate Text" class="img-fluid object-fit-cover position-relative" />
-                    <div class="info">
-                        <a href="/posts/Details/@item.Id">@item.Title</a>
-                    </div>
-                </div>
-            }
-        </div>
-    </div>
-
-    <div class="text-center mt-5">
-        <h1>Ẩm Thực Huế</h1>
-    </div>
-    <div class="first-popular mt-5">
-        <div class="grid">
-            @*//Hay là k hiểu foreach là gì. var ... in ... là gì?
-                //foreach là vòng lặp
-                //var post in posts là khai báo biến post ở trong posts, rồi post này thay thế cho posts. khi nào dùng chỉ cần gọi post(1) thay vì posts (list)
-                //A k biết e hiểu đúng hay sai, nhưng trình bày ri là sai rồi
-                //var post in posts là khai báo 1 biến post, biến post này sẽ có kiểu dữ liệu giống như các thành phần trong danh sách posts, và lần lượt được gán dữ liệu cho các thành phần đó, lặp cho đến khi duyệt hết các thành phần của posts
-                //Dạ vậy ak,, em hiểu sai rồi, thay vì var i = 0, for i -> posts.count => ở trong gọi posts[i] thì người ta dùng for in như này
-                //làm tiếp đi dạ
-                //Tour là tour, post là post, 2 thằng 2 kiểu dữ liệu khác nhau, k dùng chung đc, 2 class rõ ràng khác nhau, e khai báo kiểu chi 1 biến dùng 2 kiểu đc*@
-            @foreach (var item in foods.GetRange(0, 3))// Model mô đây nữa mà Model, khai báo posts với tour ở trên rồi???? vì ở phần này em vừa lấy dữ liệu ở Posts và Tour nên em phải gọi cả 2, 2 thằng này gộp kiểu giề mà in cả 2...hiihi e có ngôn ngữ lập trình nào for in mà gộp kiểu này đc k, lặp có điều kiện, thì lặp từ 1->n, điều kiện dừng, for in là gì?
-            {
-                <div class="wrapper">
-                    <img src="@item.Image" alt="Alternate Text" class="img-fluid object-fit-cover position-relative" />
-                    <div class="info">
-                        <a href="/posts/Details/@item.Id">@item.Title</a>
-                    </div>
-                </div>
-            }
-        </div>
-        <div class="grid">
-            @foreach (var item in foods.GetRange(3, 3))
-            {
-                <div class="wrapper">
-                    <img src="@item.Image" alt="Alternate Text" class="img-fluid object-fit-cover position-relative" />
-                    <div class="info">
-                        <a href="/posts/Details/@item.Id">@item.Title</a>
-                    </div>
-                </div>
-            }
-        </div>
-    </div>
-</section>
-<section class="trip mt-5 mb-5 mt-5 pt-5 position-relative">
-
-    <div class="container mt-5">
-        <div class="black-cover-second"></div>
-        <div class="text-center mt-5 text-white position-relative">
-            <h4>Tour phổ biến</h4>
-            <h1>Chúng tôi mang đến cho bạn sự trải nghiệm tuyệt vời nhất</h1>
-            <p>Sự hài lòng của bạn là niềm vui của chúng tôi. Được phục vụ bạn là niềm vinh dự của chúng tôi</p>
-        </div>
-        <div class="owl-carousel">
-
-            @foreach (var tour in tours)
-            {
-                <div class="item tour-item">
-                    <img src="@tour.Image">
-                    <div class="tour-info">
-                        <a href="/Tours/Details/@tour.Id" class="tour-title text-primary"><h3>@tour.Name</h3></a>
-                        <div>
-                            <div>
-                                <div><i class="far fa-clock mr-2"></i><span> 2 ngày 3 đêm</span></div>
-                                <span class="text-danger">Giá từ $529</span>
-                            </div>
-                            <a href="/Tours/Details/@tour.Id" class="btn btn-warning text-light">View more</a>
+        <div class="first-popular mt-5 mb-5">
+            <div class="grid">
+                @foreach (var item in places.GetRange(0, 3))
+                {
+                    <div class="wrapper">
+                        <img src="@item.Image" alt="Alternate Text" class="img-fluid object-fit-cover position-relative" />
+                        <div class="info">
+                            <a href="/posts/Details/@item.Id">@item.Title</a>
                         </div>
                     </div>
+                }
+            </div>
+            <div class="grid">
+                @foreach (var item in places.GetRange(3, 3))
+                {
+                    <div class="wrapper">
+                        <img src="@item.Image" alt="Alternate Text" class="img-fluid object-fit-cover position-relative" />
+                        <div class="info">
+                            <a href="/posts/Details/@item.Id">@item.Title</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="text-center m-5">
+            <h1>Ẩm Thực Huế</h1>
+        </div>
+        <div class="first-popular">
+            <div class="grid">
+                @*//Hay là k hiểu foreach là gì. var ... in ... là gì?
+                    //foreach là vòng lặp
+                    //var post in posts là khai báo biến post ở trong posts, rồi post này thay thế cho posts. khi nào dùng chỉ cần gọi post(1) thay vì posts (list)
+                    //A k biết e hiểu đúng hay sai, nhưng trình bày ri là sai rồi
+                    //var post in posts là khai báo 1 biến post, biến post này sẽ có kiểu dữ liệu giống như các thành phần trong danh sách posts, và lần lượt được gán dữ liệu cho các thành phần đó, lặp cho đến khi duyệt hết các thành phần của posts
+                    //Dạ vậy ak,, em hiểu sai rồi, thay vì var i = 0, for i -> posts.count => ở trong gọi posts[i] thì người ta dùng for in như này
+                    //làm tiếp đi dạ
+                    //Tour là tour, post là post, 2 thằng 2 kiểu dữ liệu khác nhau, k dùng chung đc, 2 class rõ ràng khác nhau, e khai báo kiểu chi 1 biến dùng 2 kiểu đc*@
+                @foreach (var item in foods.GetRange(0, 3))// Model mô đây nữa mà Model, khai báo posts với tour ở trên rồi???? vì ở phần này em vừa lấy dữ liệu ở Posts và Tour nên em phải gọi cả 2, 2 thằng này gộp kiểu giề mà in cả 2...hiihi e có ngôn ngữ lập trình nào for in mà gộp kiểu này đc k, lặp có điều kiện, thì lặp từ 1->n, điều kiện dừng, for in là gì?
+                {
+                    <div class="wrapper">
+                        <img src="@item.Image" alt="Alternate Text" class="img-fluid object-fit-cover position-relative" />
+                        <div class="info">
+                            <a href="/posts/Details/@item.Id">@item.Title</a>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="grid">
+                @foreach (var item in foods.GetRange(3, 3))
+                {
+                    <div class="wrapper">
+                        <img src="@item.Image" alt="Alternate Text" class="img-fluid object-fit-cover position-relative" />
+                        <div class="info">
+                            <a href="/posts/Details/@item.Id">@item.Title</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+    <section class="trip position-relative">
+
+        <div class="container mt-5">
+            <div class="black-cover-second"></div>
+            <div class="text-center mt-5 text-white position-relative">
+                <h4>Tour phổ biến</h4>
+                <h1>Chúng tôi mang đến cho bạn sự trải nghiệm tuyệt vời nhất</h1>
+                <p>Sự hài lòng của bạn là niềm vui của chúng tôi. Được phục vụ bạn là niềm vinh dự của chúng tôi</p>
+            </div>
+            <div class="owl-carousel">
+
+                @foreach (var tour in tours)
+                {
+                    <div class="item tour-item">
+                        <img src="@tour.Image">
+                        <div class="tour-info">
+                            <a href="/Tours/Details/@tour.Id" class="tour-title text-primary"><h3>@tour.Name</h3></a>
+                            <div>
+                                <div>
+                                    <div><i class="far fa-clock mr-2"></i><span> 2 ngày 3 đêm</span></div>
+                                    <span class="text-danger">Giá từ $529</span>
+                                </div>
+                                <a href="/Tours/Details/@tour.Id" class="btn btn-warning text-light">Khám phá</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+
+        </div>
+
+    </section>
+    <section id="brands" class="bg-light pt-5 pb-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-sm-4 col-md-2">
+                    <a href="#"><img class="img-fluid d-block mx-auto" src="~/Content/images/logo1.jpg"></a>
                 </div>
-            }
-
-        </div>
-
-    </div>
-
-</section>
-<section id="brands" class="bg-light  mb-5">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-sm-4 col-md-2">
-                <a href="#"><img class="img-fluid d-block mx-auto" src="~/Content/images/logo1.jpg"></a>
-            </div>
-            <div class="col-sm-4 col-md-2">
-                <a href="#"><img class="img-fluid d-block mx-auto" src="~/Content/images/logo2.jpg"></a>
-            </div>
-            <div class="col-sm-4 col-md-2">
-                <a href="#"><img class="img-fluid d-block mx-auto" src="~/Content/images/logo3.jpg"></a>
-            </div>
-            <div class="col-sm-4 col-md-2">
-                <a href="#"><img class="img-fluid d-block mx-auto" src="~/Content/images/logo4.jpg"></a>
-            </div>
-            <div class="col-sm-4 col-md-2">
-                <a href="#"><img class="img-fluid d-block mx-auto" src="~/Content/images/logo5.jpg"></a>
-            </div>
-            <div class="col-sm-4 col-md-2">
-                <a href="#"><img class="img-fluid d-block mx-auto" src="~/Content/images/logo6.jpg"></a>
+                <div class="col-sm-4 col-md-2">
+                    <a href="#"><img class="img-fluid d-block mx-auto" src="~/Content/images/logo2.jpg"></a>
+                </div>
+                <div class="col-sm-4 col-md-2">
+                    <a href="#"><img class="img-fluid d-block mx-auto" src="~/Content/images/logo3.jpg"></a>
+                </div>
+                <div class="col-sm-4 col-md-2">
+                    <a href="#"><img class="img-fluid d-block mx-auto" src="~/Content/images/logo4.jpg"></a>
+                </div>
+                <div class="col-sm-4 col-md-2">
+                    <a href="#"><img class="img-fluid d-block mx-auto" src="~/Content/images/logo5.jpg"></a>
+                </div>
+                <div class="col-sm-4 col-md-2">
+                    <a href="#"><img class="img-fluid d-block mx-auto" src="~/Content/images/logo6.jpg"></a>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
+
+</div>
 <script src="~/Scripts/owl.carousel.min.js"></script>
 
 <script>

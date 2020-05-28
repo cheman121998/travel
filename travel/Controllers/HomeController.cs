@@ -46,8 +46,8 @@ namespace travel.Controllers
             ////đại diện cho những loại danh sách của đối tươ... Dòng cuối T is Post :D thấy rõ chưa? dạ rồi, ở đây var hay khai báo như vậy vẫn đc, vì var tự định nghĩa kiểu dữ liệu đối với hàm trả về đúng kiểu
 
             var model = new HomeModelView(); 
-            model.Places = db.Posts.Where(x=>x.Category.Type=="Place").OrderByDescending(x=>x.CreatedAt).Take(7).ToList();
-            model.Foods = db.Posts.Where(x=>x.Category.Type == "Food").OrderByDescending(x=>x.CreatedAt).Take(7).ToList();
+            model.Places = db.Posts.Where(x=>x.Category.Type=="Place").OrderByDescending(x=>x.CreatedAt).Take(12).ToList();
+            model.Foods = db.Posts.Where(x=>x.Category.Type == "Food").OrderByDescending(x=>x.CreatedAt).Take(12).ToList();
             model.Tours = db.Tours.OrderByDescending(x=>x.CreatedAt).Take(9).ToList(); 
             return View(model);
         }

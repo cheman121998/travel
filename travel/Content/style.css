@@ -8,6 +8,10 @@ body {
     background: #343a40 !important;
 }
 
+.banner{
+    margin-bottom: 50px;
+}
+
 .title-banner-item a{
     color: white;   
 }
@@ -30,15 +34,13 @@ body {
     z-index: 3;
     padding: 250px 50px;
     letter-spacing: 3px;
-   
     font-family: inherit;
     animation: chuChay 2s forwards;
     animation-delay: 1s;
     opacity: 0;
     font-weight: 600;
     text-transform: uppercase;
-
-    font-size: 58px;
+    font-size: 50px;
     font-weight: 700;
     line-height: 72px;
     margin-bottom: 44px;
@@ -106,22 +108,27 @@ body {
     padding: 10px;
 }
 
+
+section.index{
+    margin-top: 50px;
+    margin-right: 50px;
+}
 .about-hue{
-    font-family: Tahoma;
     letter-spacing: 2px;
-    margin-bottom: 100px!important;
+    margin-top: 100px;
+    margin-bottom: 100px;
 }
     .about-hue h4, .popular-destination h4 {
         font-weight: 500;
         color: #9f5b5b;
     }
     .about-hue h1, .popular-destination h1 {
-        font-weight: 600;
+        font-weight: 500;
         color: #262663;
     }
 .about-hue img{
     width: 90%;
-    height: 550px;
+    height: 530px;
    
 }
 .about-hue img:hover {
@@ -195,7 +202,7 @@ body {
 .grid .info a {
     color: white;
     font-weight: 600;
-    font-size: 28px;
+    font-size: 20px;
     line-height: 32px;
     margin: 6px 0;
     display: inline-block;
@@ -207,6 +214,13 @@ body {
 }
 
 .card-title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 16px;
+    font-weight: bold;
+}
+.content-item {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -222,7 +236,8 @@ body {
     width: 100%;
     object-fit: cover;
     z-index: 1;
-    font-family: Tahoma;
+    padding-top: 20px;
+   
 }
 .trip .object-fit-cover {
     height: 300px;
@@ -418,6 +433,11 @@ footer img.logo{
     left: 0;
     right: 0;
     background-color: rgba(0,0,0,0.3);
+}
+
+.title-post h1{
+    font-size: 3.5rem;
+    font-weight: 600;
 }
 
 .title-post {
@@ -622,6 +642,12 @@ section#loginForm {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+}
+
+
+/*style booking-tour*/
+h4.main {
+    font-size: 22px;
 }
 
 

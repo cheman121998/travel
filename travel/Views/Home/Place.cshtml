@@ -16,7 +16,7 @@
 </section>
 <div class="container mt-5">
     <div class="row">
-        <div class="col-sm-12 col-md-4 col-lg-4">
+        <div class="col-sm-12 col-md-4 col-lg-4 pr-4">
             @Html.Action("RelatedPosts", "Posts")
         </div>
         <div class="col-sm-12 col-md-8 col-lg-8">
@@ -28,14 +28,15 @@
             <div class="row">
                 @foreach (var item in posts)
                 {
-                    <div class="card-post shadow card mr-2 mb-2">
-                        <img class="img-fluid object-fit-cover m-2" src="@item.Image" alt="Card image cap">
-                        <div class="card-body">
-                            <h6 class="card-title">@item.Title</h6>
+                    
+                <div class="card-post shadow card mr-3 mb-3">
+                    <a href="/Posts/Details/@item.Id"><img class="img-fluid object-fit-cover m-2" src="@item.Image" alt="Card image cap"></a>
+                    <div class="card-body">
+                        <h6 class="card-title">@item.Title</h6>
 
-                            <a href="/Posts/Details/@item.Id" class="btn btn-block btn-primary">Chi tiết bài viết</a>
-                        </div>
+                        <a href="/Posts/Details/@item.Id">Khám phá...</a>
                     </div>
+                </div>
                 }
 
             </div>
